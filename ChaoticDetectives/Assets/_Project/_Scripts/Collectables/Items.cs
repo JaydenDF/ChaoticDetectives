@@ -19,7 +19,6 @@ public class Items : MonoBehaviour, IInteractable
                 {
                     Debug.Log("Clicked!");
                 }
-                
             }
         }
     }
