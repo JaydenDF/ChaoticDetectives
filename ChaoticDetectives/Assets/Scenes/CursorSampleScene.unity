@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f0779517305564eb2e8acbf4cf04bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!50 &572822187
 Rigidbody2D:
   serializedVersion: 4
@@ -418,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958506579}
   - component: {fileID: 958506578}
-  - component: {fileID: 958506580}
+  - component: {fileID: 958506582}
   - component: {fileID: 958506581}
   m_Layer: 0
   m_Name: Interactable
@@ -494,19 +495,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958506580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958506577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bbb9f6b0824bc142b538faf1b63f639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeToGrow: 1.1
 --- !u!61 &958506581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -552,6 +540,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &958506582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958506577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectives: 000000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
