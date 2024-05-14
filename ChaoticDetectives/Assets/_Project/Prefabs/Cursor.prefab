@@ -93,8 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3553205054791067007}
-  - component: {fileID: 6440325292082461642}
+  - component: {fileID: 8739527223974013063}
   - component: {fileID: 6170568300675059387}
+  - component: {fileID: 6440325292082461642}
   - component: {fileID: 8409592117738093966}
   m_Layer: 0
   m_Name: Cursor
@@ -119,6 +120,31 @@ Transform:
   - {fileID: 3468765618746524724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8739527223974013063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262806212356196660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515e334408a54fb4e837c8553fc1fe82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6170568300675059387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262806212356196660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f0779517305564eb2e8acbf4cf04bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!58 &6440325292082461642
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,19 +180,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.31
---- !u!114 &6170568300675059387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8262806212356196660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f0779517305564eb2e8acbf4cf04bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!50 &8409592117738093966
 Rigidbody2D:
   serializedVersion: 4
