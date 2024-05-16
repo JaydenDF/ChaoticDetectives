@@ -1,31 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    List<Child> items = new List<Child>();
-    void Start()
+    //public List<GameObject> inventory =  new List<GameObject>();
+    public List<GameObject> collectedItems = new List<GameObject>();
+
+
+    private void Update()
     {
-        
+        Debug.Log(collectedItems.Count);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool IsItemCollected()
-    {
-        foreach (Child child in items)
-        {
-        }
-
-        return false;
-    }
-}
-
-public class Child{
-
 }
