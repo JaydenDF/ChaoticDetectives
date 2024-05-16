@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [System.Serializable]
-    public class Items
-    {
-        public GameObject item;
-        public bool hasBeenCollected;
-    }
+    //public List<GameObject> inventory =  new List<GameObject>();
+    public List<GameObject> collectedItems = new List<GameObject>();
 
-    public List<Items> inventory =  new List<Items>();
+
+    private void Update()
+    {
+        Debug.Log(collectedItems.Count);
+    }
 }
