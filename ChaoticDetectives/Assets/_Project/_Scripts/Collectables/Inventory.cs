@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Inventory : MonoBehaviour
 {
     // Start is called before the first frame update
+    List<Child> items = new List<Child>();
     void Start()
     {
         
@@ -15,4 +15,17 @@ public class Inventory : MonoBehaviour
     {
         
     }
+
+    public bool IsItemCollected()
+    {
+        foreach (Child child in items)
+        {
+        }
+
+        return false;
+    }
+}
+
+public class Child{
+
 }
