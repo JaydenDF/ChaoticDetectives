@@ -7,27 +7,29 @@ using UnityEngine;
 public class Cursor : MonoBehaviour
 {
 
-    private AbstractInput _abstractInput;
+    protected AbstractInput _abstractInput;
     public float _speed = 10;
     public float _lerpSpeed = 10;
-    private Collider2D _targetCollider = null;
-    private Rigidbody2D _rigidbody;
+    protected Collider2D _targetCollider = null;
+    protected Rigidbody2D _rigidbody;
 
-    private void OnEnable() {
+    protected void OnEnable()
+    {
         _abstractInput.OnClick += OnClick;
     }
 
-    private void OnDisable() {
+    protected void OnDisable()
+    {
         _abstractInput.OnClick -= OnClick;
     }
-    private void Awake()
+    protected void Awake()
     {
         _abstractInput = GetComponent<AbstractInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
 
-    private void OnClick()
+    protected void OnClick()
     {
         if (_targetCollider == null) return;
 
@@ -39,14 +41,14 @@ public class Cursor : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         Vector2 input = new Vector2(_abstractInput.GetHorizontalInput(), _abstractInput.GetVerticalInput());
         Vector2 targetVelocity = input * _speed;
         _rigidbody.velocity = Vector2.Lerp(_rigidbody.velocity, targetVelocity, Time.fixedDeltaTime * _lerpSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
         if (interactable != null)
@@ -56,7 +58,7 @@ public class Cursor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    protected void OnTriggerExit2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
         if (interactable != null)
