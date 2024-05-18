@@ -54,21 +54,29 @@ public class GraphSaveUtility
 
         Debug.Log("Saving graph to: " + fileName);
 
+        // Ensure the Resources and Dialogues folders exist
         if (!AssetDatabase.IsValidFolder("Assets/Resources"))
         {
             AssetDatabase.CreateFolder("Assets", "Resources");
         }
-
-        //if asset file already exists, delete it
-        if (AssetDatabase.LoadAssetAtPath<DialogueContainer>($"Assets/Resources/{fileName}.asset") != null)
+        if (!AssetDatabase.IsValidFolder("Assets/Resources/Dialogues"))
         {
-            AssetDatabase.DeleteAsset($"Assets/Resources/{fileName}.asset");
+            AssetDatabase.CreateFolder("Assets/Resources", "Dialogues");
         }
 
-        AssetDatabase.CreateAsset(_dialogueContainer, $"Assets/Resources/{fileName}.asset");
+        string path = $"Assets/Resources/Dialogues/{fileName}.asset";
+
+        // If the asset file already exists, delete it
+        if (AssetDatabase.LoadAssetAtPath<DialogueContainer>(path) != null)
+        {
+            AssetDatabase.DeleteAsset(path);
+        }
+
+        AssetDatabase.CreateAsset(_dialogueContainer, path);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
+
 
     public void LoadGraph(string fileName)
     {
