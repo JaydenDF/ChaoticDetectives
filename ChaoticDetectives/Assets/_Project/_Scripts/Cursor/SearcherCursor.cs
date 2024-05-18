@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using CursorSearcher;
 public class SearcherCursor : Cursor
 {
     public UnityEvent OnSearch;

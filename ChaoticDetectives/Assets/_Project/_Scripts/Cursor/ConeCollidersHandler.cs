@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace CursorSearcher{
 public class ConeCollidersHandler : MonoBehaviour
 {
     [System.Serializable]
@@ -127,4 +128,4 @@ public enum Direction
     Down,
     Left,
     Right
-}
+}}
