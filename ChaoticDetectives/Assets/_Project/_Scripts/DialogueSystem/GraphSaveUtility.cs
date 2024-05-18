@@ -59,9 +59,17 @@ public class GraphSaveUtility
             AssetDatabase.CreateFolder("Assets", "Resources");
         }
 
+        //if asset file already exists, delete it
+        if (AssetDatabase.LoadAssetAtPath<DialogueContainer>($"Assets/Resources/{fileName}.asset") != null)
+        {
+            AssetDatabase.DeleteAsset($"Assets/Resources/{fileName}.asset");
+        }
+
         AssetDatabase.CreateAsset(_dialogueContainer, $"Assets/Resources/{fileName}.asset");
         AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
+
     public void LoadGraph(string fileName)
     {
         _dialogueContainer = Resources.Load<DialogueContainer>(fileName);
@@ -85,14 +93,18 @@ public class GraphSaveUtility
             var connections = dialogueContainer.NodeLinks.Where(x => x.BaseNodeGuid == Nodes[i].GUID).ToList();
             for (int j = 0; j < connections.Count; j++)
             {
-                Debug.Log(j);
                 var targetNodeGuid = connections[j].TargetNodeGuid;
                 var targetNode = Nodes.First(x => x.GUID == targetNodeGuid);
-                LinkNodes(Nodes[i].outputContainer.Q<Port>(), (Port)targetNode.inputContainer[j]);
+                var port = (Port)Nodes[i].outputContainer[j].Q<Port>(); // Ensure the port is correctly selected
+                port.portName = connections[j].PortName; // Set the port name correctly
+
+                LinkNodes(port, (Port)targetNode.inputContainer[0]);
                 targetNode.SetPosition(new Rect(dialogueContainer.DialogueNodeData.First(x => x.NodeGUID == targetNodeGuid).Position, _graphView.DefaultNodeSize));
             }
         }
     }
+
+
 
     private void LinkNodes(Port port1, Port port2)
     {

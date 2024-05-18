@@ -105,16 +105,12 @@ namespace DialogueSystem
         }
         public void AddChoicePort(DialogueNode node, string overriddenPortName = "")
         {
-            Debug.Log(overriddenPortName);
             Port generatedPort = GeneratePort(node, Direction.Output, Port.Capacity.Multi);
 
             var labelToRemove = generatedPort.contentContainer.Q<Label>("type");
             generatedPort.contentContainer.Remove(labelToRemove);
 
-
-            int outputPortCount = node.outputContainer.Query("connector").ToList().Count;
-
-            var choicePortName = string.IsNullOrEmpty(overriddenPortName) ? $"Choice {outputPortCount + 1}" : overriddenPortName;
+            var choicePortName = string.IsNullOrEmpty(overriddenPortName) ? $"Choice {node.outputContainer.Query("connector").ToList().Count + 1}" : overriddenPortName;
 
             var textField = new TextField
             {
@@ -134,13 +130,12 @@ namespace DialogueSystem
             container.Add(textField); // Add the text field
             container.Add(generatedPort); // Add the port
 
-
             node.outputContainer.Add(container);
-
 
             node.RefreshPorts();
             node.RefreshExpandedState();
         }
+
 
 
 
