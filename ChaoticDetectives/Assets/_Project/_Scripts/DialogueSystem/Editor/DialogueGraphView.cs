@@ -46,7 +46,7 @@ namespace DialogueSystem
                 title = "Start",
                 GUID = Guid.NewGuid().ToString(),
                 DialogueText = "ENTRYPOINT",
-                EntyPoint = true
+                EntryPoint = true
             };
 
             var generatedPort = GeneratePort(node, Direction.Output);

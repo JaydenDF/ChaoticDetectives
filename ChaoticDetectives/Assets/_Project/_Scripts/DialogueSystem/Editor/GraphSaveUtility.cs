@@ -42,7 +42,7 @@ public class GraphSaveUtility
             });
         }
 
-        foreach (var dialogueNode in Nodes.Where(node => !node.EntyPoint))
+        foreach (var dialogueNode in Nodes.Where(node => !node.EntryPoint))
         {
             _dialogueContainer.DialogueNodeData.Add(new DialogueNodeData
             {
@@ -51,6 +51,7 @@ public class GraphSaveUtility
                 Position = dialogueNode.GetPosition().position
             });
         }
+
 
         Debug.Log("Saving graph to: " + fileName);
 
@@ -80,7 +81,8 @@ public class GraphSaveUtility
 
     public void LoadGraph(string fileName)
     {
-        _dialogueContainer = Resources.Load<DialogueContainer>(fileName);
+        // Load the dialogue container from the specified file
+        _dialogueContainer = Resources.Load<DialogueContainer>($"Dialogues/{fileName}");
 
         if (_dialogueContainer == null)
         {
@@ -129,11 +131,11 @@ public class GraphSaveUtility
 
     private void ClearGraph()
     {
-        Nodes.Find(x => x.EntyPoint).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGuid;
+        Nodes.Find(x => x.EntryPoint).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGuid;
 
         foreach (var node in Nodes)
         {
-            if (node.EntyPoint) continue;
+            if (node.EntryPoint) continue;
             Edges.Where(x => x.input.node == node).ToList()
                 .ForEach(edge => _graphView.RemoveElement(edge));
             _graphView.RemoveElement(node);
@@ -149,7 +151,11 @@ public class GraphSaveUtility
             _graphView.AddElement(tempNode);
 
             var nodePorts = dialogueContainer.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.NodeGUID).ToList();
-            nodePorts.ForEach(x => _graphView.AddChoicePort(tempNode, x.PortName));
+            foreach (var nodePort in nodePorts)
+            {
+                if (string.IsNullOrWhiteSpace(nodePort.TargetNodeGuid)) continue;
+                _graphView.AddChoicePort(tempNode, nodePort.PortName);
+            }
         }
     }
 }
