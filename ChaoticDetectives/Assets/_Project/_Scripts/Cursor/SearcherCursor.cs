@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SearcherCursor : Cursor
 {
+    public UnityEvent OnSearch;
+
 
     [SerializeField] private float _searchRadius = 5f;
     [SerializeField] private float _timeToTravel = 0.5f;
     private bool _selectionMode = false;
     private ConeCollidersHandler _coneCollidersHandler;
+    private List<Highlitable> _highlitables = new List<Highlitable>();
 
     protected new void OnEnable()
     {
@@ -43,10 +47,18 @@ public class SearcherCursor : Cursor
     private void DirectionSelected(Vector2 vector)
     {
         if (_selectionMode == false) return;
+        GameObject targetObject = _targetCollider?.gameObject;
+        GameObject[] exclude = null;
+        if (targetObject != null)
+        {
+            exclude = new GameObject[2] { _targetCollider.gameObject, this.gameObject };
+        }
+        else
+        {
+            exclude = new GameObject[1] { this.gameObject };
+        }
 
-        Dictionary<Direction, Collider2D> colliders = _coneCollidersHandler.GetNearestColliderPerDirectionOfComponent<Highlitable>(
-            new GameObject[] { _targetCollider.gameObject, this.gameObject }
-        );
+        Dictionary<Direction, Collider2D> colliders = _coneCollidersHandler.GetNearestColliderPerDirectionOfComponent<Highlitable>(exclude);
 
 
         if (vector == Vector2.up)
@@ -91,19 +103,53 @@ public class SearcherCursor : Cursor
             if (interactable != null && highlitable != null)
             {
                 _selectionMode = true;
-                StartCoroutine(TravelToTarget(collider.transform.position, _timeToTravel));
-                return;
+                _highlitables.Add(highlitable);
+                if (_selectionMode == true)
+                {
+                    StartCoroutine(TravelToTarget(collider.transform.position, _timeToTravel, 1f));
+                }
             }
         }
+
+        if (_highlitables.Count > 0)
+        {
+            OnSearch?.Invoke();
+            StartCoroutine(DelayedHighlite(true, _timeToTravel));
+        }
     }
+
+    private IEnumerator DelayedHighlite(bool highlite, float delay)
+    {
+        _selectionMode = false;
+        yield return new WaitForSeconds(delay);
+        Highlitable(highlite);
+    }
+    private void Highlitable(bool highlite)
+    {
+        Debug.Log("Highlitable");
+        foreach (Highlitable highlitable in _highlitables)
+        {
+            if (highlite)
+            {
+                highlitable.OnHoverEnter();
+            }
+            else
+            {
+                highlitable.OnHoverExit();
+            }
+        }
+
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _searchRadius);
     }
 
-    private IEnumerator TravelToTarget(Vector2 target, float timeToTravel)
+    private IEnumerator TravelToTarget(Vector2 target, float timeToTravel, float delay = 0)
     {
+        yield return new WaitForSeconds(delay);
         _selectionMode = false;
         float elapsedTime = 0;
         Vector2 startingPos = transform.position;

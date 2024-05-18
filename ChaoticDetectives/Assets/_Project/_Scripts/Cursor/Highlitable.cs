@@ -8,13 +8,19 @@ public interface IHighlitable
 }
 public class Highlitable : MonoBehaviour, IHighlitable
 {
+    [SerializeField] private Color HighliteColor = Color.red;
+    private Color _defaultColor;
+
+    private void Awake() {
+        _defaultColor = GetComponent<SpriteRenderer>().color;
+    }
     public void OnHoverEnter()
     {
-        Debug.Log("Hovering! " + gameObject.name);
+        GetComponent<SpriteRenderer>().color = HighliteColor;
     }
 
     public void OnHoverExit()
     {
-        Debug.Log("Not hovering! " + gameObject.name);
+        GetComponent<SpriteRenderer>().color = _defaultColor;
     }
 }
