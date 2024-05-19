@@ -17,18 +17,18 @@ MonoBehaviour:
     PortName: Next
     TargetNodeGuid: 5a7e58e8-24c8-40c5-8c1e-341335e60a15
   - BaseNodeGuid: 5a7e58e8-24c8-40c5-8c1e-341335e60a15
-    PortName: dwdw
+    PortName: 1st Choice
     TargetNodeGuid: 3a1134fd-0883-4ef7-9e99-ac8d789bebb2
   - BaseNodeGuid: 5a7e58e8-24c8-40c5-8c1e-341335e60a15
-    PortName: dwdw
+    PortName: 2nd Choice
     TargetNodeGuid: 094743dc-e8a0-4534-a911-9effc585a3b1
   DialogueNodeData:
   - NodeGUID: 3a1134fd-0883-4ef7-9e99-ac8d789bebb2
-    DialogueText: dww
+    DialogueText: 1st Option
     Position: {x: 736.8, y: 148}
   - NodeGUID: 094743dc-e8a0-4534-a911-9effc585a3b1
-    DialogueText: awdwdwdw
+    DialogueText: 2nd Option
     Position: {x: 721.6, y: 256.80002}
   - NodeGUID: 5a7e58e8-24c8-40c5-8c1e-341335e60a15
-    DialogueText: wdwdwdwdw
+    DialogueText: Dont worry be happy
     Position: {x: 380, y: 162.4}
