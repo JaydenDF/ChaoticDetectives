@@ -39,7 +39,7 @@ public class DialogueContainer : ScriptableObject
         string dialogueText = GetDialogueText(nextNodeGuid);
         string[] responses = GetResponses(nextNodeGuid);
 
-        DialogueStep nextDialogue = new DialogueStep(dialogueText, new string[0]);
+        DialogueStep nextDialogue = new DialogueStep(dialogueText, responses);
         return nextDialogue;
     }
 
@@ -61,7 +61,6 @@ public class DialogueContainer : ScriptableObject
     {
         //get all the ports under the node guid in linkdata
         List<NodeLinkData> nodeLinks = NodeLinks.Where(x => x.BaseNodeGuid == nodeGuid).ToList();
-        //return the port names
         return nodeLinks.Select(x => x.PortName).ToArray();
     }
 

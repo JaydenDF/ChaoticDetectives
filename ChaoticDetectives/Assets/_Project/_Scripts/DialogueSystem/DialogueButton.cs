@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueButton : MonoBehaviour
 {
-    public static Action<Index> OnClickIndex;
+    public static Action<int> OnClickIndex;
     public static Action<string> OnClickString;
 
 
@@ -25,7 +25,7 @@ public class DialogueButton : MonoBehaviour
 
     public void Clicked()
     {
-        OnClickIndex?.Invoke(new Index(responseIndex));
+        OnClickIndex?.Invoke(responseIndex);
         OnClickString?.Invoke(responseText);
     }
 }

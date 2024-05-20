@@ -17,24 +17,24 @@ MonoBehaviour:
     PortName: Next
     TargetNodeGuid: a41678a1-269d-4d18-bae0-e6c28ad27f07
   - BaseNodeGuid: a41678a1-269d-4d18-bae0-e6c28ad27f07
-    PortName: first selection
-    TargetNodeGuid: 15699c2b-ca0d-4be1-bfa1-168c731d7bbf
-  - BaseNodeGuid: a41678a1-269d-4d18-bae0-e6c28ad27f07
-    PortName: second selection
-    TargetNodeGuid: 0e86c695-f2d4-4283-9ae3-0e75757e6ed3
-  - BaseNodeGuid: a41678a1-269d-4d18-bae0-e6c28ad27f07
     PortName: third selection
     TargetNodeGuid: 6250c08a-aac2-4071-83cc-9bc237d9b415
+  - BaseNodeGuid: 6250c08a-aac2-4071-83cc-9bc237d9b415
+    PortName: 2
+    TargetNodeGuid: 0e86c695-f2d4-4283-9ae3-0e75757e6ed3
+  - BaseNodeGuid: 6250c08a-aac2-4071-83cc-9bc237d9b415
+    PortName: nEw chocxe
+    TargetNodeGuid: 0ac44da0-aa94-411e-8cbf-b3559c1c86a6
   DialogueNodeData:
   - NodeGUID: a41678a1-269d-4d18-bae0-e6c28ad27f07
     DialogueText: This is a test
     Position: {x: 316.8, y: 82.399994}
-  - NodeGUID: 15699c2b-ca0d-4be1-bfa1-168c731d7bbf
-    DialogueText: 1
-    Position: {x: 599.2, y: -11.999999}
-  - NodeGUID: 6250c08a-aac2-4071-83cc-9bc237d9b415
-    DialogueText: 3
-    Position: {x: 599.2, y: 192.8}
   - NodeGUID: 0e86c695-f2d4-4283-9ae3-0e75757e6ed3
+    DialogueText: final result
+    Position: {x: 802.4, y: 35.2}
+  - NodeGUID: 6250c08a-aac2-4071-83cc-9bc237d9b415
     DialogueText: 2
-    Position: {x: 599.2, y: 88}
+    Position: {x: 565.6, y: 40.8}
+  - NodeGUID: 0ac44da0-aa94-411e-8cbf-b3559c1c86a6
+    DialogueText: DialogueNode
+    Position: {x: 748.8, y: 159.2}
