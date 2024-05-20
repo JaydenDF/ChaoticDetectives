@@ -67,12 +67,6 @@ namespace DialogueSystem
 
         private void RequestOperation(bool save)
         {
-            if (string.IsNullOrEmpty(fileName))
-            {
-                EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name.", "OK");
-                return;
-            }
-
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
             if (save)
             {

@@ -52,6 +52,14 @@ public class GraphSaveUtility
             });
         }
 
+        //check if there is a port named next connected to something, if yes continue if no error
+        if (_dialogueContainer.NodeLinks.Find(x => x.PortName == "Next") == null)
+        {
+            EditorUtility.DisplayDialog("Error", "The starting must be connected to another node", "Agh, my bad :C I did an oopsi daisy! I'm sowwy!");
+            return;
+        }
+
+
 
         Debug.Log("Saving graph to: " + fileName);
 
@@ -86,7 +94,7 @@ public class GraphSaveUtility
 
         if (_dialogueContainer == null)
         {
-            EditorUtility.DisplayDialog("File Not Found", "Target dialogue graph file does not exist!", "OK");
+            EditorUtility.DisplayDialog("File Not Found", "Target dialogue graph file does not exist!", "Oh im sowwy :c the keybord is hard to type on!");
             return;
         }
 

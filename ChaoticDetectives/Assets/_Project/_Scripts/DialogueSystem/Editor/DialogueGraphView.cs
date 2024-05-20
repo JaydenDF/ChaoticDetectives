@@ -49,6 +49,8 @@ namespace DialogueSystem
                 EntryPoint = true
             };
 
+            node.styleSheets.Add(Resources.Load<StyleSheet>("EntryPointNode"));
+
             var generatedPort = GeneratePort(node, Direction.Output);
             generatedPort.portName = "Next";
 

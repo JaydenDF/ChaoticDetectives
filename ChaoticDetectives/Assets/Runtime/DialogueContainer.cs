@@ -59,15 +59,10 @@ public class DialogueContainer : ScriptableObject
 
     private string[] GetResponses(string nodeGuid)
     {
-        List<string> responses = new List<string>();
-        foreach (NodeLinkData nodeLink in NodeLinks)
-        {
-            if (nodeLink.BaseNodeGuid == nodeGuid)
-            {
-                responses.Add(DialogueNodeData.Find(x => x.NodeGUID == nodeLink.TargetNodeGuid).DialogueText);
-            }
-        }
-        return responses.ToArray();
+        //get all the ports under the node guid in linkdata
+        List<NodeLinkData> nodeLinks = NodeLinks.Where(x => x.BaseNodeGuid == nodeGuid).ToList();
+        //return the port names
+        return nodeLinks.Select(x => x.PortName).ToArray();
     }
 
     private string GetDialogueText(string nodeGuid)
