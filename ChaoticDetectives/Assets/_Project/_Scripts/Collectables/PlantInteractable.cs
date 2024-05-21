@@ -15,9 +15,15 @@ public class PlantInteractable : Interactable
         if(currentState < states.Count - 1)
         {
             Debug.Log("not fully grown yet");
+            currentState += 1;
         } else if(currentState == states.Count - 1)
         {
             Debug.Log("yeeeyyy you get an award!!!!!!!!!!!!");
         }
+    }
+
+    public void Apply()
+    {
+        ApplyChangesNextLoop();
     }
 }

@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour, IInteractable
 
     [SerializeField] private Inventory inventory;
 
-    [SerializeField] private List<Sprite> states = new List<Sprite>();
+    [SerializeField] protected List<Sprite> states = new List<Sprite>();
     protected int currentState;
 
     public void OnClick()
