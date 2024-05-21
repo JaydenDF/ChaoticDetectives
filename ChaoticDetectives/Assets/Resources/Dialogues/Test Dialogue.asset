@@ -25,6 +25,9 @@ MonoBehaviour:
   - BaseNodeGuid: 6250c08a-aac2-4071-83cc-9bc237d9b415
     PortName: nEw chocxe
     TargetNodeGuid: 0ac44da0-aa94-411e-8cbf-b3559c1c86a6
+  - BaseNodeGuid: 6250c08a-aac2-4071-83cc-9bc237d9b415
+    PortName: hoe
+    TargetNodeGuid: 10d815f5-5a2d-42b6-b4e9-5c5759b74472
   DialogueNodeData:
   - NodeGUID: a41678a1-269d-4d18-bae0-e6c28ad27f07
     DialogueText: This is a test
@@ -32,9 +35,12 @@ MonoBehaviour:
   - NodeGUID: 0e86c695-f2d4-4283-9ae3-0e75757e6ed3
     DialogueText: final result
     Position: {x: 802.4, y: 35.2}
-  - NodeGUID: 6250c08a-aac2-4071-83cc-9bc237d9b415
-    DialogueText: 2
-    Position: {x: 565.6, y: 40.8}
   - NodeGUID: 0ac44da0-aa94-411e-8cbf-b3559c1c86a6
     DialogueText: DialogueNode
-    Position: {x: 748.8, y: 159.2}
+    Position: {x: 876.8, y: 129.59999}
+  - NodeGUID: 10d815f5-5a2d-42b6-b4e9-5c5759b74472
+    DialogueText: I'm not a hoe
+    Position: {x: 855.2, y: 248.8}
+  - NodeGUID: 6250c08a-aac2-4071-83cc-9bc237d9b415
+    DialogueText: Hello deka
+    Position: {x: 565.6, y: 40.8}

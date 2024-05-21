@@ -7,6 +7,7 @@ using UnityEngine;
 public class Cursor : MonoBehaviour
 {
 
+    public Action OnClicked;
     protected AbstractInput _abstractInput;
     public float _speed = 10;
     public float _lerpSpeed = 10;
@@ -15,12 +16,12 @@ public class Cursor : MonoBehaviour
 
     protected void OnEnable()
     {
-        _abstractInput.OnClick += OnClick;
+        _abstractInput.OnClickDown += OnClick;
     }
 
     protected void OnDisable()
     {
-        _abstractInput.OnClick -= OnClick;
+        _abstractInput.OnClickDown -= OnClick;
     }
     protected void Awake()
     {
@@ -38,6 +39,7 @@ public class Cursor : MonoBehaviour
         if (interactable != null)
         {
             interactable.OnClick();
+            OnClicked?.Invoke();
         }
     }
 

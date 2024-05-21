@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static Action OnDialogueEnd;
+
     private DialogueContainer _dialogueContainer;
     private DialogueStep _currentDialogueStep;
 
@@ -26,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueButton.OnClickIndex += OnResponseClicked;
         _input.OnDirectionclamped += ChangeSelectedButton;
-        _input.OnClick += ClickSelected;
+        _input.OnClickDown += ClickSelected;
         DialogueStarterInteractable.OnDialogueStart += OnDialogueStart;
     }
 
@@ -35,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueButton.OnClickIndex -= OnResponseClicked;
         _input.OnDirectionclamped -= ChangeSelectedButton;
-        _input.OnClick -= ClickSelected;
+        _input.OnClickDown -= ClickSelected;
         DialogueStarterInteractable.OnDialogueStart -= OnDialogueStart;
     }
 
@@ -86,6 +88,7 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         _wholeDialogueParent.SetActive(false);
+        OnDialogueEnd?.Invoke();
         return;
     }
 
@@ -130,7 +133,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ChangeSelectedButton(Vector2 vector)
     {
-        if ( _dialogueButtonContainer.transform.childCount <= 1 || _selectedButton == null)
+        if (_dialogueButtonContainer.transform.childCount <= 1 || _selectedButton == null)
         {
             return;
         }

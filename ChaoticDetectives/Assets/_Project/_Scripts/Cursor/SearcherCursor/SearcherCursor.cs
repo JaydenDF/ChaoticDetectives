@@ -4,31 +4,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using CursorSearcher;
+using Unity.VisualScripting;
 public class SearcherCursor : Cursor
 {
     public UnityEvent OnSearch;
-
+    public UnityEvent OnSearchEnd;
 
     [SerializeField] private float _searchRadius = 5f;
     [SerializeField] private float _timeToTravel = 0.5f;
+    [SerializeField][Range(0, 2)] private float _timeToHold = 0.8f;
     private bool _selectionMode = false;
     private ConeCollidersHandler _coneCollidersHandler;
     private List<Highlitable> _highlitables = new List<Highlitable>();
 
+    private bool _canMove = true;
+    private bool _searchingAnimationPlaying = false;
+    private Coroutine _searchingCoroutine;
+
     protected new void OnEnable()
     {
         base.OnEnable();
-        _abstractInput.OnClick += OnClick;
+        _abstractInput.OnClickDown += OnHoldStart;
+        _abstractInput.OnClickUp += StopHolding;
         _abstractInput.OnDirectionclamped += DirectionSelected;
+        OnClicked += InteractedWithObject;
     }
 
     protected new void OnDisable()
     {
         base.OnDisable();
-        _abstractInput.OnClick -= OnClick;
+        _abstractInput.OnClickDown -= OnHoldStart;
+        _abstractInput.OnClickUp -= StopHolding;
         _abstractInput.OnDirectionclamped -= DirectionSelected;
-    }
+        OnClicked -= InteractedWithObject;
 
+    }
     protected new void Awake()
     {
         base.Awake();
@@ -37,28 +47,38 @@ public class SearcherCursor : Cursor
 
     protected new void FixedUpdate()
     {
-        if (_selectionMode == false)
-        {
-            base.FixedUpdate();
-        }
-    }
+        if (_canMove == false) { return; }
+        if (_selectionMode == true) { return; }
 
+        base.FixedUpdate();
+    }
 
     private void DirectionSelected(Vector2 vector)
     {
         if (_selectionMode == false) return;
         GameObject targetObject = _targetCollider?.gameObject;
-        GameObject[] exclude = null;
+        List<GameObject> exclude = new List<GameObject>();
+
         if (targetObject != null)
         {
-            exclude = new GameObject[2] { _targetCollider.gameObject, this.gameObject };
+            exclude.Add(_targetCollider.gameObject);
+            exclude.Add(this.gameObject);
         }
         else
         {
-            exclude = new GameObject[1] { this.gameObject };
+            exclude.Add(this.gameObject);
         }
 
-        Dictionary<Direction, Collider2D> colliders = _coneCollidersHandler.GetNearestColliderPerDirectionOfComponent<Highlitable>(exclude);
+        foreach (Highlitable highlitable in FindObjectsOfType<Highlitable>())
+        {
+            if (_highlitables.Contains(highlitable) == false)
+            {
+                Debug.Log("Adding " + highlitable.gameObject.name + " to exclude list");
+                exclude.Add(highlitable.gameObject);
+            }
+        }
+
+        Dictionary<Direction, Collider2D> colliders = _coneCollidersHandler.GetNearestColliderPerDirectionOfComponent<Highlitable>(exclude.ToArray());
 
 
         if (vector == Vector2.up)
@@ -69,11 +89,11 @@ public class SearcherCursor : Cursor
         {
             HandleDirectionSelection(Direction.Down, colliders);
         }
-        else if (vector == Vector2.left)
+        else if (vector == Vector2.right)
         {
             HandleDirectionSelection(Direction.Right, colliders);
         }
-        else if (vector == Vector2.right)
+        else if (vector == Vector2.left)
         {
             HandleDirectionSelection(Direction.Left, colliders);
         }
@@ -92,9 +112,22 @@ public class SearcherCursor : Cursor
         }
     }
 
+    private void OnHoldStart()
+    {
+        _canMove = false;
+        _searchingCoroutine = StartCoroutine(ClickIfHoldIsLongEnough());
+        _rigidbody.velocity = Vector2.zero;
+    }
+
+    private IEnumerator ClickIfHoldIsLongEnough()
+    {
+        yield return new WaitForSeconds(_timeToHold);
+        OnClick();
+    }
 
     protected new void OnClick()
     {
+        StartCoroutine(SearchingAnimation());
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchRadius);
         foreach (Collider2D collider in colliders)
         {
@@ -113,8 +146,7 @@ public class SearcherCursor : Cursor
 
         if (_highlitables.Count > 0)
         {
-            OnSearch?.Invoke();
-            StartCoroutine(DelayedHighlite(true, _timeToTravel));
+            StartCoroutine(DelayedHighlite(true, 1.25f));
         }
     }
 
@@ -126,7 +158,6 @@ public class SearcherCursor : Cursor
     }
     private void Highlitable(bool highlite)
     {
-        Debug.Log("Highlitable");
         foreach (Highlitable highlitable in _highlitables)
         {
             if (highlite)
@@ -138,7 +169,6 @@ public class SearcherCursor : Cursor
                 highlitable.OnHoverExit();
             }
         }
-
     }
 
     private void OnDrawGizmos()
@@ -161,5 +191,33 @@ public class SearcherCursor : Cursor
         }
         _rigidbody.velocity = Vector2.zero;
         _selectionMode = true;
+    }
+    private IEnumerator SearchingAnimation()
+    {
+        _searchingAnimationPlaying = true;
+        OnSearch?.Invoke();
+        yield return new WaitForSeconds(1.20f);
+        _searchingAnimationPlaying = false;
+        _canMove = true;
+        OnSearchEnd?.Invoke();
+    }
+
+    private void StopHolding()
+    {
+        if (_searchingAnimationPlaying == false) { _canMove = true; }
+        if (_searchingCoroutine != null)
+        {
+            StopCoroutine(_searchingCoroutine);
+        }
+    }
+
+    private void InteractedWithObject()
+    {
+        if (_highlitables.Count > 0)
+        {
+            Highlitable(false);
+            _highlitables.Clear();
+            _selectionMode = false;
+        }
     }
 }

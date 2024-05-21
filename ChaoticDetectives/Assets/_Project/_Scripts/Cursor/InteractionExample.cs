@@ -12,18 +12,15 @@ public class InteractionExample : MonoBehaviour, IInteractable
     }
     public void OnClick()
     {
-        Debug.Log("Clicked!");
     }
 
     public void OnHoverEnter()
     {
         transform.localScale = originalScale * sizeToGrow;
-        Debug.Log("Hovering!");
     }
 
     public void OnHoverExit()
     {
         transform.localScale = originalScale;
-        Debug.Log("Not hovering!");
     }
 }

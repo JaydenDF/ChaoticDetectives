@@ -10,15 +10,17 @@ public class DialogueStarterInteractable : MonoBehaviour, IInteractable
     private const float ScaleMultiplier = 1.1f;
     private Vector2 _originalScale;
 
-[ContextMenu("Click")]
+    [ContextMenu("Click")]
     public void OnClick()
     {
         OnDialogueStart?.Invoke(_dialogueContainer);
     }
+    private void Start() {
+        _originalScale = transform.localScale;
+    }
 
     public void OnHoverEnter()
     {
-        _originalScale = transform.localScale;
         transform.localScale *= ScaleMultiplier;
     }
 

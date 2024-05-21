@@ -7,7 +7,11 @@ public class KeyboardInput : AbstractInput
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnClick?.Invoke();
+            OnClickDown?.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            OnClickUp?.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))

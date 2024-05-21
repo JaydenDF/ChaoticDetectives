@@ -25,10 +25,8 @@ public class ButtonSelectionHandler : MonoBehaviour, IInteractable
         OnClicked.Invoke();
     }
 
-    [ContextMenu("Hover Enter")]
     public void OnHoverEnter()
     {
-        Debug.Log("Hovering" + gameObject.name);
         transform.localScale *= scaleMultiplier;
         _image.color = selectedColor;
     }
