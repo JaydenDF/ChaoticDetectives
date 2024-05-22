@@ -8,10 +8,7 @@ public class LoopManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            Loop();
-        }
+        
     }
 
     private void Loop()

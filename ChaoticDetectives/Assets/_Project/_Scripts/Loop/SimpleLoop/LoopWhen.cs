@@ -1,20 +1,28 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class LoopWhen : MonoBehaviour {
     
+    public static Action OnLooped;
     private SimpleLoop _simpleLoop;
     private bool _dialogueFinished = false;
     private bool _plantPlanted = false;
 
     private void OnEnable() {
-        PlantInteractable.PlantPlanted += () => _plantPlanted = true;
+        PlantInteractable.PlantPlanted += OnPlantPlanted;
         DialogueManager.OnDialogueEnd += OnDialogueEnd;
     }
 
     private void OnDisable() {
-        PlantInteractable.PlantPlanted -= () => _plantPlanted = true;
+        PlantInteractable.PlantPlanted -= OnPlantPlanted;
         DialogueManager.OnDialogueEnd -= OnDialogueEnd;
+    }
+
+    private void OnPlantPlanted()
+    {
+        _plantPlanted = true;
+        CheckConditions();
     }
 
     private void Awake() {
@@ -29,8 +37,9 @@ public class LoopWhen : MonoBehaviour {
 
     private void CheckConditions()
     {
-        if (_dialogueFinished)
+        if (_dialogueFinished && _plantPlanted)
         {
+            OnLooped?.Invoke();
             _simpleLoop.Loop();
         }
     }

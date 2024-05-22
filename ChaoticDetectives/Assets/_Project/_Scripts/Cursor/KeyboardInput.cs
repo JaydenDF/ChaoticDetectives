@@ -5,11 +5,11 @@ public class KeyboardInput : AbstractInput
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             OnClickDown?.Invoke();
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.P))
         {
             OnClickUp?.Invoke();
         }

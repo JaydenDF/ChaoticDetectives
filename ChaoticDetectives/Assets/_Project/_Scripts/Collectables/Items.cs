@@ -26,6 +26,18 @@ public class Items : MonoBehaviour, IInteractable
         isCollected = false;
         isUsed = false;
     }
+    private void OnEnable()
+    {
+        SimpleLoop.OnLooped += ResetItem;
+    }
+
+    private void ResetItem()
+    {
+        isCollected = false;
+        isUsed = false;
+        gameObject.GetComponent<Renderer>().enabled = true;
+        if (_colliderToDisable != null) { _colliderToDisable.enabled = true; }
+    }
 
     private void Update()
     {
