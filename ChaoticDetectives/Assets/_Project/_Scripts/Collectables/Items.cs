@@ -72,20 +72,16 @@ public class Items : MonoBehaviour, IInteractable
             instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
             instantiatedPrefabUI.parentItem = gameObject;
             inventory.UIStorage.Add(instantiatedPrefab);
-            Debug.Log("im not in the list yet!!!!!!!!!");
         }
-        Debug.Log("Clicked!");
     }
 
     public void OnHoverEnter()
     {
-        Debug.Log("Hovering!");
         transform.gameObject.GetComponent<SpriteRenderer>().material = glowMaterial;
     }
 
     public void OnHoverExit()
     {
-        Debug.Log("Not hovering!");
         transform.gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
     }
 }
