@@ -63,7 +63,6 @@ public class Interactable : MonoBehaviour, IInteractable
 
     protected virtual void ApplyChangesNextLoop()
     {
-        Debug.Log("I changed in the next Loop!!!!!!!!");
         currentState += 1;
         //subscribe to loop
     }
