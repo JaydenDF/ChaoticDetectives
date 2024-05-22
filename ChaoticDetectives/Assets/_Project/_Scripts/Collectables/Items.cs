@@ -14,6 +14,7 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material defaultMaterial;
 
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Collider2D _colliderToDisable;
 
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
@@ -28,9 +29,15 @@ public class Items : MonoBehaviour, IInteractable
 
     private void Update()
     {
+        Collect();
+    }
+
+    public void Collect()
+    {
         if (isCollected)
         {
             gameObject.GetComponent<Renderer>().enabled = false;
+            if (_colliderToDisable != null) { _colliderToDisable.enabled = false; }
         }
     }
 

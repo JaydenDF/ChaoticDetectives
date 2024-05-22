@@ -7,7 +7,6 @@ public class SimpleLoop : MonoBehaviour
     [SerializeField] private GameObject _locationParent;
     [SerializeField] private GameObject _startLocation;
 
-    [ContextMenu("Loop")]
     public void Loop()
     {
         OnLooped?.Invoke();

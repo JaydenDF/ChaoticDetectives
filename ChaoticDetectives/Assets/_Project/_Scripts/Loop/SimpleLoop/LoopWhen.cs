@@ -5,12 +5,15 @@ public class LoopWhen : MonoBehaviour {
     
     private SimpleLoop _simpleLoop;
     private bool _dialogueFinished = false;
+    private bool _plantPlanted = false;
 
     private void OnEnable() {
+        PlantInteractable.PlantPlanted += () => _plantPlanted = true;
         DialogueManager.OnDialogueEnd += OnDialogueEnd;
     }
 
     private void OnDisable() {
+        PlantInteractable.PlantPlanted -= () => _plantPlanted = true;
         DialogueManager.OnDialogueEnd -= OnDialogueEnd;
     }
 
