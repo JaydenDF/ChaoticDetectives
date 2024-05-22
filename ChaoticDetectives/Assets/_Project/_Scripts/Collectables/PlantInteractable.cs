@@ -17,15 +17,11 @@ public class PlantInteractable : Interactable
 
     protected override void ApplyChangesNextLoop()
     {
-        Debug.Log("has looped");
         if(currentState < states.Count - 1)
         {
+            Debug.Log("lopper" +  currentState);
             currentState += 1;
             transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
-
-        } else if(currentState == states.Count - 1)  //fully grown
-        {
-           
         }
     }
 }
