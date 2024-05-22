@@ -8,6 +8,6 @@ public class TestGrow : MonoBehaviour
 
     public void NextLoop()
     {
-        interactable.Apply();
+        // interactable.Apply();
     }
 }

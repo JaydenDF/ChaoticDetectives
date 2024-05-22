@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SimpleLoop : MonoBehaviour
 {
-    public Action OnLooped;
+    public static Action OnLooped;
     [SerializeField] private GameObject _locationParent;
     [SerializeField] private GameObject _startLocation;
 

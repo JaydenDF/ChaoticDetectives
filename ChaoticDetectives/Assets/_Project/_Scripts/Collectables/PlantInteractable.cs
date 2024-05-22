@@ -6,13 +6,14 @@ public class PlantInteractable : Interactable
 {
     protected override void UseItem()
     {
-        neededItem.isUsed = true;
-        currentState += 1;
+        neededItem.UseItem();
+        currentState = 1;
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
     protected override void ApplyChangesNextLoop()
     {
+        Debug.Log("has looped");
         if(currentState < states.Count - 1)
         {
             currentState += 1;
@@ -22,10 +23,5 @@ public class PlantInteractable : Interactable
         {
            
         }
-    }
-
-    public void Apply()
-    {
-        ApplyChangesNextLoop();
     }
 }

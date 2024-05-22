@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Items : MonoBehaviour, IInteractable
 {
     public bool isCollected;
-    public bool isUsed;
+    private bool isUsed;
 
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
@@ -20,22 +20,6 @@ public class Items : MonoBehaviour, IInteractable
 
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
-
-    private void OnEnable()
-    {
-        LoopManager.OnLooped += NameOfFicntion;
-    }
-
-    private void OnDisable()
-    {
-        LoopManager.OnLooped -= NameOfFicntion;
-    }
-
-    private void NameOfFicntion()
-    {
-        throw new NotImplementedException();
-    }
-
     private void Awake()
     {
         isCollected = false;
@@ -44,14 +28,9 @@ public class Items : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if(isCollected) 
+        if (isCollected)
         {
             gameObject.GetComponent<Renderer>().enabled = false;
-        }
-
-        if(isUsed)
-        {
-            inventory.collectedItems.Remove(gameObject);
         }
     }
 
@@ -65,7 +44,7 @@ public class Items : MonoBehaviour, IInteractable
 
         if (!inventory.collectedItems.Contains(gameObject))
         {
-            isCollected= true;
+            isCollected = true;
             inventory.collectedItems.Add(gameObject);
             inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
             instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
@@ -83,5 +62,15 @@ public class Items : MonoBehaviour, IInteractable
     public void OnHoverExit()
     {
         transform.gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
+    }
+
+    public void UseItem()
+    {
+        Debug.Log("Item used!");
+        isUsed = true;
+
+        if (isUsed == false) { return; }
+
+        inventory.collectedItems.Remove(gameObject);
     }
 }

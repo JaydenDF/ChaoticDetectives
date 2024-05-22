@@ -15,13 +15,19 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
     [SerializeField] protected int currentState;
 
+    private void OnEnable() {
+        SimpleLoop.OnLooped += ApplyChangesNextLoop;
+    }
+
+    private void OnDisable() {
+        SimpleLoop.OnLooped -= ApplyChangesNextLoop;
+    }
+
     public void OnClick()
     {
         if (inventory.collectedItems.Contains(neededItem.transform.gameObject))
         {
-            Debug.Log("Interacted");
             UseItem();
-            
         } 
     }
 
@@ -35,24 +41,21 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-        Debug.Log("Hovering!");
         transform.gameObject.GetComponent<SpriteRenderer>().material = glowMaterial;
     }
 
     public void OnHoverExit()
     {
-        Debug.Log("Not hovering!");
         transform.gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
     }
 
     protected virtual void UseItem()
     {
-        Debug.Log("Im the basic Bitch!!!!!!!!");
         //Code needed:
         //activate animation or what is needed. ask designers.
         //
         //Remove item from the inventory UI.
-        neededItem.isUsed = true;
+        neededItem.UseItem();
         currentState += 1;
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
 
