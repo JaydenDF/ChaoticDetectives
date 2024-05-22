@@ -8,12 +8,12 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    protected Items neededItem;
+    [SerializeField] protected Items neededItem;
 
     [SerializeField] private Inventory inventory;
 
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
-    protected int currentState;
+    [SerializeField] protected int currentState;
 
     public void OnClick()
     {
