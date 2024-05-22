@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Items : MonoBehaviour, IInteractable
 {
+    public static Action OnCollected;
     public bool isCollected;
     private bool isUsed;
 
@@ -14,7 +15,7 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material defaultMaterial;
 
     [SerializeField] private Inventory inventory;
-
+    
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
 
@@ -44,6 +45,7 @@ public class Items : MonoBehaviour, IInteractable
 
         if (!inventory.collectedItems.Contains(gameObject))
         {
+            OnCollected?.Invoke();
             isCollected = true;
             inventory.collectedItems.Add(gameObject);
             inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
