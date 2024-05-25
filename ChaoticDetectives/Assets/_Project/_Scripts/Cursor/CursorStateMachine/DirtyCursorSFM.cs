@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class DirtyCursorSFM : MonoBehaviour
 {
-    // I need to track map opening and map closing,
-    // I need to track dialogue starting and dialogue ending
-    // I also need to make the searcher cursor not activate when clicking a dialogue
-
     [SerializeField] private GameObject _cursor;
     [SerializeField] private SearcherCursor _searcherCursor;
     [SerializeField] private Cursor _normalCursor;
@@ -15,16 +11,22 @@ public class DirtyCursorSFM : MonoBehaviour
 
     private void OnEnable()
     {
-        _map.OnMapClosed.AddListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
-        _map.OnMapOpened.AddListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
+        if (_map != null)
+        {
+            _map.OnMapClosed.AddListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
+            _map.OnMapOpened.AddListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
+        }
         DialogueStarterInteractable.OnDialogueStart += container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd += () => StartCoroutine(OnNextFrame(OnDialogueEnd));
     }
 
     private void OnDisable()
     {
-        _map.OnMapClosed.RemoveListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
-        _map.OnMapOpened.RemoveListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
+        if (_map != null)
+        {
+            _map.OnMapClosed.RemoveListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
+            _map.OnMapOpened.RemoveListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
+        }
         DialogueStarterInteractable.OnDialogueStart -= container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd -= () => StartCoroutine(OnNextFrame(OnDialogueEnd));
     }
@@ -41,12 +43,6 @@ public class DirtyCursorSFM : MonoBehaviour
         yield return null;
         yield return null; 
         action();
-    }
-
-    private IEnumerator OnNextFrame(Action<DialogueContainer> action, DialogueContainer container)
-    {
-        yield return null; 
-        action(container);
     }
 
     private void OnDialogueEnd()
