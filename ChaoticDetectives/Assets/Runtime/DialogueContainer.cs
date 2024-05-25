@@ -1,12 +1,24 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+
 
 [System.Serializable]
 public class DialogueContainer : ScriptableObject
 {
+
+    public Action OnDialogueEnd;
+    public Action<DialogueEventArgs> OnDialogueEvent;
+
     public List<NodeLinkData> NodeLinks = new List<NodeLinkData>();
     public List<DialogueNodeData> DialogueNodeData = new List<DialogueNodeData>();
+
+
+    /// <summary>
+    /// Get the starting dialogue step
+    /// </summary>
 
     public DialogueStep GetStartingStep()
     {
@@ -19,6 +31,11 @@ public class DialogueContainer : ScriptableObject
         return new DialogueStep(dialogueText, responses);
     }
 
+    /// <summary>
+    /// Get the next dialogue step based on the index of the response given
+    /// </summary>
+    /// <param name="previousDialogue"></param>
+    /// <param name="index"></param>
     public DialogueStep GetNextStepFromIndex(DialogueStep previousDialogue, int index)
     {
         //get guid with the previous dialogue text
@@ -36,19 +53,47 @@ public class DialogueContainer : ScriptableObject
 
         string nextNodeGuid = targetNodeGuids[index];
 
+        if(IsNextNodeEndNode(nextNodeGuid))
+        {
+            OnDialogueEnd?.Invoke();
+            return null;
+        }
+
         string dialogueText = GetDialogueText(nextNodeGuid);
         string[] responses = GetResponses(nextNodeGuid);
+
+
+                
+        if(NodeLinks.Find(x => x.TargetNodeGuid == nextNodeGuid && x.PortName == "Event") != null)
+        {
+            string eventGuid = NodeLinks.Find(x => x.TargetNodeGuid == nextNodeGuid && x.PortName == "Event").BaseNodeGuid;
+            string eventName = DialogueNodeData.Find(x => x.NodeGUID == eventGuid).DialogueText;
+            DialogueEventArgs eventArgs = new DialogueEventArgs(eventName);
+            OnDialogueEvent?.Invoke(eventArgs);
+        }
 
         DialogueStep nextDialogue = new DialogueStep(dialogueText, responses);
         return nextDialogue;
     }
 
+    /// <summary>
+    /// Get the next dialogue step based on the response given
+    /// </summary>
+    /// <param name="previousDialogue"></param>
+    /// <param name="response"></param>
+    /// <returns></returns>
     public DialogueStep GetNextStepFromResponse(DialogueStep previousDialogue, string response)
     {
         //get guid with the previous dialogue text
         string previousNodeGuid = DialogueNodeData.Find(x => x.DialogueText == previousDialogue.DialogueText).NodeGUID;
 
         string nextNodeGuid = NodeLinks.Find(x => x.BaseNodeGuid == previousNodeGuid && DialogueNodeData.Find(y => y.NodeGUID == x.TargetNodeGuid).DialogueText == response).TargetNodeGuid;
+
+        if(IsNextNodeEndNode(nextNodeGuid))
+        {
+            OnDialogueEnd?.Invoke();
+            return null;
+        }
 
         string dialogueText = GetDialogueText(nextNodeGuid);
         string[] responses = GetResponses(nextNodeGuid);
@@ -68,4 +113,14 @@ public class DialogueContainer : ScriptableObject
     {
         return DialogueNodeData.Find(x => x.NodeGUID == nodeGuid).DialogueText;
     }
+
+    private bool IsNextNodeEndNode(string nodeGuid)
+    {
+        if (DialogueNodeData.Find(x => x.NodeGUID == nodeGuid).DialogueText == "ENDPOINT")
+        {
+            return true;
+        }
+        return false;
+    }
 }
+

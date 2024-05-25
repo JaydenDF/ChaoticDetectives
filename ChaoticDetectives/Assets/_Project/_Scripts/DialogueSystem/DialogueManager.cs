@@ -7,9 +7,8 @@ using UnityEngine.EventSystems;
 public class DialogueManager : MonoBehaviour
 {
     public static Action OnDialogueEnd;
-
-    private DialogueContainer _dialogueContainer;
     private DialogueStep _currentDialogueStep;
+    private DialogueContainer _dialogueContainer;
 
     [Space(10)]
     [Header("UI Elements")]
@@ -57,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     private void StartDialogue(DialogueContainer newDialogue)
     {
         _dialogueContainer = newDialogue;
+        _dialogueContainer.OnDialogueEnd += StopDialogue;
         _wholeDialogueParent.SetActive(true);
         NewDialogueStep(_dialogueContainer.GetStartingStep());
     }
@@ -94,6 +94,8 @@ public class DialogueManager : MonoBehaviour
 
     private void NewDialogueStep(DialogueStep dialogueStep)
     {
+        if (_dialogueContainer == null) { return; }
+
         _currentDialogueStep = dialogueStep;
         _dialogueText.text = dialogueStep.DialogueText;
 
@@ -101,6 +103,9 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        //check if there is an event to be triggered
+        
 
         for (int i = 0; i < dialogueStep.Responses.Length; i++)
         {

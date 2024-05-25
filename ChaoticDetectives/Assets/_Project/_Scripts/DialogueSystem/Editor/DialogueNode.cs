@@ -8,14 +8,25 @@ namespace DialogueSystem
 {
     public class DialogueNode : Node
     {
+
         public string DialogueText;
         public string GUID;
-        public bool EntryPoint = false;
+        public SpecialNodeType SpecialNode = SpecialNodeType.None;
         public DialogueNode()
         {
             title = "Dialogue Node";
         }
+
     }
+
+    
+        public enum SpecialNodeType
+        {
+            Start,
+            End,
+            None,
+            Event
+        }
 }
 
 #endif

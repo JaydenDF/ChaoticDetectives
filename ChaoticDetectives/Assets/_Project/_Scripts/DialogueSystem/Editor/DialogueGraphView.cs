@@ -46,7 +46,7 @@ namespace DialogueSystem
                 title = "Start",
                 GUID = Guid.NewGuid().ToString(),
                 DialogueText = "ENTRYPOINT",
-                EntryPoint = true
+                SpecialNode = SpecialNodeType.Start
             };
 
             node.styleSheets.Add(Resources.Load<StyleSheet>("EntryPointNode"));
@@ -64,6 +64,68 @@ namespace DialogueSystem
             node.SetPosition(new Rect(new Vector2(200, 100), DefaultNodeSize));
             return node;
         }
+        public void GenerateEndNode(string nodeGuid = null)
+        {
+            DialogueNode node = new DialogueNode
+            {
+                title = "End",
+                GUID = string.IsNullOrEmpty(nodeGuid) ? Guid.NewGuid().ToString() : nodeGuid,
+                DialogueText = "ENDPOINT",
+                SpecialNode = SpecialNodeType.End
+            };
+
+            node.styleSheets.Add(Resources.Load<StyleSheet>("EndNode"));
+
+            var generatedPort = GeneratePort(node, Direction.Input);
+            generatedPort.portName = "End";
+
+            node.inputContainer.Add(generatedPort);
+
+            node.RefreshExpandedState();
+            node.RefreshPorts();
+
+            node.SetPosition(new Rect(new Vector2(200, 100), DefaultNodeSize));
+            AddElement(node);
+        }
+
+        public void GenerateEventNode(DialogueNodeData nodeData = null)
+        {
+            DialogueNode node = new DialogueNode
+            {
+                title = string.IsNullOrEmpty(nodeData?.DialogueText) ? "Event" : nodeData.DialogueText,
+                GUID = string.IsNullOrEmpty(nodeData?.DialogueText) ? Guid.NewGuid().ToString() : nodeData.NodeGUID,
+                DialogueText = string.IsNullOrEmpty(nodeData?.DialogueText) ? "EVENT" : nodeData.DialogueText,
+                SpecialNode = SpecialNodeType.Event
+            };
+
+            node.styleSheets.Add(Resources.Load<StyleSheet>("EventNode"));
+
+            var generatedPort = GeneratePort(node, Direction.Output);
+            generatedPort.portName = "Event";
+            var textField = new TextField(string.Empty);
+            textField.RegisterValueChangedCallback(evt =>
+            {
+                node.DialogueText = evt.newValue;
+                node.title = evt.newValue;
+            });
+            textField.SetValueWithoutNotify(node.title);
+            node.outputContainer.Add(generatedPort);
+            node.mainContainer.Add(textField);
+
+            node.RefreshExpandedState();
+            node.RefreshPorts();
+
+            if (nodeData != null)
+            {
+                node.SetPosition(new Rect(nodeData.Position, DefaultNodeSize));
+            }
+            else
+            {
+                node.SetPosition(new Rect(new Vector2(200, 200), DefaultNodeSize));
+            }
+
+            AddElement(node);
+        }
 
         public void CreateNode(string nodeName)
         {
@@ -80,7 +142,7 @@ namespace DialogueSystem
 
             node.styleSheets.Add(Resources.Load<StyleSheet>("DialogueNode"));
 
-            var inputPort = GeneratePort(node, Direction.Input, Port.Capacity.Single);
+            var inputPort = GeneratePort(node, Direction.Input, Port.Capacity.Multi);
             inputPort.portName = "Input";
             node.inputContainer.Add(inputPort);
 
@@ -107,7 +169,7 @@ namespace DialogueSystem
         }
         public void AddChoicePort(DialogueNode node, string overriddenPortName = "")
         {
-            Port generatedPort = GeneratePort(node, Direction.Output, Port.Capacity.Multi);
+            Port generatedPort = GeneratePort(node, Direction.Output, Port.Capacity.Single);
 
             var labelToRemove = generatedPort.contentContainer.Q<Label>("type");
             generatedPort.contentContainer.Remove(labelToRemove);
@@ -137,9 +199,6 @@ namespace DialogueSystem
             node.RefreshPorts();
             node.RefreshExpandedState();
         }
-
-
-
 
         private void RemovePort(DialogueNode node, Port generatedPort)
         {

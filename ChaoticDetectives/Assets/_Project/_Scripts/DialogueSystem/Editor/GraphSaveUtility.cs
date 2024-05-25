@@ -23,11 +23,27 @@ public class GraphSaveUtility
         };
     }
 
-    public void SaveGraph(string fileName)
+ public void SaveGraph(string fileName)
     {
         if (Edges.Count == 0) return;
 
-        _dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
+        // Try to load an existing asset
+        string path = $"Assets/Resources/Dialogues/{fileName}.asset";
+        _dialogueContainer = AssetDatabase.LoadAssetAtPath<DialogueContainer>(path);
+
+        // If the asset does not exist, create a new one
+        if (_dialogueContainer == null)
+        {
+            _dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
+            AssetDatabase.CreateAsset(_dialogueContainer, path);
+        }
+        else
+        {
+            // If it exists, clear its data to avoid duplicating entries
+            _dialogueContainer.NodeLinks.Clear();
+            _dialogueContainer.DialogueNodeData.Clear();
+        }
+
         var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
         for (int i = 0; i < connectedPorts.Length; i++)
         {
@@ -42,7 +58,7 @@ public class GraphSaveUtility
             });
         }
 
-        foreach (var dialogueNode in Nodes.Where(node => !node.EntryPoint))
+        foreach (var dialogueNode in Nodes.Where(node => !node.SpecialNode.Equals(SpecialNodeType.Start)))
         {
             _dialogueContainer.DialogueNodeData.Add(new DialogueNodeData
             {
@@ -52,16 +68,14 @@ public class GraphSaveUtility
             });
         }
 
-        //check if there is a port named next connected to something, if yes continue if no error
+        // Check if there is a port named "Next" connected to something, if not show error
         if (_dialogueContainer.NodeLinks.Find(x => x.PortName == "Next") == null)
         {
-            EditorUtility.DisplayDialog("Error", "The starting must be connected to another node", "Agh, my bad :C I did an oopsi daisy! I'm sowwy!");
+            EditorUtility.DisplayDialog("Error", "The starting node must be connected to another node", "Agh, my bad :C I did an oopsi daisy! I'm sowwy!");
             return;
         }
 
-
-
-        Debug.Log("Saving graph to: " + fileName);
+        Debug.Log("Saving graph to: " + path);
 
         // Ensure the Resources and Dialogues folders exist
         if (!AssetDatabase.IsValidFolder("Assets/Resources"))
@@ -73,19 +87,11 @@ public class GraphSaveUtility
             AssetDatabase.CreateFolder("Assets/Resources", "Dialogues");
         }
 
-        string path = $"Assets/Resources/Dialogues/{fileName}.asset";
-
-        // If the asset file already exists, delete it
-        if (AssetDatabase.LoadAssetAtPath<DialogueContainer>(path) != null)
-        {
-            AssetDatabase.DeleteAsset(path);
-        }
-
-        AssetDatabase.CreateAsset(_dialogueContainer, path);
+        // Save the asset
+        EditorUtility.SetDirty(_dialogueContainer);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
-
 
     public void LoadGraph(string fileName)
     {
@@ -139,11 +145,11 @@ public class GraphSaveUtility
 
     private void ClearGraph()
     {
-        Nodes.Find(x => x.EntryPoint).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGuid;
+        Nodes.Find(x => x.SpecialNode.Equals(SpecialNodeType.Start)).GUID = _dialogueContainer.NodeLinks[0].BaseNodeGuid;
 
         foreach (var node in Nodes)
         {
-            if (node.EntryPoint) continue;
+            if (node.SpecialNode.Equals(SpecialNodeType.Start)) continue;
             Edges.Where(x => x.input.node == node).ToList()
                 .ForEach(edge => _graphView.RemoveElement(edge));
             _graphView.RemoveElement(node);
@@ -154,6 +160,20 @@ public class GraphSaveUtility
     {
         foreach (var nodeData in dialogueContainer.DialogueNodeData)
         {
+            if(nodeData.DialogueText == "ENDPOINT") 
+            {
+                CreateEndNode(nodeData);
+                continue;
+            }
+            
+            //check if the node is an event node by accesing its port name
+            string portName = dialogueContainer.NodeLinks.Find(x => x.BaseNodeGuid == nodeData.NodeGUID)?.PortName;
+            if (portName == "Event")
+            {
+                _graphView.GenerateEventNode(nodeData);
+                continue;
+            }
+
             var tempNode = _graphView.CreateDialogueNode(nodeData.DialogueText);
             tempNode.GUID = nodeData.NodeGUID;
             _graphView.AddElement(tempNode);
@@ -165,5 +185,10 @@ public class GraphSaveUtility
                 _graphView.AddChoicePort(tempNode, nodePort.PortName);
             }
         }
+    }
+
+    private void CreateEndNode(DialogueNodeData nodeData)
+    {
+        _graphView.GenerateEndNode(nodeData.NodeGUID);
     }
 }

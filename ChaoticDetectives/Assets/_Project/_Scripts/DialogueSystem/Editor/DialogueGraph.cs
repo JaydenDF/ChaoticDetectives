@@ -7,6 +7,8 @@ using UnityEditor.UIElements;
 using UnityEngine.UI;
 
 using Button = UnityEngine.UIElements.Button;
+using UnityEditor.PackageManager.Requests;
+using System.Runtime.InteropServices;
 
 #if UNITY_EDITOR
 
@@ -16,12 +18,20 @@ namespace DialogueSystem
     {
         private DialogueGraphView _graphView;
         private string fileName = "New Dialogue";
+        TextField fileNameTextField;
 
         [MenuItem("ChaoticDetectives/DialogueGraph")]
         private static void ShowWindow()
         {
             var window = GetWindow<DialogueGraph>();
             window.titleContent = new GUIContent("DialogueGraph");
+        }
+
+        public void ShowWindow(string name)
+        {
+            var window = GetWindow<DialogueGraph>();
+            window.titleContent = new GUIContent("DialogueGraph");
+            window.LoadFromName(name);
         }
 
         private void OnEnable()
@@ -32,7 +42,6 @@ namespace DialogueSystem
         }
 
 
-
         private void OnDisable()
         {
             if (_graphView != null) { rootVisualElement.Remove(_graphView); }
@@ -41,7 +50,7 @@ namespace DialogueSystem
         {
             Toolbar toolbar = new Toolbar();
 
-            TextField fileNameTextField = new TextField("File Name:");
+            fileNameTextField = new TextField("File Name:");
             fileNameTextField.SetValueWithoutNotify(fileName);
             fileNameTextField.MarkDirtyRepaint();
             fileNameTextField.RegisterValueChangedCallback(evt => { fileName = evt.newValue; });
@@ -56,27 +65,41 @@ namespace DialogueSystem
             loadButton.text = "Load Data";
             toolbar.Add(loadButton);
 
-
             var NodeCreateButton = new Button(() => { _graphView.CreateNode("DialogueNode"); });
             NodeCreateButton.text = "Create Node";
             toolbar.Add(NodeCreateButton);
+
+            Button CreateEndNodeButton = new Button(() => { _graphView.GenerateEndNode(); });
+            CreateEndNodeButton.text = "Create End Node";
+            toolbar.Add(CreateEndNodeButton);
+
+            Button CreateEventNodeButton = new Button(() => { _graphView.GenerateEventNode(); });
+            CreateEventNodeButton.text = "Create Event Node";
+            toolbar.Add(CreateEventNodeButton);
 
             rootVisualElement.Add(toolbar);
         }
 
 
-        private void RequestOperation(bool save)
+        private void RequestOperation(bool save, string file = null)
         {
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
             if (save)
             {
-                saveUtility.SaveGraph(fileName);
+                saveUtility.SaveGraph(file == null ? fileName : file);
             }
             else
             {
-                saveUtility.LoadGraph(fileName);
+                saveUtility.LoadGraph(file == null ? fileName : file);
             }
         }
+
+        private void LoadFromName(string name)
+        {
+            RequestOperation(false, name);
+            fileNameTextField.SetValueWithoutNotify(name);
+        }
+
 
         private void ConstructGraph()
         {

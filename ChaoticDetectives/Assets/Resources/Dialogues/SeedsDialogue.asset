@@ -16,24 +16,22 @@ MonoBehaviour:
   - BaseNodeGuid: 585a4e41-6779-4066-aa23-7dd99e66eb13
     PortName: Next
     TargetNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
+  - BaseNodeGuid: 295024fe-3043-44a9-bf1a-31c19550dd70
+    PortName: Something related to the case?
+    TargetNodeGuid: f2db0787-b44e-46a7-ac83-de83260e7341
   - BaseNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
     PortName: Need help with something?
     TargetNodeGuid: 539ceac5-e36b-405b-a079-a6fa8ceeee80
   - BaseNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
     PortName: You know Ivy, right?
     TargetNodeGuid: 295024fe-3043-44a9-bf1a-31c19550dd70
-  - BaseNodeGuid: 295024fe-3043-44a9-bf1a-31c19550dd70
-    PortName: Something related to the case?
-    TargetNodeGuid: f2db0787-b44e-46a7-ac83-de83260e7341
+  - BaseNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
+    PortName: end
+    TargetNodeGuid: 0d92f7ed-5cf0-40dd-844a-249b5b9b0f8e
+  - BaseNodeGuid: 35c8edb3-46f2-4d50-91ae-a687e4256624
+    PortName: Event
+    TargetNodeGuid: 539ceac5-e36b-405b-a079-a6fa8ceeee80
   DialogueNodeData:
-  - NodeGUID: 539ceac5-e36b-405b-a079-a6fa8ceeee80
-    DialogueText: Well, now that you mention it, I wanted to grow a plant in this
-      pot, but I don't remember where I left the seeds. Could you help me plant something
-      in this pot?
-    Position: {x: 965.6, y: 239.2}
-  - NodeGUID: 6e4293dc-4afc-4083-9926-01ef0b0783bb
-    DialogueText: Hello sir, can I help you with something?
-    Position: {x: 452, y: 80}
   - NodeGUID: 295024fe-3043-44a9-bf1a-31c19550dd70
     DialogueText: Oh, my dear Ivy. My granddaughter was the one who was kidnapped.
       She loved doing little things like planting seeds in a pot and waiting for
@@ -43,3 +41,17 @@ MonoBehaviour:
     DialogueText: Sorry, young man. These days I keep forgetting stuff. I need to
       write every morning where I left my pills.
     Position: {x: 1656, y: -215.2}
+  - NodeGUID: 6e4293dc-4afc-4083-9926-01ef0b0783bb
+    DialogueText: Hello sir, can I help you with something?
+    Position: {x: 367.2, y: 67.2}
+  - NodeGUID: 0d92f7ed-5cf0-40dd-844a-249b5b9b0f8e
+    DialogueText: ENDPOINT
+    Position: {x: 954.4, y: 171.2}
+  - NodeGUID: 539ceac5-e36b-405b-a079-a6fa8ceeee80
+    DialogueText: Well, now that you mention it, I wanted to grow a plant in this
+      pot, but I don't remember where I left the seeds. Could you help me plant something
+      in this pot?
+    Position: {x: 702.4, y: 320.80002}
+  - NodeGUID: 35c8edb3-46f2-4d50-91ae-a687e4256624
+    DialogueText: Asked for help
+    Position: {x: 554.4, y: 446.40002}
