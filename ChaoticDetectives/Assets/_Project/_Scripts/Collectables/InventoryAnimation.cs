@@ -38,11 +38,8 @@ public class InventoryAnimation : MonoBehaviour
     private IEnumerator ShowAndHideAfterDelay(float delay = 2)
     {
         Show();
-        Debug.Log("SHOWN");
         yield return new WaitForSeconds(delay);
         Hide();
-        Debug.Log("HDDEN");
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
