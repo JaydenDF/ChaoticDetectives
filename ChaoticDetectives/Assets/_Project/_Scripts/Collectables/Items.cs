@@ -15,12 +15,14 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material defaultMaterial;
 
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Collider2D _colliderToDisable;
     
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
 
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
+
     private void Awake()
     {
         isCollected = false;
