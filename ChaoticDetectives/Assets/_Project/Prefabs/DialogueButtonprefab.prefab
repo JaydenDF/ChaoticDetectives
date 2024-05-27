@@ -225,6 +225,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   responseTextComponent: {fileID: 2649775298623647703}
+  _possibleSprites:
+  - {fileID: 21300000, guid: 14926d0e02c3dd246b1269cf053e923f, type: 3}
+  - {fileID: 21300000, guid: 0d0cb1690fcbd284e825e1f2d49b0964, type: 3}
+  - {fileID: 21300000, guid: 0c9a40a3479254e4bbc0088ff6843803, type: 3}
 --- !u!114 &629877807811460721
 MonoBehaviour:
   m_ObjectHideFlags: 0

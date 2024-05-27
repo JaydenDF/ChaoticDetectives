@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cb2efd794d35849836fa2e0e313033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueContainer: {fileID: 11400000, guid: ad28737470685f842aa4c46dae839850, type: 2}
+  _dialogueContainer: {fileID: 11400000, guid: 77bad9d80a842c94db9a9bc7334f7daa, type: 2}
 --- !u!70 &1761451116
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
