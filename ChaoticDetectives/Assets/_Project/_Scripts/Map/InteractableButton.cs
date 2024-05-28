@@ -11,6 +11,7 @@ public class InteractableButton : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
+
     }
 
     public void OnHoverExit()
