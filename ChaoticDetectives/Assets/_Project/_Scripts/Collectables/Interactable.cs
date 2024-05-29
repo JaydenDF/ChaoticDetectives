@@ -8,12 +8,14 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    [SerializeField] protected Items neededItem;
+    [SerializeField] public Items neededItem;
 
     [SerializeField] private Inventory inventory;
 
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
     [SerializeField] protected int currentState;
+
+    public HeldItem currentHeldItem = null;
 
     private void OnEnable() {
         SimpleLoop.OnLooped += ApplyChangesNextLoop;
@@ -25,10 +27,18 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnClick()
     {
-        if (inventory.collectedItems.Contains(neededItem.transform.gameObject))
+        if (inventory.collectedItems.Contains(neededItem.transform.gameObject) && currentHeldItem.hasCorrectItem)
         {
             UseItem();
-        } 
+            Object.Destroy(currentHeldItem.transform.gameObject);
+            Debug.Log("correct item");
+        }
+        else if (currentHeldItem.hasCorrectItem == false)
+        {
+            Object.Destroy(currentHeldItem.transform.gameObject);
+            currentHeldItem.parentUIItem.gameObject.SetActive(true);
+            Debug.Log("not correct item");
+        }
     }
 
     private void Awake()
@@ -58,12 +68,16 @@ public class Interactable : MonoBehaviour, IInteractable
         neededItem.UseItem();
         currentState += 1;
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
-
     }
 
     protected virtual void ApplyChangesNextLoop()
     {
         currentState += 1;
         //subscribe to loop
+    }
+
+    public void OpenUseItem()
+    {
+        UseItem();
     }
 }
