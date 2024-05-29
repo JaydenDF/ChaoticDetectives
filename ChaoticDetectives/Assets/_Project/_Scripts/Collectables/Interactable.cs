@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Interactable;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    [SerializeField] public Items neededItem;
+    //[SerializeField] public Items neededItem;
 
     [SerializeField] private Inventory inventory;
 
@@ -17,33 +19,47 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public HeldItem currentHeldItem = null;
 
-    private void OnEnable() {
+    [Serializable]
+    public class NeededItems
+    {
+        public Items neededItem;
+        public bool hasCollectedThisItem;
+    }
+
+    public List<NeededItems> neededItems;
+
+    private void OnEnable()
+    {
         SimpleLoop.OnLooped += ApplyChangesNextLoop;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         SimpleLoop.OnLooped -= ApplyChangesNextLoop;
     }
 
     public void OnClick()
     {
-        if (inventory.collectedItems.Contains(neededItem.transform.gameObject) && currentHeldItem.hasCorrectItem)
+        if (currentHeldItem.hasCorrectItem == false)
         {
-            UseItem();
-            Object.Destroy(currentHeldItem.transform.gameObject);
-            Debug.Log("correct item");
-        }
-        else if (currentHeldItem.hasCorrectItem == false)
-        {
-            Object.Destroy(currentHeldItem.transform.gameObject);
+            Destroy(currentHeldItem.transform.gameObject);
             currentHeldItem.parentUIItem.gameObject.SetActive(true);
-            Debug.Log("not correct item");
         }
+        else if (currentHeldItem.hasCorrectItem == true)
+        {
+            
+            SetNeededItemsBoolToTrue();
+        }
+    }
+
+    private void Update()
+    {
+        CheckIfAllNeededItemsAreCollected();
     }
 
     private void Awake()
     {
-        if(states.Count > 0 && currentState == 0) 
+        if (states.Count > 0 && currentState == 0)
         {
             transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
         }
@@ -65,7 +81,12 @@ public class Interactable : MonoBehaviour, IInteractable
         //activate animation or what is needed. ask designers.
         //
         //Remove item from the inventory UI.
-        neededItem.UseItem();
+        for (int i = 0; i < neededItems.Count; i++)
+        {
+            
+            Debug.Log(neededItems[i].neededItem);
+        }
+
         currentState += 1;
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
@@ -73,11 +94,34 @@ public class Interactable : MonoBehaviour, IInteractable
     protected virtual void ApplyChangesNextLoop()
     {
         currentState += 1;
-        //subscribe to loop
     }
 
-    public void OpenUseItem()
+    private void SetNeededItemsBoolToTrue()
     {
-        UseItem();
+        for (int i = 0; i < neededItems.Count; i++)
+        {
+            if (currentHeldItem.gameObject.GetComponent<SpriteRenderer>().sprite == neededItems[i].neededItem.gameObject.GetComponent<SpriteRenderer>().sprite)
+            {
+                neededItems[i].hasCollectedThisItem = true;
+                neededItems[i].neededItem.UseItem();
+                break;
+            }
+        }
+    }
+
+    private void CheckIfAllNeededItemsAreCollected()
+    {
+        for (int i = 0; i < neededItems.Count; i++)
+        {
+            if (neededItems[i].hasCollectedThisItem == false)
+            {
+                break;
+            }
+            else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count - 1)
+            {
+                UseItem();
+                //Destroy(currentHeldItem.transform.gameObject);
+            }
+        }
     }
 }

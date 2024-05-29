@@ -76,7 +76,6 @@ public class Items : MonoBehaviour, IInteractable
 
     public void UseItem()
     {
-        Debug.Log("Item used!");
         isUsed = true;
 
         if (isUsed == false) { return; }

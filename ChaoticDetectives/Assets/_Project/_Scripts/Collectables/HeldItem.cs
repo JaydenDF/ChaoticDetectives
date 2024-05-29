@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Interactable;
 
 public class HeldItem : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class HeldItem : MonoBehaviour
 
     private void OnClick()
     {
-        if(parentUIItem != null && !hasCorrectItem)
+        if (parentUIItem != null)
         {
             Destroy(gameObject);
             parentUIItem.SetActive(true);
@@ -38,14 +39,18 @@ public class HeldItem : MonoBehaviour
         if (collision.GetComponent<Interactable>())
         {
             interactable = collision.GetComponent<Interactable>();
-            if(interactable.neededItem.GetComponent<SpriteRenderer>().sprite == transform.gameObject.GetComponent<SpriteRenderer>().sprite)
+            for (int i = 0; i < interactable.neededItems.Count; i++)
             {
-                interactable.currentHeldItem = this;
-                hasCorrectItem = true;
-                
-            } else
-            {
-                hasCorrectItem = false;
+                if(interactable.neededItems[i].neededItem.gameObject.GetComponent<SpriteRenderer>().sprite == transform.gameObject.GetComponent<SpriteRenderer>().sprite)
+                {
+                    interactable.currentHeldItem = this;
+                    hasCorrectItem = true;
+                    break;
+                }
+                else
+                {
+                    hasCorrectItem = false;
+                }
             }
         }
     }

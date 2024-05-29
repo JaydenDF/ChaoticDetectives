@@ -7,7 +7,7 @@ public class UIItem : MonoBehaviour, IInteractable
 {
     public GameObject parentItem;
     public Inventory inventory;
-    public Sprite itemSprite;
+    public Sprite itemSprite = null;
 
     public int itemIndex;
     private bool isAdded;
@@ -15,7 +15,6 @@ public class UIItem : MonoBehaviour, IInteractable
     private GameObject cursor;
     public GameObject itemPrefab;
     public HeldItem itemPrefabScript;
-
 
     private void Awake()
     {
@@ -32,9 +31,9 @@ public class UIItem : MonoBehaviour, IInteractable
             inventory.UIStorage.Remove(gameObject);
         }
 
-        if(!inventory.UIStorage.Contains(gameObject)) 
-        { 
-            Object.Destroy(gameObject);
+        if (!inventory.UIStorage.Contains(gameObject))
+        {
+            Destroy(gameObject);
         }
 
         SetIndex();
@@ -42,12 +41,12 @@ public class UIItem : MonoBehaviour, IInteractable
 
     private void SetIndex()
     {
-        if(isAdded == false) 
+        if (isAdded == false)
         {
             itemIndex = inventory.UIStorage.Count;
             isAdded = true;
         }
-        
+
     }
 
     public void OnClick()
@@ -56,7 +55,7 @@ public class UIItem : MonoBehaviour, IInteractable
         itemPrefabScript = itemPrefab.GetComponent<HeldItem>();
         itemPrefabScript.parentUIItem = gameObject;
         Instantiate(itemPrefab, parent: cursor.transform);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public void OnHoverEnter()
