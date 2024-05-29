@@ -9,7 +9,10 @@ public class PlantInteractable : Interactable
     public static Action PlantPlanted;
     protected override void UseItem()
     {
-        neededItem.UseItem();
+        for (int i = 0; i < neededItems.Count - 1; i++)
+        {
+            neededItems[i].neededItem.UseItem();
+        }
         PlantPlanted?.Invoke();
         currentState = 1;
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];

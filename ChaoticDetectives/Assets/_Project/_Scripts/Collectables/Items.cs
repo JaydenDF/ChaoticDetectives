@@ -18,6 +18,7 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Collider2D _colliderToDisable;
     
     public GameObject inventorySlotPrefab;
+    public UIItem inventorySlotPrefabScript;
     public GameObject inventoryPanel;
 
     private GameObject instantiatedPrefab;
@@ -59,14 +60,7 @@ public class Items : MonoBehaviour, IInteractable
 
         if (!inventory.collectedItems.Contains(gameObject))
         {
-            OnCollected?.Invoke();
-            isCollected = true;
-            inventory.collectedItems.Add(gameObject);
-            inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
-            instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
-            instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
-            instantiatedPrefabUI.parentItem = gameObject;
-            inventory.UIStorage.Add(instantiatedPrefab);
+            CollectItem();
         }
     }
 
@@ -82,11 +76,24 @@ public class Items : MonoBehaviour, IInteractable
 
     public void UseItem()
     {
-        Debug.Log("Item used!");
         isUsed = true;
 
         if (isUsed == false) { return; }
 
         inventory.collectedItems.Remove(gameObject);
+
+    }
+
+    public void CollectItem()
+    {
+        OnCollected?.Invoke();
+        isCollected = true;
+        inventory.collectedItems.Add(gameObject);
+        //inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
+        inventorySlotPrefabScript.itemSprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
+        instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
+        instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
+        instantiatedPrefabUI.parentItem = gameObject;
+        inventory.UIStorage.Add(instantiatedPrefab);
     }
 }
