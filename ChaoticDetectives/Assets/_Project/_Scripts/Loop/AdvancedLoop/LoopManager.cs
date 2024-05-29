@@ -20,7 +20,6 @@ public class LoopManager : MonoBehaviour
         {
             _loops[_currentLoopIndex].gameObject.SetActive(true);
         }
-
     }
     [ContextMenu("Loop")]
     public void Loop()
