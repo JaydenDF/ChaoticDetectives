@@ -19,6 +19,9 @@ MonoBehaviour:
   - BaseNodeGuid: 295024fe-3043-44a9-bf1a-31c19550dd70
     PortName: Something related to the case?
     TargetNodeGuid: f2db0787-b44e-46a7-ac83-de83260e7341
+  - BaseNodeGuid: f2db0787-b44e-46a7-ac83-de83260e7341
+    PortName: End
+    TargetNodeGuid: 52c97a7d-2fd7-4201-b491-2193035d1f6d
   - BaseNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
     PortName: Need help with something?
     TargetNodeGuid: 539ceac5-e36b-405b-a079-a6fa8ceeee80
@@ -28,6 +31,9 @@ MonoBehaviour:
   - BaseNodeGuid: 6e4293dc-4afc-4083-9926-01ef0b0783bb
     PortName: end
     TargetNodeGuid: 0d92f7ed-5cf0-40dd-844a-249b5b9b0f8e
+  - BaseNodeGuid: 539ceac5-e36b-405b-a079-a6fa8ceeee80
+    PortName: End
+    TargetNodeGuid: e5e73006-be76-47e5-afde-544000b8015c
   - BaseNodeGuid: 35c8edb3-46f2-4d50-91ae-a687e4256624
     PortName: Event
     TargetNodeGuid: 539ceac5-e36b-405b-a079-a6fa8ceeee80
@@ -55,3 +61,9 @@ MonoBehaviour:
   - NodeGUID: 35c8edb3-46f2-4d50-91ae-a687e4256624
     DialogueText: Asked for help
     Position: {x: 554.4, y: 446.40002}
+  - NodeGUID: 52c97a7d-2fd7-4201-b491-2193035d1f6d
+    DialogueText: ENDPOINT
+    Position: {x: 2390.4, y: -215.2}
+  - NodeGUID: e5e73006-be76-47e5-afde-544000b8015c
+    DialogueText: ENDPOINT
+    Position: {x: 1728.8, y: 415.2}

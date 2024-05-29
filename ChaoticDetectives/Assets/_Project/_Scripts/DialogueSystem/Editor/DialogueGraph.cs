@@ -98,8 +98,9 @@ namespace DialogueSystem
         {
             RequestOperation(false, name);
             fileNameTextField.SetValueWithoutNotify(name);
+            fileNameTextField.MarkDirtyRepaint();
+            fileName = name;
         }
-
 
         private void ConstructGraph()
         {

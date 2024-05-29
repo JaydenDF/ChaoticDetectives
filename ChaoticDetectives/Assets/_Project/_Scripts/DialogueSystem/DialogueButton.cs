@@ -47,6 +47,10 @@ public class DialogueButton : MonoBehaviour
     }
     private void SetSpriteFromIndex(int index)
     {
+        if (index < 0 || index >= _possibleSprites.Length)
+        {
+            return;
+        }
         _image.sprite = _possibleSprites[index];
     }
 
