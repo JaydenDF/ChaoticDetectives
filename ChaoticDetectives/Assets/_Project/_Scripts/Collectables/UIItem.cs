@@ -55,7 +55,7 @@ public class UIItem : MonoBehaviour, IInteractable
         itemPrefabScript = itemPrefab.GetComponent<HeldItem>();
         itemPrefabScript.parentUIItem = gameObject;
         Instantiate(itemPrefab, parent: cursor.transform);
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void OnHoverEnter()

@@ -885,6 +885,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1945791352047186155, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2708589762773965111, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -961,6 +965,10 @@ PrefabInstance:
       propertyPath: outcomEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5038786118060725829, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5282261466079275850, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1009,9 +1017,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6707350359872340344, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6784957752011777707, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_SortingOrder
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168165425330683665, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8303329791688699129, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: inventory
