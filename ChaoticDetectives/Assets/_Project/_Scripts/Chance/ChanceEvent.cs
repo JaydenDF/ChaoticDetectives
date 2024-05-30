@@ -23,6 +23,18 @@ public class ChanceEvent : ScriptableObject
             return _outcomes[1];
         }
     }
+
+    public int GetOutcomeIndex(ChanceOutcome outcome)
+    {
+        for (int i = 0; i < _outcomes.Length; i++)
+        {
+            if (_outcomes[i] == outcome)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
 
 #if UNITY_EDITOR

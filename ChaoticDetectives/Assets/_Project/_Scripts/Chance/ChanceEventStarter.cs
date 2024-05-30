@@ -1,16 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class ChanceEventStarter : MonoBehaviour, IInteractable
 {
     public static EventHandler<ChanceEvent> OnChanceEvent;
+    public List<UnityEvent> outcomEvents;
 
-    [SerializeField] private ChanceEvent _chanceEvent;
+    public ChanceEvent _chanceEvent;
     private SpriteRenderer _spriteRenderer;
 
-    private void Awake() {
+    private void Awake()
+    {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-    }    
+    }
     public void OnClick()
     {
         ChanceEvent();
@@ -24,16 +29,57 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     {
     }
 
-    public void OnUIRollled(uint roll){
+    public void OnUIRollled(uint roll)
+    {
         ReactToOutcome(_chanceEvent.GetOutcomeFromRoll(roll));
     }
     protected void ChanceEvent()
     {
-        OnChanceEvent?.Invoke(this,_chanceEvent);
+        OnChanceEvent?.Invoke(this, _chanceEvent);
     }
     protected void ReactToOutcome(ChanceOutcome outcome)
     {
         _spriteRenderer.sprite = outcome.sprite;
-        outcome.OutcomeEvent.Invoke();
+        //get the index of the outcome
+        int index = _chanceEvent.GetOutcomeIndex(outcome);
+        //invoke the event at the same index if it exists
+        if (index < outcomEvents.Count)
+        {
+            outcomEvents[index].Invoke();
+        }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(ChanceEventStarter))]
+public class ChanceEventStarterEditor : Editor
+{
+    private Editor chanceEventEditor;
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+        
+        DrawDefaultInspector();
+        
+        ChanceEventStarter chanceEventStarter = (ChanceEventStarter)target;
+        
+        if (chanceEventEditor == null && chanceEventStarter._chanceEvent != null)
+        {
+            chanceEventEditor = CreateEditor(chanceEventStarter._chanceEvent);
+        }
+
+        if (chanceEventEditor != null)
+        {
+            EditorGUI.BeginChangeCheck();
+            chanceEventEditor.OnInspectorGUI();
+            if (EditorGUI.EndChangeCheck())
+            {
+                EditorUtility.SetDirty(chanceEventStarter._chanceEvent);
+            }
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+#endif

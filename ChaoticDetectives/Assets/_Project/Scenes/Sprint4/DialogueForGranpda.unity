@@ -617,33 +617,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16a30b309184c2e45a4a1605308b9b97, type: 3}
---- !u!1 &1346750880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4126730018059486478, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-  m_PrefabInstance: {fileID: 1980222514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1346750882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346750880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b09baa987f3f64a98fd6d07055bd84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueChoices:
-  - choiceCondition: Preset
-    thisIsTheCorrectChoice: 1
-    dialogueContainer: {fileID: 11400000, guid: 6ee929240c3007c4da34aa679136f069, type: 2}
-  - choiceCondition: Diary
-    thisIsTheCorrectChoice: 0
-    dialogueContainer: {fileID: 11400000, guid: a7dd8f7e8db1fa644947e3fbb424f4d3, type: 2}
-  - choiceCondition: Cards
-    thisIsTheCorrectChoice: 0
-    dialogueContainer: {fileID: 11400000, guid: 5b0b37d47eb0eb846b3b31d1b129539e, type: 2}
 --- !u!1001 &1508293126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -902,18 +875,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2777510146360631, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558874043849179586, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041428607937277153, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5708571196468668086, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
@@ -954,10 +915,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6707350359872340344, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8549770976938379500, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_Name
       value: Map Functionality ====
@@ -965,10 +922,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4126730018059486478, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1346750882}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
 --- !u!1 &2038901831
 GameObject:
