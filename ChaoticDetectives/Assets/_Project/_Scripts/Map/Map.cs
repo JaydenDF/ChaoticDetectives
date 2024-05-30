@@ -6,22 +6,20 @@ using UnityEngine.Events;
 
 public class Map : MonoBehaviour
 {
-    List<Location> locations = new List<Location>();
+    private List<Location> locations = new List<Location>();
+    [SerializeField] private List<Location> nonUiLocations;
     [SerializeField] private GameObject _mapObject;
     public UnityEvent OnMapOpened;
     public UnityEvent OnMapClosed;
 
+    private bool _isMapOpen = false;
     private void Awake()
     {
+        Location.OnLocationClicked += OnLocationClicked;
         foreach (Location location in GetComponentsInChildren<Location>())
         {
             locations.Add(location);
         }
-    }
-
-    private void OnEnable()
-    {
-        Location.OnLocationClicked += OnLocationClicked;
     }
 
     public void ShowMap()
@@ -33,15 +31,18 @@ public class Map : MonoBehaviour
             bool revealed = location.Revealed;
             location.gameObject.SetActive(revealed);
         }
+
+        _isMapOpen = true;
     }
 
     public void HideMap()
     {
-        
         foreach (Location location in locations)
         {
             location.gameObject.SetActive(false);
         }
+
+        _isMapOpen = false;
 
         OnMapClosed?.Invoke();
     }
@@ -60,6 +61,21 @@ public class Map : MonoBehaviour
             }
         }
 
-        HideMap();
+        foreach (Location location in nonUiLocations)
+        {
+            if (location.IsLocation(locationObject))
+            {
+                location.EnableObject();
+            }
+            else
+            {
+                location.DisableObject();
+            }
+        }
+
+        if (_isMapOpen)
+        {
+            HideMap();
+        }
     }
 }

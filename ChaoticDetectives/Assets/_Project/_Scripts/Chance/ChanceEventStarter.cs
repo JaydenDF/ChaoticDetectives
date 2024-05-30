@@ -34,5 +34,6 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     protected void ReactToOutcome(ChanceOutcome outcome)
     {
         _spriteRenderer.sprite = outcome.sprite;
+        outcome.OutcomeEvent.Invoke();
     }
 }
