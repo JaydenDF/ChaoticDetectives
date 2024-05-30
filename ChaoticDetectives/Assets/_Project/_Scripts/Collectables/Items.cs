@@ -61,12 +61,7 @@ public class Items : MonoBehaviour, IInteractable
         {
             OnCollected?.Invoke();
             isCollected = true;
-            inventory.collectedItems.Add(gameObject);
-            inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
-            instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
-            instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
-            instantiatedPrefabUI.parentItem = gameObject;
-            inventory.UIStorage.Add(instantiatedPrefab);
+            inventory.AddToInventory(this.gameObject);
         }
     }
 

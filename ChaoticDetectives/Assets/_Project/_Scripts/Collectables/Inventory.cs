@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject inventorySlotPrefab;
+    public GameObject inventoryPanel;
+    private GameObject instantiatedPrefab;
+    private UIItem instantiatedPrefabUI;
+
     private void OnEnable()
     {
         SimpleLoop.OnLooped += ClearInventory;
@@ -22,5 +28,25 @@ public class Inventory : MonoBehaviour
     {
         collectedItems.Clear();
         UIStorage.Clear();
+    }
+
+    private void AddItemToInventoryList(GameObject item)
+    {
+        collectedItems.Add(item);
+    }
+
+    private void AddUIToInventory(GameObject instantiatedPrefab)
+    {
+        UIStorage.Add(instantiatedPrefab);
+    }
+
+    public void AddToInventory(GameObject item)
+    {
+        AddItemToInventoryList(item);
+        inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = item.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
+        instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
+        instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
+        instantiatedPrefabUI.parentItem = item;
+        AddUIToInventory(instantiatedPrefab);
     }
 }
