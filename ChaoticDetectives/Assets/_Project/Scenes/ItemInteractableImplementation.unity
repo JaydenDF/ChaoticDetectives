@@ -123,25 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &142963792 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1407650180046546764, guid: cf83669c2aee8804cbfa80f75ac24a0b, type: 3}
-  m_PrefabInstance: {fileID: 5399747400824444130}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &142963799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142963792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d618252d99e9ba40b9e53614a8b5285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiElement: {fileID: 0}
-  itemPrefab: {fileID: 7046781767004510388, guid: 416c2f1d2b6d2624fb99fcfa21106696, type: 3}
 --- !u!1 &675937190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5295708631283201885, guid: 622b63ab3a7b94947adcb540f95148fc, type: 3}
@@ -436,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 6760634423550950141, guid: 86eefd6ed6924f54ba4ef2a87b299d17, type: 3}
       propertyPath: _animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1114485831}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -475,6 +456,11 @@ Transform:
   - {fileID: 1825227635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1114485831 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1825056653330301286, guid: 622b63ab3a7b94947adcb540f95148fc, type: 3}
+  m_PrefabInstance: {fileID: 808912882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1145497300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,6 +528,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244593119696467489, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282261466079275850, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_ForceSendLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282261466079275850, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5644194006403734924, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
@@ -661,7 +655,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
-  inventoryPanel: {fileID: 0}
+  inventoryPanel: {fileID: 675937190}
   collectedItems: []
   UIStorage: []
 --- !u!1 &2038901831
@@ -854,10 +848,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1407650180046546764, guid: cf83669c2aee8804cbfa80f75ac24a0b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 142963799}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf83669c2aee8804cbfa80f75ac24a0b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

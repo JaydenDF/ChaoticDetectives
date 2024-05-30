@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
     private GameObject instantiatedPrefab;
-    private UIItem instantiatedPrefabUI;
+    private UIItem instantiatedPrefabUIScript;
 
 
     private void OnEnable()
@@ -47,10 +47,10 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(GameObject item)
     {
         AddItemToInventoryList(item);
-        inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = item.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
-        instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
-        instantiatedPrefabUI.parentItem = item;
+        instantiatedPrefab.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+        instantiatedPrefabUIScript = instantiatedPrefab.GetComponent<UIItem>();
+        instantiatedPrefabUIScript.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
         EventOnItemAdded(item);
     }
