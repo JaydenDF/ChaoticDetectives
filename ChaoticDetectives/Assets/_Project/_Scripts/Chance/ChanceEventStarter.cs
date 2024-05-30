@@ -12,13 +12,18 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     public ChanceEvent _chanceEvent;
     private SpriteRenderer _spriteRenderer;
 
+    private bool _hasBeenClicked = false;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public void OnClick()
     {
+        if (_hasBeenClicked) return;
+
         ChanceEvent();
+        _hasBeenClicked = true;
     }
 
     public void OnHoverEnter()

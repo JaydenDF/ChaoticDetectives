@@ -17,12 +17,6 @@ MonoBehaviour:
   neededRoll: 6
   _outcomes:
   - sprite: {fileID: 21300000, guid: f2ca0595add0eb547866b66a5954292b, type: 3}
-    OutcomeEvent:
-      m_PersistentCalls:
-        m_Calls: []
     isPermanent: 0
   - sprite: {fileID: 21300000, guid: f2ca0595add0eb547866b66a5954292b, type: 3}
-    OutcomeEvent:
-      m_PersistentCalls:
-        m_Calls: []
     isPermanent: 0
