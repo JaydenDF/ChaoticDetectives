@@ -7,7 +7,7 @@ public class DirtyCursorSFM : MonoBehaviour
     [SerializeField] private GameObject _cursor;
     [SerializeField] private SearcherCursor _searcherCursor;
     [SerializeField] private Cursor _normalCursor;
-    [SerializeField] private Map _map;
+    private Map _map;
 
     private void OnEnable()
     {
@@ -29,6 +29,9 @@ public class DirtyCursorSFM : MonoBehaviour
         }
         DialogueStarterInteractable.OnDialogueStart -= container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd -= () => StartCoroutine(OnNextFrame(OnDialogueEnd));
+    }
+    private void Awake() {
+        _map = FindObjectOfType<Map>();
     }
 
     private void Start()

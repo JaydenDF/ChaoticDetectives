@@ -3,6 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 public class UIChanceEvent : MonoBehaviour {
+    public static Action OnChanceEventStart;
+    public static Action OnChanceEventEnd;
+
+
+
     [Header("UI Elements")]
     [SerializeField] private GameObject _objectToEnable;
     [SerializeField] private TextMeshPro _neededRoll;
@@ -32,7 +37,7 @@ public class UIChanceEvent : MonoBehaviour {
 
     private void OnChanceEvent(object sender, ChanceEvent e)
     {
-        Debug.Log("Chance event: " + e.name);
+        OnChanceEventStart?.Invoke();
         _objectToEnable.SetActive(true);
 
         _chanceEvent = e;
@@ -57,7 +62,6 @@ public class UIChanceEvent : MonoBehaviour {
         float elapsedTime = 0;
         while (elapsedTime*100 < animDuration)
         {
-            Debug.Log("elapsedTime: " + elapsedTime);
             _outcome.text = UnityEngine.Random.Range((int)_chanceEvent.minRollPossible, (int)_chanceEvent.maxRollPossible).ToString();
             elapsedTime += Time.deltaTime;
             yield return new WaitForSeconds(animationInterval);
@@ -69,6 +73,7 @@ public class UIChanceEvent : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
         _chanceEventStarter.OnUIRollled((uint)roll);
 
+        OnChanceEventEnd?.Invoke();
         DisableUI();
     }
 

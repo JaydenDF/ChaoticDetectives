@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public UnityEvent OnItemAdded;
+    public static UnityEvent<GameObject> OnItemAddedWithGameObject;
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
+
 
     private void OnEnable()
     {
@@ -48,5 +52,15 @@ public class Inventory : MonoBehaviour
         instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
         instantiatedPrefabUI.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
+        EventOnItemAdded(item);
+    }
+
+    private void EventOnItemAdded(GameObject item)
+    {
+        OnItemAdded.Invoke();
+        if (OnItemAddedWithGameObject != null)
+        {
+            OnItemAddedWithGameObject.Invoke(item);
+        }
     }
 }

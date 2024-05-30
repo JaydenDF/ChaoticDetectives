@@ -1002,6 +1002,7 @@ MonoBehaviour:
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventory: {fileID: 1825227636}
+  _colliderToDisable: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryPanel: {fileID: 881166830}
 --- !u!1 &881166830 stripped
@@ -1302,6 +1303,7 @@ MonoBehaviour:
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventory: {fileID: 1825227636}
+  _colliderToDisable: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryPanel: {fileID: 881166830}
 --- !u!1 &1111415096
@@ -1451,7 +1453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cb2efd794d35849836fa2e0e313033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueContainer: {fileID: 11400000, guid: 4f8e84c1f5968a34281ab7008124b657, type: 2}
 --- !u!70 &1502225408
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2004,6 +2005,7 @@ MonoBehaviour:
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventory: {fileID: 1825227636}
+  _colliderToDisable: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryPanel: {fileID: 881166830}
 --- !u!1 &1569469948
@@ -2364,6 +2366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea05e856d6a09fa4f8be6701e10852e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnItemAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
+  inventoryPanel: {fileID: 0}
   collectedItems: []
   UIStorage: []
 --- !u!1001 &1857204443
@@ -2568,6 +2575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf200cecdb14538488e5dd3fd59d28ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonUiLocations: []
   _mapObject: {fileID: 2083436031}
   OnMapOpened:
     m_PersistentCalls:
