@@ -10,7 +10,7 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    [SerializeField] private Inventory inventory;
+   private Inventory inventory;
     [SerializeField] private Collider2D _colliderToDisable;
     
     public GameObject inventorySlotPrefab;
@@ -24,6 +24,7 @@ public class Items : MonoBehaviour, IInteractable
     {
         isCollected = false;
         isUsed = false;
+        inventory = FindObjectOfType<Inventory>();
     }
     private void OnEnable()
     {

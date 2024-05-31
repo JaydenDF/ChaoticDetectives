@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3535187608035142027}
   - component: {fileID: 1612322733527482279}
   - component: {fileID: 2224931139451550003}
-  - component: {fileID: -4481060208724674632}
-  - component: {fileID: -2796207121111868132}
+  - component: {fileID: 8308649114298213143}
+  - component: {fileID: 2564851001409805560}
   m_Layer: 0
-  m_Name: IvysWorkUniform
+  m_Name: Crowbar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 120
-  m_Sprite: {fileID: 21300000, guid: eb8d84c3cc3f73e43a59b0476a4c9505, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53035b7a17c8e43408b74510fdec22ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.753, y: 0.8415}
+    oldSize: {x: 0.66275, y: 0.55304676}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-4481060208724674632
+--- !u!114 &8308649114298213143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighliteColor: {r: 0.5566037, g: 0.9190223, b: 1, a: 1}
-  _triggerCollider: {fileID: -2796207121111868132}
---- !u!58 &-2796207121111868132
+  _triggerCollider: {fileID: 2564851001409805560}
+--- !u!58 &2564851001409805560
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,4 +200,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.42075
+  m_Radius: 0.331375

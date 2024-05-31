@@ -15,6 +15,16 @@ public class Highlitable : MonoBehaviour, IHighlitable
 
     private void Awake()
     {
+        var arr = GetComponents<Collider2D>();
+        //get the trigger
+        foreach (var col in arr)
+        {
+            if (col.isTrigger)
+            {
+                _triggerCollider = col;
+            }
+        }
+
         _defaultColor = GetComponent<SpriteRenderer>().color;
         _triggerCollider.enabled = false;
     }
