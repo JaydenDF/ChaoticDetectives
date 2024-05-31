@@ -104,7 +104,8 @@ MonoBehaviour:
   inventory: {fileID: 0}
   _colliderToDisable: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
-  inventoryPanel: {fileID: 0}
+  inventorySlotPrefabScript: {fileID: 0}
+  inventoryHolder: {fileID: 0}
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.12, y: 15.44}
+    oldSize: {x: 1.912, y: 1.544}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
