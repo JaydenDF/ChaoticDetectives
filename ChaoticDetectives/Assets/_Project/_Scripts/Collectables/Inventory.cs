@@ -48,6 +48,7 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(GameObject item)
     {
         AddItemToInventoryList(item);
+        inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = item.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
         instantiatedPrefab.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefabUIScript = instantiatedPrefab.GetComponent<UIItem>();

@@ -15,7 +15,7 @@ public class Items : MonoBehaviour, IInteractable
     
     public GameObject inventorySlotPrefab;
     public UIItem inventorySlotPrefabScript;
-    public GameObject inventoryPanel;
+    public GameObject inventoryHolder;
 
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
