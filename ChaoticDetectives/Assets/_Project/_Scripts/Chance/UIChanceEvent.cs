@@ -6,8 +6,6 @@ public class UIChanceEvent : MonoBehaviour {
     public static Action OnChanceEventStart;
     public static Action OnChanceEventEnd;
 
-
-
     [Header("UI Elements")]
     [SerializeField] private GameObject _objectToEnable;
     [SerializeField] private TextMeshPro _neededRoll;
@@ -47,7 +45,7 @@ public class UIChanceEvent : MonoBehaviour {
         }
 
         _neededRoll.text = _neededRollValue.ToString();
-
+        _outcome.color = Color.black;
         _outcome.text = "0";
     }
 

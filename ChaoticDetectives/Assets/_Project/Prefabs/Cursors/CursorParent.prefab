@@ -48,7 +48,6 @@ MonoBehaviour:
   _cursor: {fileID: 1407650180046546764}
   _searcherCursor: {fileID: 458976259013691608}
   _normalCursor: {fileID: 1597998699951025550}
-  _map: {fileID: 0}
 --- !u!1001 &8898938722675576081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,6 +56,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 714476699089624286}
     m_Modifications:
+    - target: {fileID: 2251149182331006123, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5021419852408009353, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
       propertyPath: m_SortingLayer
       value: 1

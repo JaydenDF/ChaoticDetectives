@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public UnityEvent OnItemAdded;
-    public static UnityEvent<GameObject> OnItemAddedWithGameObject;
+    public static Action<GameObject> OnItemAddedWithGameObject;
     public GameObject inventorySlotPrefab;
     public GameObject inventoryPanel;
     private GameObject instantiatedPrefab;

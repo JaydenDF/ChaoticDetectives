@@ -77,13 +77,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     protected virtual void UseItem()
     {
-        //Code needed:
-        //activate animation or what is needed. ask designers.
-        //
-        //Remove item from the inventory UI.
         for (int i = 0; i < neededItems.Count; i++)
         {
-            
             Debug.Log(neededItems[i].neededItem);
         }
 

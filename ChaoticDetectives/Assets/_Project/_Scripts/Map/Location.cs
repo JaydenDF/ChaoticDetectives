@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Location : MonoBehaviour, IInteractable
 {
-    public bool Revealed = false;
+    [SerializeField] private bool _revealed = false;
+    public bool Revealed => _revealed;
     public static Action<GameObject> OnLocationClicked;
     [SerializeField] private GameObject _locationObject;
     private const float _ammountToInecreaseSize = 1.1f;
@@ -41,5 +42,10 @@ public class Location : MonoBehaviour, IInteractable
     public void OnHoverExit()
     {
         this.transform.localScale = _initialSize;
+    }
+
+    public void Reveal(bool shouldReveal)
+    {
+        _revealed = shouldReveal;
     }
 }

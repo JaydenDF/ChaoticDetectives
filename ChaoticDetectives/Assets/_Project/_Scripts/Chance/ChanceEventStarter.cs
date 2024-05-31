@@ -7,23 +7,14 @@ using UnityEngine.Events;
 public class ChanceEventStarter : MonoBehaviour, IInteractable
 {
     public static EventHandler<ChanceEvent> OnChanceEvent;
-    public List<UnityEvent> outcomEvents;
+    public List<UnityEvent> OutcomeEvents;
 
     public ChanceEvent _chanceEvent;
-    private SpriteRenderer _spriteRenderer;
 
     private bool _hasBeenClicked = false;
-
-    private void Awake()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
     public void OnClick()
     {
-        if (_hasBeenClicked) return;
-
         ChanceEvent();
-        _hasBeenClicked = true;
     }
 
     public void OnHoverEnter()
@@ -38,19 +29,22 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     {
         ReactToOutcome(_chanceEvent.GetOutcomeFromRoll(roll));
     }
+    public void ExecuteEvent()
+    {
+        ChanceEvent();
+    }
     protected void ChanceEvent()
     {
+        if (_hasBeenClicked) return;
         OnChanceEvent?.Invoke(this, _chanceEvent);
+        _hasBeenClicked = true;
     }
     protected void ReactToOutcome(ChanceOutcome outcome)
     {
-        _spriteRenderer.sprite = outcome.sprite;
-        //get the index of the outcome
         int index = _chanceEvent.GetOutcomeIndex(outcome);
-        //invoke the event at the same index if it exists
-        if (index < outcomEvents.Count)
+        if (index < OutcomeEvents.Count)
         {
-            outcomEvents[index].Invoke();
+            OutcomeEvents[index].Invoke();
         }
     }
 }
@@ -64,11 +58,11 @@ public class ChanceEventStarterEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        
+
         DrawDefaultInspector();
-        
+
         ChanceEventStarter chanceEventStarter = (ChanceEventStarter)target;
-        
+
         if (chanceEventEditor == null && chanceEventStarter._chanceEvent != null)
         {
             chanceEventEditor = CreateEditor(chanceEventStarter._chanceEvent);
