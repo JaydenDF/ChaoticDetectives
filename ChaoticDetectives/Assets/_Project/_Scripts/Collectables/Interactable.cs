@@ -82,13 +82,19 @@ public class Interactable : MonoBehaviour, IInteractable
             Debug.Log(neededItems[i].neededItem);
         }
 
-        currentState += 1;
+        if (currentState < states.Count - 1)
+        {
+            currentState = 1;
+        }
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
     protected virtual void ApplyChangesNextLoop()
     {
-        currentState += 1;
+        if (currentState < states.Count - 1)
+        {
+            currentState = 1;
+        }
     }
 
     private void SetNeededItemsBoolToTrue()
