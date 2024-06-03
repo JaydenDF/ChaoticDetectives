@@ -8,8 +8,8 @@ public interface IHighlitable
 }
 public class Highlitable : MonoBehaviour, IHighlitable
 {
-    [SerializeField] private Color HighliteColor = Color.red;
-    [SerializeField] private Collider2D _triggerCollider;
+    [SerializeField] private Color HighliteColor = Color.red; 
+    private Collider2D _triggerCollider;
     private Color _defaultColor;
     //copy of _interactable
 

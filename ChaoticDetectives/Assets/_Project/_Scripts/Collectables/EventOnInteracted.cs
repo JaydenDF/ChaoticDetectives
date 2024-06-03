@@ -4,10 +4,13 @@ using UnityEngine.Events;
 public class EventOnInteracted : Interactable
 {
     public UnityEvent eventToTrigger;
+    private bool _hasBeenClicked = false;
     protected override void UseItem()
     {
-        Debug.Log("EventOnInteracted");
+        if (_hasBeenClicked) return;
+
         eventToTrigger.Invoke();
+        _hasBeenClicked = true;
     }
 
 }

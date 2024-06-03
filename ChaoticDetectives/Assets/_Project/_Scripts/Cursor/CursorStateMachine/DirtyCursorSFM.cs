@@ -7,21 +7,30 @@ public class DirtyCursorSFM : MonoBehaviour
     [SerializeField] private GameObject _cursor;
     [SerializeField] private SearcherCursor _searcherCursor;
     [SerializeField] private Cursor _normalCursor;
+    [SerializeField] private GameObject _cursorSprite;
     private Map _map;
+    private AbstractInput _abstractInput;
 
     private void OnEnable()
     {
+        UIChanceEvent.OnChanceEventStart += DisableInputAndHideCursor;
+        UIChanceEvent.OnChanceEventEnd += EnableInputAndShowCursor;
+        
         if (_map != null)
         {
             _map.OnMapClosed.AddListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
             _map.OnMapOpened.AddListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
         }
+
         DialogueStarterInteractable.OnDialogueStart += container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd += () => StartCoroutine(OnNextFrame(OnDialogueEnd));
     }
 
     private void OnDisable()
     {
+        UIChanceEvent.OnChanceEventStart -= DisableInputAndHideCursor;
+        UIChanceEvent.OnChanceEventEnd -= EnableInputAndShowCursor;
+
         if (_map != null)
         {
             _map.OnMapClosed.RemoveListener(() => StartCoroutine(OnNextFrame(OnMapClosed)));
@@ -32,6 +41,7 @@ public class DirtyCursorSFM : MonoBehaviour
     }
     private void Awake() {
         _map = FindObjectOfType<Map>();
+        _abstractInput = GetComponentInChildren<AbstractInput>();
     }
 
     private void Start()
@@ -69,5 +79,18 @@ public class DirtyCursorSFM : MonoBehaviour
     {
         _searcherCursor.enabled = true;
         _normalCursor.enabled = false;
+    }
+
+    private void DisableInputAndHideCursor()
+    {
+        _cursorSprite.SetActive(false);
+        _abstractInput.DisableInput();
+    }
+
+    private void EnableInputAndShowCursor()
+    {
+        _cursorSprite.SetActive(true);
+        _abstractInput.EnableInput();
+        _searcherCursor.OverrideCanMove(true);
     }
 }

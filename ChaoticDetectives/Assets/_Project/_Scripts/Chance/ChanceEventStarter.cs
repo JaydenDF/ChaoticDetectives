@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class ChanceEventStarter : MonoBehaviour, IInteractable
 {
+    public UnityEvent OnClicked;
     public static EventHandler<ChanceEvent> OnChanceEvent;
     public List<UnityEvent> OutcomeEvents;
 
@@ -14,6 +15,7 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     private bool _hasBeenClicked = false;
     public void OnClick()
     {
+        OnClicked.Invoke();
         ChanceEvent();
     }
 
@@ -48,37 +50,3 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
         }
     }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(ChanceEventStarter))]
-public class ChanceEventStarterEditor : Editor
-{
-    private Editor chanceEventEditor;
-
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-
-        DrawDefaultInspector();
-
-        ChanceEventStarter chanceEventStarter = (ChanceEventStarter)target;
-
-        if (chanceEventEditor == null && chanceEventStarter._chanceEvent != null)
-        {
-            chanceEventEditor = CreateEditor(chanceEventStarter._chanceEvent);
-        }
-
-        if (chanceEventEditor != null)
-        {
-            EditorGUI.BeginChangeCheck();
-            chanceEventEditor.OnInspectorGUI();
-            if (EditorGUI.EndChangeCheck())
-            {
-                EditorUtility.SetDirty(chanceEventStarter._chanceEvent);
-            }
-        }
-
-        serializedObject.ApplyModifiedProperties();
-    }
-}
-#endif

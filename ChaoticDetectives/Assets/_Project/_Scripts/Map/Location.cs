@@ -48,4 +48,9 @@ public class Location : MonoBehaviour, IInteractable
     {
         _revealed = shouldReveal;
     }
+
+    public void ChangeLocation(GameObject newLocation)
+    {
+        _locationObject = newLocation;
+    }
 }

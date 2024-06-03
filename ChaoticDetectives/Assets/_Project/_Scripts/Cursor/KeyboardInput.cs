@@ -5,6 +5,8 @@ public class KeyboardInput : AbstractInput
 {
     private void Update()
     {
+        if(enabled == false) return;
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             OnClickDown?.Invoke();
@@ -22,6 +24,8 @@ public class KeyboardInput : AbstractInput
 
     public override float GetHorizontalInput()
     {
+        if (enabled == false) return 0;
+
         if (Input.GetKey(KeyCode.A))
         {
             return -1;
@@ -38,6 +42,8 @@ public class KeyboardInput : AbstractInput
 
     public override float GetVerticalInput()
     {
+        if (enabled == false) return 0;
+
         if (Input.GetKey(KeyCode.S))
         {
             return -1;
@@ -51,5 +57,4 @@ public class KeyboardInput : AbstractInput
             return 0;
         }
     }
-
 }

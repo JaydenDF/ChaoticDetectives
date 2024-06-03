@@ -10,9 +10,9 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-   private Inventory inventory;
-    [SerializeField] private Collider2D _colliderToDisable;
-    
+    private Inventory inventory;
+    private Collider2D _colliderToDisable;
+
     public GameObject inventorySlotPrefab;
     public UIItem inventorySlotPrefabScript;
     public GameObject inventoryHolder;
@@ -25,6 +25,15 @@ public class Items : MonoBehaviour, IInteractable
         isCollected = false;
         isUsed = false;
         inventory = FindObjectOfType<Inventory>();
+        
+        var collider = GetComponents<Collider2D>();
+        foreach (var col in collider)
+        {
+            if (col.isTrigger == false)
+            {
+                _colliderToDisable = col;
+            }
+        }
     }
     private void OnEnable()
     {
@@ -59,6 +68,8 @@ public class Items : MonoBehaviour, IInteractable
         {
             CollectItem();
         }
+
+        _colliderToDisable.enabled = false;
     }
 
     public void OnHoverEnter()

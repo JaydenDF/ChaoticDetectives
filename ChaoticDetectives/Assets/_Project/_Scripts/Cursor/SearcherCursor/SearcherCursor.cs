@@ -229,4 +229,9 @@ public class SearcherCursor : Cursor
             _selectionMode = false;
         }
     }
+
+    public void OverrideCanMove(bool canMove)
+    {
+        _canMove = canMove;
+    }
 }

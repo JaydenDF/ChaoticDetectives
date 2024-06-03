@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRollPossible: 12
   minRollPossible: 0
-  neededRoll: 0
+  neededRoll: 12
   _outcomes:
-  - sprite: {fileID: 0}
-    isPermanent: 0
-  - sprite: {fileID: 0}
-    isPermanent: 0
+  - isPermanent: 0
+  - isPermanent: 0

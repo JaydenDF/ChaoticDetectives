@@ -17,6 +17,8 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
     [SerializeField] protected int currentState;
 
+    private SpriteRenderer spriteRenderer;
+
     public HeldItem currentHeldItem = null;
 
     [Serializable]
@@ -40,6 +42,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnClick()
     {
+        if (currentHeldItem == null) { return; }
+
         if (currentHeldItem.hasCorrectItem == false)
         {
             Destroy(currentHeldItem.transform.gameObject);
@@ -47,7 +51,7 @@ public class Interactable : MonoBehaviour, IInteractable
         }
         else if (currentHeldItem.hasCorrectItem == true)
         {
-            
+
             SetNeededItemsBoolToTrue();
         }
     }
@@ -59,6 +63,11 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        if(GetComponent<SpriteRenderer>() != null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         if (states.Count > 0 && currentState == 0)
         {
             transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
@@ -67,12 +76,18 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-        transform.gameObject.GetComponent<SpriteRenderer>().material = glowMaterial;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.material = glowMaterial;
+        }
     }
 
     public void OnHoverExit()
     {
-        transform.gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.material = defaultMaterial;
+        }
     }
 
     protected virtual void UseItem()
@@ -112,16 +127,16 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void CheckIfAllNeededItemsAreCollected()
     {
+
         for (int i = 0; i < neededItems.Count; i++)
         {
             if (neededItems[i].hasCollectedThisItem == false)
             {
                 break;
             }
-            else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count - 1)
+            else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count -1)
             {
                 UseItem();
-                //Destroy(currentHeldItem.transform.gameObject);
             }
         }
     }
