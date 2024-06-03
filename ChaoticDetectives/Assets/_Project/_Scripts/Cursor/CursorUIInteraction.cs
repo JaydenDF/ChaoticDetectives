@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CursorUIInteraction : MonoBehaviour, IInteractable
 {

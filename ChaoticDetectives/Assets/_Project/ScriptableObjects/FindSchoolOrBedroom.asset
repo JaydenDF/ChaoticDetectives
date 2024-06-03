@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRollPossible: 12
   minRollPossible: 0
-  neededRoll: 12
+  neededRoll: 6
   _outcomes:
   - isPermanent: 0
   - isPermanent: 0
