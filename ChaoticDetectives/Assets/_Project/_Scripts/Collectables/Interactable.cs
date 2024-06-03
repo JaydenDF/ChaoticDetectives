@@ -10,9 +10,7 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    //[SerializeField] public Items neededItem;
-
-    [SerializeField] private Inventory inventory;
+    private Inventory inventory;
 
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
     [SerializeField] protected int currentState;
@@ -63,7 +61,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        if(GetComponent<SpriteRenderer>() != null)
+        inventory = FindObjectOfType<Inventory>();
+        if (GetComponent<SpriteRenderer>() != null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
@@ -134,7 +133,7 @@ public class Interactable : MonoBehaviour, IInteractable
             {
                 break;
             }
-            else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count -1)
+            else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count - 1)
             {
                 UseItem();
             }
