@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Items : MonoBehaviour, IInteractable
@@ -14,11 +16,16 @@ public class Items : MonoBehaviour, IInteractable
     private Collider2D _colliderToDisable;
 
     public GameObject inventorySlotPrefab;
-    public UIItem inventorySlotPrefabScript;
+    private UIItem inventorySlotPrefabScript;
     public GameObject inventoryHolder;
 
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
+
+    public string itemDesc;
+
+    public string itemMonologueText;
+    private GameObject itemMonologueUIText;
 
     private void Awake()
     {
@@ -34,6 +41,8 @@ public class Items : MonoBehaviour, IInteractable
                 _colliderToDisable = col;
             }
         }
+        itemMonologueUIText = GameObject.Find("MonologueText");
+        inventorySlotPrefabScript = inventorySlotPrefab.GetComponent<UIItem>();
     }
     private void OnEnable()
     {
@@ -96,6 +105,7 @@ public class Items : MonoBehaviour, IInteractable
     {
         OnCollected?.Invoke();
         isCollected = true;
+        itemMonologueUIText.GetComponent<TMP_Text>().SetText(itemMonologueText);
         inventory.AddToInventory(this.gameObject);
     }
 }

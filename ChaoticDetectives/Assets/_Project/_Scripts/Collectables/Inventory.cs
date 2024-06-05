@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +15,8 @@ public class Inventory : MonoBehaviour
     public GameObject inventoryPanel;
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUIScript;
+
+    private Items itemScript;
 
 
     private void OnEnable()
@@ -45,6 +48,9 @@ public class Inventory : MonoBehaviour
         UIStorage.Add(instantiatedPrefab);
     }
 
+    //Adding Item to inventory
+    //AND
+    //Adding changing the sprite of the prefab to the sprite of the image.
     public void AddToInventory(GameObject item)
     {
         AddItemToInventoryList(item);
@@ -52,6 +58,8 @@ public class Inventory : MonoBehaviour
         instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
         instantiatedPrefab.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefabUIScript = instantiatedPrefab.GetComponent<UIItem>();
+        itemScript = item.GetComponent<Items>();
+        instantiatedPrefabUIScript.ItemDesc = itemScript.itemDesc;
         instantiatedPrefabUIScript.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
         EventOnItemAdded(item);

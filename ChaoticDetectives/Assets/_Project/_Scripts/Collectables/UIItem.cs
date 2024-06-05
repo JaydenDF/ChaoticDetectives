@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,19 @@ public class UIItem : MonoBehaviour, IInteractable
     public GameObject itemPrefab;
     public HeldItem itemPrefabScript;
 
+    public string ItemDesc;
+
+    [SerializeField] private GameObject ItemDescImage;
+    public GameObject ItemDescText;
+
     private void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
         transform.gameObject.GetComponent<Image>().sprite = itemSprite;
         isAdded = false;
         cursor = GameObject.Find("Cursor(Searcher)");
+        ItemDescImage = GameObject.Find("ItemDescImage");
+        ItemDescText = GameObject.Find("ItemDescText");
     }
 
     private void Update()
@@ -60,7 +68,8 @@ public class UIItem : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-
+        ItemDescText.GetComponent<TMP_Text>().SetText(ItemDesc);
+        ItemDescImage.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
     }
 
     public void OnHoverExit()
