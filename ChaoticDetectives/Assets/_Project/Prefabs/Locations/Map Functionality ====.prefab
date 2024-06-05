@@ -284,6 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee62da1cd979604ca97a6752ef7912e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
   OutcomeEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -352,7 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
-  inventory: {fileID: 0}
   states: []
   currentState: 0
   currentHeldItem: {fileID: 0}
@@ -455,7 +457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
-  inventory: {fileID: 0}
   states: []
   currentState: 0
   currentHeldItem: {fileID: 0}
@@ -1391,6 +1392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee62da1cd979604ca97a6752ef7912e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
   OutcomeEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -3342,6 +3346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee62da1cd979604ca97a6752ef7912e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
   OutcomeEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -3434,7 +3441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
-  inventory: {fileID: 0}
   states: []
   currentState: 0
   currentHeldItem: {fileID: 0}
@@ -3804,6 +3810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e98ccad5a1fe7b4db583b2f724a132e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
   OutcomeEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -4372,7 +4381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046781767004510388, guid: 2d0314c836a9d16419e2ffb88fedd3f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4472,6 +4481,10 @@ PrefabInstance:
     - target: {fileID: 8211647577744218628, guid: 3df5091ad6db6334488618d4d7764131, type: 3}
       propertyPath: m_Name
       value: Park
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211647577744218628, guid: 3df5091ad6db6334488618d4d7764131, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5233,6 +5246,10 @@ PrefabInstance:
     - target: {fileID: 7046781767004510388, guid: 34c02d7ce3aa31d49852ecad9e95e696, type: 3}
       propertyPath: m_Name
       value: EmptyDeckOfCards
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046781767004510388, guid: 34c02d7ce3aa31d49852ecad9e95e696, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6136,6 +6153,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway from bedroom
       objectReference: {fileID: 0}
+    - target: {fileID: 673716972605722112, guid: 7ea3067b1eb27b84d9894a5928ff0041, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1946060587961960091, guid: 7ea3067b1eb27b84d9894a5928ff0041, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6186,6 +6207,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3036235052709757667, guid: 7ea3067b1eb27b84d9894a5928ff0041, type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979787052166107383, guid: 7ea3067b1eb27b84d9894a5928ff0041, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6441,7 +6466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 435694682481248321, guid: 853283f20c110a94497247a52ebcaa16, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2125708042810144596, guid: 853283f20c110a94497247a52ebcaa16, type: 3}
       propertyPath: m_LocalScale.x
@@ -6994,10 +7019,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: School from Bedroom
       objectReference: {fileID: 0}
+    - target: {fileID: 772383835045553341, guid: 1fb719e70975d154f8e79aef9ddf3f39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1088472815803452453, guid: 1fb719e70975d154f8e79aef9ddf3f39, type: 3}
       propertyPath: _locationObject
       value: 
       objectReference: {fileID: 5038786118060725829}
+    - target: {fileID: 5487723215992905383, guid: 1fb719e70975d154f8e79aef9ddf3f39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6907444299627841781, guid: 1fb719e70975d154f8e79aef9ddf3f39, type: 3}
       propertyPath: m_SortingOrder
       value: -77
@@ -7261,6 +7294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e98ccad5a1fe7b4db583b2f724a132e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClicked:
+    m_PersistentCalls:
+      m_Calls: []
   OutcomeEvents:
   - m_PersistentCalls:
       m_Calls:

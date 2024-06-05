@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-public class UIChanceEvent : MonoBehaviour {
+public class UIChanceEvent : MonoBehaviour
+{
     public static Action OnChanceEventStart;
     public static Action OnChanceEventEnd;
 
@@ -10,6 +11,7 @@ public class UIChanceEvent : MonoBehaviour {
     [SerializeField] private GameObject _objectToEnable;
     [SerializeField] private TextMeshPro _neededRoll;
     [SerializeField] private TextMeshPro _outcome;
+    [SerializeField] private TextMeshPro _modifierText;
 
     [Space(10)]
     [Header("Animation")]
@@ -21,15 +23,18 @@ public class UIChanceEvent : MonoBehaviour {
     private ChanceEventStarter _chanceEventStarter;
     private uint _neededRollValue => _chanceEvent.neededRoll;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         ChanceEventStarter.OnChanceEvent += OnChanceEvent;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         ChanceEventStarter.OnChanceEvent -= OnChanceEvent;
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         DisableUI();
     }
 
@@ -39,7 +44,7 @@ public class UIChanceEvent : MonoBehaviour {
         _objectToEnable.SetActive(true);
 
         _chanceEvent = e;
-        if(sender is ChanceEventStarter chanceEventStarter)
+        if (sender is ChanceEventStarter chanceEventStarter)
         {
             _chanceEventStarter = chanceEventStarter;
         }
@@ -47,6 +52,7 @@ public class UIChanceEvent : MonoBehaviour {
         _neededRoll.text = _neededRollValue.ToString();
         _outcome.color = Color.black;
         _outcome.text = "0";
+        _modifierText.text = "";
     }
 
     public void Roll()
@@ -55,22 +61,26 @@ public class UIChanceEvent : MonoBehaviour {
         StartCoroutine(AnimateRoll(roll, _animDuration, _animationInterval, _waitTime));
     }
 
-    private IEnumerator AnimateRoll(int roll, float animDuration = 1f,float animationInterval = 0.5f, float waitTime = 0.5f)
+    private IEnumerator AnimateRoll(int roll, float animDuration = 1f, float animationInterval = 0.5f, float waitTime = 0.5f)
     {
         float elapsedTime = 0;
-        while (elapsedTime*100 < animDuration)
+        while (elapsedTime * 100 < animDuration)
         {
             _outcome.text = UnityEngine.Random.Range((int)_chanceEvent.minRollPossible, (int)_chanceEvent.maxRollPossible).ToString();
             elapsedTime += Time.deltaTime;
             yield return new WaitForSeconds(animationInterval);
         }
-
         _outcome.text = roll.ToString();
+        yield return new WaitForSeconds(waitTime);
+        _modifierText.text = "+" + _chanceEvent.GetModifier().ToString();
+        yield return new WaitForSeconds(waitTime / 2);
+        _outcome.text = (roll + _chanceEvent.GetModifier()).ToString();
+        _outcome.color = Color.blue;
+        _modifierText.text = "";
         yield return new WaitForSeconds(waitTime);
         _outcome.color = roll < _neededRollValue ? Color.red : Color.green;
         yield return new WaitForSeconds(waitTime);
-        _chanceEventStarter.OnUIRollled((uint)roll);
-
+        _chanceEventStarter.OnUIRollled((uint)roll + _chanceEvent.GetModifier());
         OnChanceEventEnd?.Invoke();
         DisableUI();
     }

@@ -11,6 +11,7 @@ public class ChanceEvent : ScriptableObject
 
     [Range(0, 12)]
     public uint neededRoll;
+    public StatType statTypeCheck;
 
     public ChanceOutcome[] _outcomes = new ChanceOutcome[2];
 
@@ -36,5 +37,12 @@ public class ChanceEvent : ScriptableObject
             }
         }
         return -1;
+    }
+
+    public uint GetModifier()
+    {
+        StatSystem statSystem = StatSystem.Instance;
+        uint value = statSystem.GetStatValue(statTypeCheck);
+        return value;
     }
 }

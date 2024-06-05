@@ -22,6 +22,8 @@ public class Items : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        inventory = FindObjectOfType<Inventory>();
+
         isCollected = false;
         isUsed = false;
         inventory = FindObjectOfType<Inventory>();
@@ -89,13 +91,15 @@ public class Items : MonoBehaviour, IInteractable
         if (isUsed == false) { return; }
 
         inventory.collectedItems.Remove(gameObject);
-
     }
 
     public void CollectItem()
     {
         OnCollected?.Invoke();
         isCollected = true;
+
+        if(inventorySlotPrefab == null) {inventory = FindObjectOfType<Inventory>();}
+
         inventory.AddToInventory(this.gameObject);
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557851028581686940}
   - component: {fileID: 212095245002443972}
+  - component: {fileID: -7959040184939227821}
   m_Layer: 0
   m_Name: KeyGood
   m_TagString: Untagged
@@ -84,3 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7959040184939227821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2150974233164601189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollected: 0
+  glowMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  inventorySlotPrefab: {fileID: 0}
+  inventorySlotPrefabScript: {fileID: 0}
+  inventoryHolder: {fileID: 0}

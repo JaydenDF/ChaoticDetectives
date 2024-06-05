@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using static Interactable;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
+    public UnityEvent OnInteractionFinished;
+    private bool _hasBeenCalled = false;
+
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
@@ -96,10 +100,16 @@ public class Interactable : MonoBehaviour, IInteractable
             Debug.Log(neededItems[i].neededItem);
         }
 
-        if (currentState < states.Count - 1)
+        if (currentState <= states.Count - 1)
         {
             currentState = 1;
+            if (_hasBeenCalled == false)
+            {
+                OnInteractionFinished.Invoke();
+                _hasBeenCalled = true;
+            }
         }
+
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
@@ -111,7 +121,7 @@ public class Interactable : MonoBehaviour, IInteractable
         }
     }
 
-    private void SetNeededItemsBoolToTrue()
+    protected virtual void SetNeededItemsBoolToTrue()
     {
         for (int i = 0; i < neededItems.Count; i++)
         {
@@ -124,7 +134,7 @@ public class Interactable : MonoBehaviour, IInteractable
         }
     }
 
-    private void CheckIfAllNeededItemsAreCollected()
+    protected virtual void CheckIfAllNeededItemsAreCollected()
     {
 
         for (int i = 0; i < neededItems.Count; i++)
