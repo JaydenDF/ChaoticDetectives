@@ -1,35 +1,72 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System;
+using Unity.VisualScripting;
 
 public class SelectAndDisableChildrenEditor : EditorWindow
 {
     private static bool isEnabled = false;
+    private bool showShortcuts = false;
     private List<GameObject> gameObjects = new List<GameObject>();
 
     private const string PREFS_KEY = "SelectAndDisableChildrenGameObjects";
 
-    [MenuItem("Window/Select And Disable Tools %#d")] // Shortcut: Ctrl/Cmd + Shift + D
+    [MenuItem("Tools/Select And Disable Tools")]
     public static void ShowWindow()
     {
         GetWindow<SelectAndDisableChildrenEditor>("Select And Disable Tools");
     }
 
-    [MenuItem("Window/Toggle Select And Disable Tools %#t")] // Shortcut: Ctrl/Cmd + Shift + T
+
+    [MenuItem("Tools/Select And Disable Tools/Toggle Functionality #e")] // Shortcut: Shift + E
     public static void ToggleFunctionality()
     {
         isEnabled = !isEnabled;
         EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().Repaint();
     }
 
+    [MenuItem("Tools/Select And Disable Tools/Enable All #a")] // Shortcut: Shift + A
+    public static void EnableAll()
+    {
+        EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().SetActiveStateForAll(true);
+    }
+
+    [MenuItem("Tools/Select And Disable Tools/Disable All #s")] // Shortcut: Shift + S
+    public static void DisableAll()
+    {
+        EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().SetActiveStateForAll(false);
+    }
+    private void OnEnable() {
+        Selection.selectionChanged += OnSelectionChanged;
+    }
+
+    private void OnDisable() {
+        Selection.selectionChanged -= OnSelectionChanged;
+    }
+
     private void OnGUI()
     {
+        // Shortcuts foldout section
+        showShortcuts = EditorGUILayout.Foldout(showShortcuts, "Shortcuts");
+        if (showShortcuts)
+        {
+            GUI.color = Color.yellow;
+            GUILayout.BeginVertical("box");
+            GUILayout.Label("Toggle Functionality: Shift + E", EditorStyles.label);
+            GUILayout.Label("Enable All: Shift + A", EditorStyles.label);
+            GUILayout.Label("Disable All: Shift + S", EditorStyles.label);
+            GUILayout.EndVertical();
+            GUI.color = Color.white;
+        }
+
         GUILayout.Label("Toggle Select And Disable Tools", EditorStyles.boldLabel);
         isEnabled = EditorGUILayout.Toggle("Enabled", isEnabled);
 
         EditorGUILayout.Space();
 
         GUILayout.Label("GameObjects to Toggle", EditorStyles.boldLabel);
+        EditorGUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Add Selected GameObjects"))
         {
@@ -37,9 +74,17 @@ public class SelectAndDisableChildrenEditor : EditorWindow
             SaveGameObjects();
         }
 
+        if (GUILayout.Button("Clear All"))
+        {
+            gameObjects.Clear();
+            SaveGameObjects();
+        }
+
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.Space();
 
-      
+        EditorGUILayout.BeginHorizontal();
 
         GUI.color = Color.green; // Set the color to green for the "Enable All" button
         if (GUILayout.Button("Enable All"))
@@ -55,9 +100,10 @@ public class SelectAndDisableChildrenEditor : EditorWindow
         }
         GUI.color = Color.white; // Reset to default color
 
+        EditorGUILayout.EndHorizontal();
         EditorGUILayout.Space();
 
-          for (int i = 0; i < gameObjects.Count; i++)
+        for (int i = 0; i < gameObjects.Count; i++)
         {
             EditorGUILayout.BeginHorizontal();
             gameObjects[i] = (GameObject)EditorGUILayout.ObjectField(gameObjects[i], typeof(GameObject), true);
@@ -68,25 +114,7 @@ public class SelectAndDisableChildrenEditor : EditorWindow
             }
             EditorGUILayout.EndHorizontal();
         }
-
-        if(GUILayout.Button("Clear All"))
-        {
-            gameObjects.Clear();
-            SaveGameObjects();
-        }
     }
-
-    private void OnEnable()
-    {
-        Selection.selectionChanged += OnSelectionChanged;
-        LoadGameObjects();
-    }
-
-    private void OnDisable()
-    {
-        Selection.selectionChanged -= OnSelectionChanged;
-    }
-
     private void OnSelectionChanged()
     {
         if (!isEnabled) return;
