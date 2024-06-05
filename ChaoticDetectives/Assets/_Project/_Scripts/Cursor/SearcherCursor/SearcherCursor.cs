@@ -13,6 +13,7 @@ public class SearcherCursor : Cursor
     [SerializeField] private float _searchRadius = 5f;
     [SerializeField] private float _timeToTravel = 0.5f;
     [SerializeField][Range(0, 2)] private float _timeToHold = 0.8f;
+    private Cursor _otherCursorScript;
     private bool _selectionMode = false;
     private ConeCollidersHandler _coneCollidersHandler;
     private List<Highlitable> _highlitables = new List<Highlitable>();
@@ -42,13 +43,21 @@ public class SearcherCursor : Cursor
     protected new void Awake()
     {
         base.Awake();
+        _otherCursorScript = GetComponent<Cursor>();
         _coneCollidersHandler = GetComponentInChildren<ConeCollidersHandler>();
     }
 
     protected new void FixedUpdate()
     {
         if (_canMove == false) { return; }
-        if (_selectionMode == true) { return; }
+        if (_selectionMode == true)
+        {
+            if (_targetCollider == null && _highlitables.Count <= 0)
+            {
+                _selectionMode = false;
+            }
+            return;
+        }
 
         base.FixedUpdate();
     }
@@ -219,5 +228,10 @@ public class SearcherCursor : Cursor
             _highlitables.Clear();
             _selectionMode = false;
         }
+    }
+
+    public void OverrideCanMove(bool canMove)
+    {
+        _canMove = canMove;
     }
 }

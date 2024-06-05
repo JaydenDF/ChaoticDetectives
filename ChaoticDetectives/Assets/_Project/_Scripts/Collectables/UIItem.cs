@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,22 @@ public class UIItem : MonoBehaviour, IInteractable
     public GameObject itemPrefab;
     public HeldItem itemPrefabScript;
 
+    public string ItemDesc;
+
+    [SerializeField] private GameObject ItemDescImage;
+    public GameObject ItemDescText;
+
+    [SerializeField] private Animator _itemDescAnimator;
+
     private void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
         transform.gameObject.GetComponent<Image>().sprite = itemSprite;
         isAdded = false;
         cursor = GameObject.Find("Cursor(Searcher)");
+        ItemDescImage = GameObject.Find("ItemDescImage");
+        ItemDescText = GameObject.Find("ItemDescText");
+        _itemDescAnimator = GameObject.Find("ItemDesc").GetComponent<Animator>();
     }
 
     private void Update()
@@ -55,16 +66,28 @@ public class UIItem : MonoBehaviour, IInteractable
         itemPrefabScript = itemPrefab.GetComponent<HeldItem>();
         itemPrefabScript.parentUIItem = gameObject;
         Instantiate(itemPrefab, parent: cursor.transform);
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void OnHoverEnter()
     {
-
+        ItemDescText.GetComponent<TMP_Text>().SetText(ItemDesc);
+        ItemDescImage.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
+        ShowAnimation();
     }
 
     public void OnHoverExit()
     {
+        HideAnimation();
+    }
 
+    private void ShowAnimation()
+    {
+        _itemDescAnimator.SetBool("needsToShowDesc", true);
+    }
+
+    private void HideAnimation()
+    {
+        _itemDescAnimator.SetBool("needsToShowDesc", false);
     }
 }

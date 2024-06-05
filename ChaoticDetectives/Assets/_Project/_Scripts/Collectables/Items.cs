@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Items : MonoBehaviour, IInteractable
 {
@@ -14,20 +12,39 @@ public class Items : MonoBehaviour, IInteractable
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private Collider2D _colliderToDisable;
-    
+    private Inventory inventory;
+    private Collider2D _colliderToDisable;
+
     public GameObject inventorySlotPrefab;
-    public UIItem inventorySlotPrefabScript;
-    public GameObject inventoryPanel;
+    private UIItem inventorySlotPrefabScript;
+    public GameObject inventoryHolder;
 
     private GameObject instantiatedPrefab;
     private UIItem instantiatedPrefabUI;
 
+    public string itemDesc;
+
+    public string itemMonologueText;
+    private GameObject itemMonologueUIText;
+
     private void Awake()
     {
+        inventory = FindObjectOfType<Inventory>();
+
         isCollected = false;
         isUsed = false;
+        inventory = FindObjectOfType<Inventory>();
+        
+        var collider = GetComponents<Collider2D>();
+        foreach (var col in collider)
+        {
+            if (col.isTrigger == false)
+            {
+                _colliderToDisable = col;
+            }
+        }
+        itemMonologueUIText = GameObject.Find("MonologueText");
+        inventorySlotPrefabScript = inventorySlotPrefab.GetComponent<UIItem>();
     }
     private void OnEnable()
     {
@@ -62,6 +79,8 @@ public class Items : MonoBehaviour, IInteractable
         {
             CollectItem();
         }
+
+        _colliderToDisable.enabled = false;
     }
 
     public void OnHoverEnter()
@@ -81,19 +100,16 @@ public class Items : MonoBehaviour, IInteractable
         if (isUsed == false) { return; }
 
         inventory.collectedItems.Remove(gameObject);
-
     }
 
     public void CollectItem()
     {
         OnCollected?.Invoke();
         isCollected = true;
-        inventory.collectedItems.Add(gameObject);
-        //inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
-        inventorySlotPrefabScript.itemSprite = transform.gameObject.GetComponent<SpriteRenderer>().sprite;
-        instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
-        instantiatedPrefabUI = instantiatedPrefab.GetComponent<UIItem>();
-        instantiatedPrefabUI.parentItem = gameObject;
-        inventory.UIStorage.Add(instantiatedPrefab);
+
+        if(inventorySlotPrefab == null) {inventory = FindObjectOfType<Inventory>();}
+
+        itemMonologueUIText.GetComponent<TMP_Text>().SetText(itemMonologueText);
+        inventory.AddToInventory(this.gameObject);
     }
 }

@@ -1,18 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class ChanceEventStarter : MonoBehaviour, IInteractable
 {
+    public UnityEvent OnClicked;
     public static EventHandler<ChanceEvent> OnChanceEvent;
+    public List<UnityEvent> OutcomeEvents;
 
-    [SerializeField] private ChanceEvent _chanceEvent;
-    private SpriteRenderer _spriteRenderer;
+    public ChanceEvent _chanceEvent;
 
-    private void Awake() {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }    
+    private bool _hasBeenClicked = false;
     public void OnClick()
     {
+        OnClicked.Invoke();
         ChanceEvent();
     }
 
@@ -24,15 +27,26 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
     {
     }
 
-    public void OnUIRollled(uint roll){
+    public void OnUIRollled(uint roll)
+    {
         ReactToOutcome(_chanceEvent.GetOutcomeFromRoll(roll));
+    }
+    public void ExecuteEvent()
+    {
+        ChanceEvent();
     }
     protected void ChanceEvent()
     {
-        OnChanceEvent?.Invoke(this,_chanceEvent);
+        if (_hasBeenClicked) return;
+        OnChanceEvent?.Invoke(this, _chanceEvent);
+        _hasBeenClicked = true;
     }
     protected void ReactToOutcome(ChanceOutcome outcome)
     {
-        _spriteRenderer.sprite = outcome.sprite;
+        int index = _chanceEvent.GetOutcomeIndex(outcome);
+        if (index < OutcomeEvents.Count)
+        {
+            OutcomeEvents[index].Invoke();
+        }
     }
 }

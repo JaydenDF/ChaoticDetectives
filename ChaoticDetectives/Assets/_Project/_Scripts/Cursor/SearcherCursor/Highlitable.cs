@@ -8,13 +8,23 @@ public interface IHighlitable
 }
 public class Highlitable : MonoBehaviour, IHighlitable
 {
-    [SerializeField] private Color HighliteColor = Color.red;
-    [SerializeField] private Collider2D _triggerCollider;
+    [SerializeField] private Color HighliteColor = Color.red; 
+    private Collider2D _triggerCollider;
     private Color _defaultColor;
     //copy of _interactable
 
     private void Awake()
     {
+        var arr = GetComponents<Collider2D>();
+        //get the trigger
+        foreach (var col in arr)
+        {
+            if (col.isTrigger)
+            {
+                _triggerCollider = col;
+            }
+        }
+
         _defaultColor = GetComponent<SpriteRenderer>().color;
         _triggerCollider.enabled = false;
     }

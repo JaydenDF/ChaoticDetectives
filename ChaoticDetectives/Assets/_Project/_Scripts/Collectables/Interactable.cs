@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using static Interactable;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
+    public UnityEvent OnInteractionFinished;
+    private bool _hasBeenCalled = false;
+
     [SerializeField] private Material glowMaterial;
     [SerializeField] private Material defaultMaterial;
 
-    //[SerializeField] public Items neededItem;
-
-    [SerializeField] private Inventory inventory;
+    private Inventory inventory;
 
     [SerializeField] protected List<Sprite> states = new List<Sprite>();
     [SerializeField] protected int currentState;
+
+    private SpriteRenderer spriteRenderer;
 
     public HeldItem currentHeldItem = null;
 
@@ -40,6 +44,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnClick()
     {
+        if (currentHeldItem == null) { return; }
+
         if (currentHeldItem.hasCorrectItem == false)
         {
             Destroy(currentHeldItem.transform.gameObject);
@@ -47,7 +53,7 @@ public class Interactable : MonoBehaviour, IInteractable
         }
         else if (currentHeldItem.hasCorrectItem == true)
         {
-            
+
             SetNeededItemsBoolToTrue();
         }
     }
@@ -59,6 +65,12 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        inventory = FindObjectOfType<Inventory>();
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         if (states.Count > 0 && currentState == 0)
         {
             transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
@@ -67,36 +79,49 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-        transform.gameObject.GetComponent<SpriteRenderer>().material = glowMaterial;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.material = glowMaterial;
+        }
     }
 
     public void OnHoverExit()
     {
-        transform.gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.material = defaultMaterial;
+        }
     }
 
     protected virtual void UseItem()
     {
-        //Code needed:
-        //activate animation or what is needed. ask designers.
-        //
-        //Remove item from the inventory UI.
         for (int i = 0; i < neededItems.Count; i++)
         {
-            
             Debug.Log(neededItems[i].neededItem);
         }
 
-        currentState += 1;
+        if (currentState <= states.Count - 1)
+        {
+            currentState = 1;
+            if (_hasBeenCalled == false)
+            {
+                OnInteractionFinished.Invoke();
+                _hasBeenCalled = true;
+            }
+        }
+
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
     protected virtual void ApplyChangesNextLoop()
     {
-        currentState += 1;
+        if (currentState < states.Count - 1)
+        {
+            currentState = 1;
+        }
     }
 
-    private void SetNeededItemsBoolToTrue()
+    protected virtual void SetNeededItemsBoolToTrue()
     {
         for (int i = 0; i < neededItems.Count; i++)
         {
@@ -109,8 +134,9 @@ public class Interactable : MonoBehaviour, IInteractable
         }
     }
 
-    private void CheckIfAllNeededItemsAreCollected()
+    protected virtual void CheckIfAllNeededItemsAreCollected()
     {
+
         for (int i = 0; i < neededItems.Count; i++)
         {
             if (neededItems[i].hasCollectedThisItem == false)
@@ -120,7 +146,6 @@ public class Interactable : MonoBehaviour, IInteractable
             else if (neededItems[i].hasCollectedThisItem && i == neededItems.Count - 1)
             {
                 UseItem();
-                //Destroy(currentHeldItem.transform.gameObject);
             }
         }
     }

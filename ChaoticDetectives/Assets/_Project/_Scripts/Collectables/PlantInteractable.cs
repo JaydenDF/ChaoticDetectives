@@ -14,7 +14,10 @@ public class PlantInteractable : Interactable
             neededItems[i].neededItem.UseItem();
         }
         PlantPlanted?.Invoke();
-        currentState = 1;
+        if (currentState < states.Count - 1)
+        {
+            currentState = 1;
+        }
         transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 

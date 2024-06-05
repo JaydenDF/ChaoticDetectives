@@ -6,9 +6,11 @@ using UnityEngine;
 public class InventoryAnimation : MonoBehaviour
 {
     [SerializeField]private Animator _animator;
+    private Inventory _inventory;
 
     private void Awake()
     {
+        _inventory = FindObjectOfType<Inventory>();
     }
 
     public void Show()
@@ -23,12 +25,12 @@ public class InventoryAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        Items.OnCollected += OnCollected;
+        _inventory.OnItemAdded.AddListener(OnCollected);
     }
 
     private void OnDisable()
     {
-        Items.OnCollected -= OnCollected;
+        _inventory.OnItemAdded.RemoveListener(OnCollected);
     }
 
     private void OnCollected()
