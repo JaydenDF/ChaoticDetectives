@@ -22,6 +22,8 @@ public class UIItem : MonoBehaviour, IInteractable
     [SerializeField] private GameObject ItemDescImage;
     public GameObject ItemDescText;
 
+    [SerializeField] private Animator _itemDescAnimator;
+
     private void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -30,6 +32,7 @@ public class UIItem : MonoBehaviour, IInteractable
         cursor = GameObject.Find("Cursor(Searcher)");
         ItemDescImage = GameObject.Find("ItemDescImage");
         ItemDescText = GameObject.Find("ItemDescText");
+        _itemDescAnimator = GameObject.Find("ItemDesc").GetComponent<Animator>();
     }
 
     private void Update()
@@ -70,10 +73,21 @@ public class UIItem : MonoBehaviour, IInteractable
     {
         ItemDescText.GetComponent<TMP_Text>().SetText(ItemDesc);
         ItemDescImage.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
+        ShowAnimation();
     }
 
     public void OnHoverExit()
     {
+        HideAnimation();
+    }
 
+    private void ShowAnimation()
+    {
+        _itemDescAnimator.SetBool("needsToShowDesc", true);
+    }
+
+    private void HideAnimation()
+    {
+        _itemDescAnimator.SetBool("needsToShowDesc", false);
     }
 }
