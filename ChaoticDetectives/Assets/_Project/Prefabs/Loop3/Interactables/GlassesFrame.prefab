@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5909673765110627692}
   - component: {fileID: 2475181596073370751}
   m_Layer: 0
-  m_Name: GlassesFram
+  m_Name: GlassesFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
