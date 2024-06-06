@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
 public class LoopMaster : MonoBehaviour {
+    public static Action OnLooped;
     private LoopManager[] _loopManagers;
 
     private void Awake() {
@@ -12,5 +14,6 @@ public class LoopMaster : MonoBehaviour {
         foreach (var loopManager in _loopManagers) {
             loopManager.Loop();
         }
+        OnLooped?.Invoke();
     }
 }

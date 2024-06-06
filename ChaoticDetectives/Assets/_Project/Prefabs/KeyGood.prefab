@@ -101,5 +101,7 @@ MonoBehaviour:
   glowMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   inventorySlotPrefab: {fileID: 0}
-  inventorySlotPrefabScript: {fileID: 0}
   inventoryHolder: {fileID: 0}
+  itemDesc: An old locker key collected from a keychain.
+  itemMonologueText: Well... I hope it is the right one! And hey, if it is wrong,
+    we get more screen time together, right player?
