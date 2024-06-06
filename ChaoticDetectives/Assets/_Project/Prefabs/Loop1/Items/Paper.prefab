@@ -101,10 +101,12 @@ MonoBehaviour:
   isCollected: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  _colliderToDisable: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
-  inventorySlotPrefabScript: {fileID: 0}
   inventoryHolder: {fileID: 0}
+  itemDesc: A riddle put on a piece of paper.
+  itemMonologueText: There is only one location that matches this description...
+    Because it is OBVIOUS! I told them to change it... But you know how they are.
+    You tell them, tell them again, and they still do not listen!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
