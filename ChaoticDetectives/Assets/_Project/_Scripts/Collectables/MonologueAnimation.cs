@@ -6,6 +6,7 @@ public class MonologueAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     private Inventory _inventory;
+    public float delayTime;
 
     private void Awake()
     {
@@ -34,10 +35,10 @@ public class MonologueAnimation : MonoBehaviour
 
     private void OnCollected()
     {
-        StartCoroutine(ShowAndHideAfterDelay(2f));
+        StartCoroutine(ShowAndHideAfterDelay(delayTime));
     }
 
-    private IEnumerator ShowAndHideAfterDelay(float delay = 2)
+    private IEnumerator ShowAndHideAfterDelay(float delay = 2f)
     {
         if (_animator != null)
         {
