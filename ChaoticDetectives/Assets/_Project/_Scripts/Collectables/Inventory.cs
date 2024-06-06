@@ -53,6 +53,7 @@ public class Inventory : MonoBehaviour
     //Adding changing the sprite of the prefab to the sprite of the image.
     public void AddToInventory(GameObject item)
     {
+        EventOnItemAdded(item);
         AddItemToInventoryList(item);
         inventorySlotPrefab.transform.gameObject.GetComponent<Image>().sprite = item.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefab = Instantiate(inventorySlotPrefab, parent: inventoryPanel.transform);
@@ -62,7 +63,6 @@ public class Inventory : MonoBehaviour
         instantiatedPrefabUIScript.ItemDesc = itemScript.itemDesc;
         instantiatedPrefabUIScript.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
-        EventOnItemAdded(item);
     }
 
     private void EventOnItemAdded(GameObject item)
