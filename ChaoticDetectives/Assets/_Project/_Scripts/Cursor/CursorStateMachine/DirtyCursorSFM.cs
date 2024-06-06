@@ -9,7 +9,7 @@ public class DirtyCursorSFM : MonoBehaviour
     [SerializeField] private Cursor _normalCursor;
     [SerializeField] private GameObject _cursorSprite;
     private Map _map;
-    private AbstractInput _abstractInput;
+    [SerializeField]private AbstractInput _abstractInput;
 
     private void OnEnable()
     {
@@ -41,7 +41,6 @@ public class DirtyCursorSFM : MonoBehaviour
     }
     private void Awake() {
         _map = FindObjectOfType<Map>();
-        _abstractInput = GetComponentInChildren<AbstractInput>();
     }
 
     private void Start()
