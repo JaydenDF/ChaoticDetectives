@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/LowFI.unity
     guid: 1d88e7d9ed75c5a43a79132025c3f338
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/Sprint4/Sprint 4.unity
     guid: 905aeb6e59bae894b8b6ed5b563cc59d
+  - enabled: 1
+    path: Assets/_Project/Scenes/Sprint5/Sprint 5.unity
+    guid: 5dbb70391c0b25a48ace61e3d2728920
   m_configObjects: {}

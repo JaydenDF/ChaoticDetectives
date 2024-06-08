@@ -16,11 +16,8 @@ public class Items : MonoBehaviour, IInteractable
     private Collider2D _colliderToDisable;
 
     public GameObject inventorySlotPrefab;
-    private UIItem inventorySlotPrefabScript;
     public GameObject inventoryHolder;
 
-    private GameObject instantiatedPrefab;
-    private UIItem instantiatedPrefabUI;
 
     public string itemDesc;
 
@@ -38,13 +35,14 @@ public class Items : MonoBehaviour, IInteractable
         var collider = GetComponents<Collider2D>();
         foreach (var col in collider)
         {
-            if (col.isTrigger == false)
+            if (col.isTrigger == false) 
             {
                 _colliderToDisable = col;
             }
         }
         itemMonologueUIText = GameObject.Find("MonologueText");
-        inventorySlotPrefabScript = inventorySlotPrefab.GetComponent<UIItem>();
+
+        inventoryHolder = GameObject.Find("InventoryHolder");
     }
     private void OnEnable()
     {
@@ -108,7 +106,7 @@ public class Items : MonoBehaviour, IInteractable
         isCollected = true;
 
         if(inventorySlotPrefab == null) {inventory = FindObjectOfType<Inventory>();}
-
+        if(itemMonologueUIText == null) {itemMonologueUIText = GameObject.Find("MonologueText");}
         itemMonologueUIText.GetComponent<TMP_Text>().SetText(itemMonologueText);
         inventory.AddToInventory(this.gameObject);
     }

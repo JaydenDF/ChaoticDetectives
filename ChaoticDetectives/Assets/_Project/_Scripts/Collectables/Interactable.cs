@@ -95,11 +95,6 @@ public class Interactable : MonoBehaviour, IInteractable
 
     protected virtual void UseItem()
     {
-        for (int i = 0; i < neededItems.Count; i++)
-        {
-            Debug.Log(neededItems[i].neededItem);
-        }
-
         if (currentState <= states.Count - 1)
         {
             currentState = 1;
