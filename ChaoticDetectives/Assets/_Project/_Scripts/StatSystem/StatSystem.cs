@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StatSystem : MonoBehaviour
@@ -26,7 +27,11 @@ public class StatSystem : MonoBehaviour
     }
     #endregion
 
+    public static Action<Stat[]> OnStatsChanged;
+    public static Action<CharacterSO> OnCharacterChanged;
+
     [SerializeField] private CharacterSO _currentCharacterSO;
+    
     [SerializeField]
     private Stat[] stats =
     {
@@ -51,6 +56,7 @@ public class StatSystem : MonoBehaviour
     private void SetCurrentCharacterSO(CharacterSO characterSO)
     {
         _currentCharacterSO = characterSO;
+        OnCharacterChanged?.Invoke(characterSO);
     }
     public void SetStatValue(StatType statType, uint value)
     {
@@ -61,6 +67,8 @@ public class StatSystem : MonoBehaviour
                 stats[i].value = value;
             }
         }
+
+        OnStatsChanged?.Invoke(stats);
     }
 
     public void SetStatsFromCharacterSO(CharacterSO characterSO)
@@ -80,6 +88,8 @@ public class StatSystem : MonoBehaviour
                 stats[i].value += value;
             }
         }
+
+        OnStatsChanged?.Invoke(stats);
     }
 
     public bool CheckStatValue(StatType statType, uint value)
