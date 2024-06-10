@@ -16,6 +16,15 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I do indeed, but it seems I've forgotten it. I'll be back shortly.
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: I indeed hope so too!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: I'll ensure it comes to pass!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
@@ -23,25 +32,15 @@ MonoBehaviour:
     PortName: Tell me more about Ivy
     TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Do you know anything about her disappearance?
+    PortName: May I check the CCTV of your store?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: I indeed hope so too!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: I'll ensure it comes to pass!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: I will try my best to find it!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Have a great day, sir!
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
   DialogueNodeData:
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: Hmm... My memory seems to fail me without my diary. I can only
-      recall fragments, such as her wearing a blue jacket. I fear I may not be of
-      much help. Not without my diary...ye...not without it!
+    DialogueText: My apologies, sir, but I can't rightly say if you're with the authorities.
+      Do you have something that might prove you're an investigator?
     Position: {x: 401, y: 526}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: I haven't felt this way since I lost my wife. It feels as my body

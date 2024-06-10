@@ -35,7 +35,7 @@ MonoBehaviour:
     PortName: Have a great day, sir!
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
   - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
-    PortName: Thank you, I promise to bring her back!
+    PortName: Thank you, I promise to bring Ivy back!
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: 905b5ca6-27d1-4cf1-9363-27d8c9cb77e1
     PortName: You are more than welcome!
@@ -71,9 +71,6 @@ MonoBehaviour:
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
     Position: {x: 1476, y: 123}
-  - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
-    DialogueText: DialogueNode
-    Position: {x: 1361, y: 526}
   - NodeGUID: 905b5ca6-27d1-4cf1-9363-27d8c9cb77e1
     DialogueText: Thank you, child. All of your support has been my source of strength.
       I cherish every moment of it.
@@ -86,3 +83,8 @@ MonoBehaviour:
       makes me forget even the most important things. Now, what brings you here,
       again?"
     Position: {x: 401, y: 526}
+  - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
+    DialogueText: "I know my grand daughter kept a photo album with pictures, try
+      looking through them. Unfortunately, I cannot remember it is in her bedroom
+      or in her school locker\u2026"
+    Position: {x: 1361, y: 526}
