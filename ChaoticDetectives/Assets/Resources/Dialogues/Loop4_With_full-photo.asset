@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bb65984647ff324485370bea336e303, type: 3}
-  m_Name: No_birthday
+  m_Name: Loop4_With_full-photo
   m_EditorClassIdentifier: 
   NodeLinks:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
@@ -26,7 +26,7 @@ MonoBehaviour:
     PortName: Could there be someone that wished Ivy harm?
     TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Is there more you can tell me about Ivy's dissapearance?
+    PortName: '*Give full photo*'
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Have a great day, sir!
@@ -35,7 +35,7 @@ MonoBehaviour:
     PortName: Indeed...quite amusing! Hope no harm was done!
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: I'll do try to help you remember. We'll find Ivy...together!
+    PortName: There is a lead worth pursuing. Thank you for your assistance, sir!
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   DialogueNodeData:
   - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
@@ -47,15 +47,16 @@ MonoBehaviour:
     DialogueText: Hi there! How can I help you child?
     Position: {x: 401, y: 116}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: Nothing special, although Ivy's counselor came by... brought me
-      some sweets, and we sat inside for a cup of tea. Then he opened a bottle of
-      scotch whiskey... ha, what a lovely man.
+    DialogueText: Oh... There was a bird that broke my window, injuring its wing...I
+      brought it home and tried to help, but I am slighly too old for this, that
+      poor little thing.
     Position: {x: 401, y: 298}
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
     Position: {x: 861, y: 207}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: I am sorry, my dear, but my memory will not get better, so I cannot
-      provide any help. There must be something that can stir my memory, something...
-      something that belongs to her!
+    DialogueText: There it is, the other half. Thank you for finding it. It's Ivy
+      and her mother, and that picture surely was taken in the park they loved so
+      much. After my daughter's death, Ivy has been going to the same park every
+      other day, reminiscing about all the memories and smiling.
     Position: {x: 401, y: 526}

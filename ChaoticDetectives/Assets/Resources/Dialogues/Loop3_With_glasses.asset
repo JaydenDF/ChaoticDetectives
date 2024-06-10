@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bb65984647ff324485370bea336e303, type: 3}
-  m_Name: With_half-photo
+  m_Name: Loop3_With_glasses
   m_EditorClassIdentifier: 
   NodeLinks:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
@@ -29,19 +29,16 @@ MonoBehaviour:
     PortName: Tell me more about Ivy
     TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: '*Show badge*'
+    PortName: '*Give glasses*'
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Have a great day, sir!
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-  - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
-    PortName: Thank you, I promise to bring Ivy back!
-    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: 905b5ca6-27d1-4cf1-9363-27d8c9cb77e1
     PortName: You are more than welcome!
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: Do you perhaps know where the other half might be?
+    PortName: What is so important about this pen?
     TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: Goodbye, and keep you faith alive!
@@ -49,6 +46,9 @@ MonoBehaviour:
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: It will be alright!
     TargetNodeGuid: 905b5ca6-27d1-4cf1-9363-27d8c9cb77e1
+  - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+    PortName: Thank you, I promise to sort everything out!
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   DialogueNodeData:
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: I haven't felt this way since I lost my wife. It feels as my body
@@ -70,10 +70,6 @@ MonoBehaviour:
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
     Position: {x: 1476, y: 123}
-  - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
-    DialogueText: I believe it was in the bedroom, but she carried it everywhere,
-      so it could have been at school too.
-    Position: {x: 1361, y: 526}
   - NodeGUID: 905b5ca6-27d1-4cf1-9363-27d8c9cb77e1
     DialogueText: Thank you, child. All of your support has been my source of strength.
       I cherish every moment of it.
@@ -82,6 +78,12 @@ MonoBehaviour:
     DialogueText: ENDPOINT
     Position: {x: 1361, y: 718}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: Little Ivy... She appears so beautiful and....happy. Though I recall
-      the picture being undamaged. Who could be so heartless to shatter it?
-    Position: {x: 401, y: 526}
+    DialogueText: Oh... you made me new ones... they are fantastic!.....Wait....There's
+      a pen on the table... oh, I missed seeing it so much.
+    Position: {x: 400, y: 520}
+  - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
+    DialogueText: "It\u2019s Ivy\u2019s. She always used to bring it everywhere.
+      She believed she was happier when the pen was with her. Now that you mention
+      it, I realize she undoubtedly lost it a month ago, either at her school or
+      in her bedroom... hmm... what is it doing here?"
+    Position: {x: 1361, y: 526}
