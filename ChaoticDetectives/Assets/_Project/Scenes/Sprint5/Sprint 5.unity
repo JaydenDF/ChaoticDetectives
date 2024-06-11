@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b63ef7a539b64d8e0029bdd0a61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statToIncrement: 0
+  statToIncrement: 1
   amountToIncrement: 1
 --- !u!114 &167613571 stripped
 MonoBehaviour:
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToCheck: {fileID: 467760712}
-  statToIncrement: 0
+  statToIncrement: 1
   amountToIncrement: 1
 --- !u!1 &469830194 stripped
 GameObject:
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToCheck: {fileID: 649289237}
-  statToIncrement: 1
+  statToIncrement: 0
   amountToIncrement: 1
 --- !u!1001 &679583366
 PrefabInstance:
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b63ef7a539b64d8e0029bdd0a61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statToIncrement: 0
+  statToIncrement: 2
   amountToIncrement: 1
 --- !u!1 &725234902
 GameObject:
@@ -3993,6 +3993,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6205347778307403504, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4322254165289515488}
+    - targetCorrespondingSourceObject: {fileID: 7056844670897955877, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7046781767470840507}
     - targetCorrespondingSourceObject: {fileID: 3931267211890153436, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 952655238}
@@ -4154,7 +4157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b63ef7a539b64d8e0029bdd0a61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statToIncrement: 1
+  statToIncrement: 2
   amountToIncrement: 1
 --- !u!4 &4322254165289515489 stripped
 Transform:
@@ -4379,6 +4382,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7056844670897955877, guid: 19dbd23029f7e7c46bec36d16c5ca34b, type: 3}
   m_PrefabInstance: {fileID: 786429262962680775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7046781767470840507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046781767470840506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea657df7ef2ee994a928d202482290de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToCheck: {fileID: 7046781767470840506}
+  statToIncrement: 0
+  amountToIncrement: 1
 --- !u!1001 &7960100348481191806
 PrefabInstance:
   m_ObjectHideFlags: 0
