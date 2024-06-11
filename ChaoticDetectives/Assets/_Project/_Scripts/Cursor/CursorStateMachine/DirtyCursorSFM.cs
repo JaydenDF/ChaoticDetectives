@@ -11,6 +11,8 @@ public class DirtyCursorSFM : MonoBehaviour
     private Map _map;
     [SerializeField]private AbstractInput _abstractInput;
 
+    private Collider2D _cursorCollider;
+
     private void OnEnable()
     {
         UIChanceEvent.OnChanceEventStart += DisableInputAndHideCursor;
@@ -41,6 +43,7 @@ public class DirtyCursorSFM : MonoBehaviour
     }
     private void Awake() {
         _map = FindObjectOfType<Map>();
+        _cursorCollider = _cursor.GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -72,12 +75,14 @@ public class DirtyCursorSFM : MonoBehaviour
         _searcherCursor.StopAllCoroutines();
         _searcherCursor.enabled = false;
         _normalCursor.enabled = true;
+        ToggleColliderUI(true);
     }
 
     private void OnMapClosed()
     {
         _searcherCursor.enabled = true;
         _normalCursor.enabled = false;
+        ToggleColliderUI(false);
     }
 
     private void DisableInputAndHideCursor()
@@ -92,4 +97,17 @@ public class DirtyCursorSFM : MonoBehaviour
         _abstractInput.EnableInput();
         _searcherCursor.OverrideCanMove(true);
     }
+
+    private void ToggleColliderUI(bool isUI)
+    {
+        if (isUI)
+        {
+            _cursorCollider.excludeLayers = 1 << LayerMask.NameToLayer("Default");
+        }
+        else
+        {
+            _cursorCollider.excludeLayers = 1 << LayerMask.NameToLayer("UI");
+        }
+    }
+
 }
