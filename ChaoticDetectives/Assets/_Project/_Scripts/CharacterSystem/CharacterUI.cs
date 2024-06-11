@@ -6,8 +6,11 @@ public class CharacterUI : MonoBehaviour
     public CharacterSO characterSO;
     public Image characterSpriteRenderer;
     public TMPro.TextMeshProUGUI characterNameText;
-    public TMPro.TextMeshProUGUI[] statTexts;
-
+    public TMPro.TextMeshProUGUI characterDescriptionText;
+    private void OnEnable()
+    {
+        StatSystem.OnCharacterChanged += NewCharacterSO;
+    }
     private void Start()
     {
         Setup();
@@ -22,9 +25,9 @@ public class CharacterUI : MonoBehaviour
             characterNameText.text = characterSO.characterName;
         }
 
-        for (int i = 0; i < characterSO.stats.Length; i++)
+        if (characterDescriptionText != null)
         {
-            statTexts[i].text = $"{characterSO.stats[i].statType}: {characterSO.stats[i].value}";
+            characterDescriptionText.text = characterSO.characterDescription;
         }
     }
 

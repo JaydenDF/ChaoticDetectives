@@ -9,7 +9,6 @@ using System;
 public class SelectAndDisableChildrenEditor : EditorWindow
 {
     private static bool isEnabled = false;
-    private bool showShortcuts = false;
     private List<GameObject> gameObjects = new List<GameObject>();
     private const string ASSET_PATH = "Assets/Resources/SceneObjectMappings.asset";
     private SceneObjectMappings sceneObjectMappings;
@@ -226,8 +225,6 @@ public class SelectAndDisableChildrenEditor : EditorWindow
     private void LoadMappings()
     {
         sceneObjectMappings = Resources.Load<SceneObjectMappings>("SceneObjectMappings");
-        Debug.Log(sceneObjectMappings);
-        Debug.Log(ASSET_PATH);
     }
 }
 

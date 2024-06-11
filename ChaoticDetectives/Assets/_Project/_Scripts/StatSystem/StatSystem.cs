@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StatSystem : MonoBehaviour
@@ -32,6 +33,7 @@ public class StatSystem : MonoBehaviour
     public static Action<Stat> OnStatModfied;
 
     [SerializeField] private CharacterSO _currentCharacterSO;
+    [SerializeField] private List<CharacterSO> _charactersForTheStatAdditions = new List<CharacterSO>();
     
     [SerializeField]
     private Stat[] stats =
@@ -73,7 +75,7 @@ public class StatSystem : MonoBehaviour
         OnStatsChanged?.Invoke(stats);
     }
 
-    public void SetStatsFromCharacterSO(CharacterSO characterSO)
+    private void SetStatsFromCharacterSO(CharacterSO characterSO)
     {
         foreach (var stat in characterSO.stats)
         {
@@ -93,6 +95,24 @@ public class StatSystem : MonoBehaviour
             }
         }
 
+        foreach (var character in _charactersForTheStatAdditions)
+        {
+            if(character == _currentCharacterSO) continue;
+
+            foreach (Stat stat in character.stats)
+            {
+                if (stat.statType == statType)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        if (stats[i].statType == statType)
+                        {
+                            stats[i].value += stat.value;
+                        }
+                    }
+                }
+            }
+        }
 
         var statForEvent = new Stat{statType = statType, value = value};
 

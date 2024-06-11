@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 21300000, guid: 8e4972b768e7b8949ac4dcfd0fafa695, type: 3}
   characterName: Journalist
-  characterDescription: '"quote:'
+  characterDescription: We do not roll
   stats:
   - statType: 0
     value: 0
