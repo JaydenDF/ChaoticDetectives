@@ -29,6 +29,7 @@ public class StatSystem : MonoBehaviour
 
     public static Action<Stat[]> OnStatsChanged;
     public static Action<CharacterSO> OnCharacterChanged;
+    public static Action<Stat> OnStatModfied;
 
     [SerializeField] private CharacterSO _currentCharacterSO;
     
@@ -36,7 +37,8 @@ public class StatSystem : MonoBehaviour
     private Stat[] stats =
     {
         new Stat { statType = StatType.Perception, value = 0 },
-        new Stat { statType = StatType.Creativity, value = 0 }
+        new Stat { statType = StatType.Creativity, value = 0 },
+        new Stat { statType = StatType.Intelligence, value = 0 }
     };
 
     private void Awake() {
@@ -89,6 +91,10 @@ public class StatSystem : MonoBehaviour
             }
         }
 
+
+        var statForEvent = new Stat{statType = statType, value = value};
+
+        OnStatModfied?.Invoke(statForEvent);
         OnStatsChanged?.Invoke(stats);
     }
 
