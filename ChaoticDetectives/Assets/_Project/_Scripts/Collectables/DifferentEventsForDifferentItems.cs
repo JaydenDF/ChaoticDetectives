@@ -7,9 +7,6 @@ public class DifferentEventsForDifferentItems : Interactable {
     private UnityEvent _eventToTrigger => DifferentEventsForDifferentItemsList[_eventIndex];
     private int _eventIndex;
 
-
-    private bool _hasBeenClicked = false;
-
     protected override void SetNeededItemsBoolToTrue()
     {
         for (int i = 0; i < neededItems.Count; i++)

@@ -41,7 +41,7 @@ public class StatSystem : MonoBehaviour
         new Stat { statType = StatType.Intelligence, value = 0 }
     };
 
-    private void Awake() {
+    private void Start() {
 
         if(_currentCharacterSO != null)
         {
@@ -79,6 +79,8 @@ public class StatSystem : MonoBehaviour
         {
             SetStatValue(stat.statType, stat.value);
         }
+
+        OnStatsChanged?.Invoke(stats);
     }
 
     public void IncreaseStatValue(StatType statType, uint value)
@@ -120,6 +122,11 @@ public class StatSystem : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    public Stat[] GetStats()
+    {
+        return stats;
     }
 }
 

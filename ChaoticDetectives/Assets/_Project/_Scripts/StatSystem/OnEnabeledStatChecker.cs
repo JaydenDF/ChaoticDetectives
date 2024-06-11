@@ -5,39 +5,40 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnEnabeledStatChecker : MonoBehaviour {
-    [SerializeField] private List<Stat> StatsToMatch;
+public class OnEnabeledStatChecker : MonoBehaviour
+{
+
+    [SerializeField] private uint _requiredStats = 0;
     public UnityEvent OnEnoughStats;
     public UnityEvent OnNotEnoughStats;
     private StatSystem _statSystem;
 
-    private void Start() {
+    private void Start()
+    {
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         _statSystem = StatSystem.Instance;
         CheckStats();
     }
 
     private void CheckStats()
     {
-        bool enoughStats = true;
-        foreach (var stat in StatsToMatch)
+        uint totalStats = 0;
+
+        foreach (var stat in _statSystem.GetStats())
         {
-            if (_statSystem.GetStatValue(stat.statType) < stat.value)
-            {
-                enoughStats = false;
-                break;
-            }
+            totalStats += stat.value;
         }
 
-        if (enoughStats)
+        if (totalStats < _requiredStats)
         {
-            OnEnoughStats?.Invoke();
+            OnNotEnoughStats.Invoke();
         }
         else
         {
-            OnNotEnoughStats?.Invoke();
+            OnEnoughStats.Invoke();
         }
     }
 }

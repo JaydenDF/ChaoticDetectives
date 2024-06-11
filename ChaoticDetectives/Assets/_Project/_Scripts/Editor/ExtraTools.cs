@@ -11,7 +11,6 @@ public class SelectAndDisableChildrenEditor : EditorWindow
     private static bool isEnabled = false;
     private bool showShortcuts = false;
     private List<GameObject> gameObjects = new List<GameObject>();
-
     private const string ASSET_PATH = "Assets/Resources/SceneObjectMappings.asset";
     private SceneObjectMappings sceneObjectMappings;
 
@@ -20,26 +19,6 @@ public class SelectAndDisableChildrenEditor : EditorWindow
     {
         GetWindow<SelectAndDisableChildrenEditor>("Select And Disable Tools");
     }
-
-    [MenuItem("Tools/Select And Disable Tools/Toggle Functionality #e")] // Shortcut: Shift + E
-    public static void ToggleFunctionality()
-    {
-        isEnabled = !isEnabled;
-        EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().Repaint();
-    }
-
-    [MenuItem("Tools/Select And Disable Tools/Enable All #a")] // Shortcut: Shift + A
-    public static void EnableAll()
-    {
-        EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().SetActiveStateForAll(true);
-    }
-
-    [MenuItem("Tools/Select And Disable Tools/Disable All #s")] // Shortcut: Shift + S
-    public static void DisableAll()
-    {
-        EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().SetActiveStateForAll(false);
-    }
-
     private void OnEnable()
     {
         Selection.selectionChanged += OnSelectionChanged;
@@ -62,18 +41,6 @@ public class SelectAndDisableChildrenEditor : EditorWindow
 
     private void OnGUI()
     {
-        // Shortcuts foldout section
-        showShortcuts = EditorGUILayout.Foldout(showShortcuts, "Shortcuts");
-        if (showShortcuts)
-        {
-            GUI.color = Color.yellow;
-            GUILayout.BeginVertical("box");
-            GUILayout.Label("Toggle Functionality: Shift + E", EditorStyles.label);
-            GUILayout.Label("Enable All: Shift + A", EditorStyles.label);
-            GUILayout.Label("Disable All: Shift + S", EditorStyles.label);
-            GUILayout.EndVertical();
-            GUI.color = Color.white;
-        }
 
         GUILayout.Label("Toggle Select And Disable Tools", EditorStyles.boldLabel);
         isEnabled = EditorGUILayout.Toggle("Enabled", isEnabled);
@@ -202,7 +169,10 @@ public class SelectAndDisableChildrenEditor : EditorWindow
                 gameObjectNames.Add(go.name);
             }
         }
-
+        if(sceneObjectMappings == null)
+        {
+            return;
+        }
         SceneObjectMappings.SceneMapping mapping = sceneObjectMappings.sceneMappings.Find(m => m.sceneName == sceneName);
         if (mapping != null)
         {
@@ -258,11 +228,6 @@ public class SelectAndDisableChildrenEditor : EditorWindow
         sceneObjectMappings = Resources.Load<SceneObjectMappings>("SceneObjectMappings");
         Debug.Log(sceneObjectMappings);
         Debug.Log(ASSET_PATH);
-        if (sceneObjectMappings == null)
-        {
-            Debug.LogWarning("SceneObjectMappings.asset not found. Create a new one.");
-        }
-
     }
 }
 
