@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7801f150971e84dbf55deab59fad88, type: 3}
+  m_Name: Detective
+  m_EditorClassIdentifier: 
+  characterSprite: {fileID: 21300000, guid: 1cadd008458e11a46b73b8327dcc1fec, type: 3}
+  characterName: Detective
+  characterDescription: '"quote:'
+  stats:
+  - statType: 0
+    value: 0
+  - statType: 1
+    value: 0
+  - statType: 2
+    value: 0
