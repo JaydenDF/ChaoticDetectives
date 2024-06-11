@@ -11,6 +11,7 @@ public class MapNotificationSystem : MonoBehaviour
     private void Awake()
     {
         _notificationObject.SetActive(false);
+        _map = FindObjectOfType<Map>(true);
     }
     private void OnEnable()
     {

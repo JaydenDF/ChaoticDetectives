@@ -67,6 +67,7 @@ public class Inventory : MonoBehaviour
 
     public void RemoveFromInventory(GameObject item)
     {
+        if (collectedItems.Contains(item) == false){return;}
         collectedItems.Remove(item);
         UIStorage.Remove(item);
     }
