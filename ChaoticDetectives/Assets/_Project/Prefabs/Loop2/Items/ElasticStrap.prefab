@@ -105,8 +105,8 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: 
-  itemMonologueText: An elastic strap? This could come in handy!
+  itemDesc: An elastic strap from a jacket.
+  itemMonologueText: 
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,18 +139,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011020631, y: -0.036001146}
+  m_Offset: {x: 0.0014695525, y: -0.01763326}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.608, y: 0.652}
+    oldSize: {x: 0.152, y: 0.163}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71933895, y: 0.6458677}
+  m_Size: {x: 0.26822394, y: 0.23001897}
   m_EdgeRadius: 0
 --- !u!114 &-3644766942805555945
 MonoBehaviour:
