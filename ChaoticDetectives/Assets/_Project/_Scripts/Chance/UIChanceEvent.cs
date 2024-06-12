@@ -36,12 +36,13 @@ public class UIChanceEvent : MonoBehaviour
         DisableUI();
     }
 
-    private void OnChanceEvent(object sender, ChanceEvent e)
+    private void OnChanceEvent(object sender, ChanceEvent chanceEvent)
     {
+        MonologueSystem.Instance.ShowMonologue(chanceEvent.description);
         OnChanceEventStart?.Invoke();
         _objectToEnable.SetActive(true);
 
-        _chanceEvent = e;
+        _chanceEvent = chanceEvent;
         if (sender is ChanceEventStarter chanceEventStarter)
         {
             _chanceEventStarter = chanceEventStarter;

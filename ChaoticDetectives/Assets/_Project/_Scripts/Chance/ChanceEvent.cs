@@ -12,26 +12,26 @@ public class ChanceEvent : ScriptableObject
     [Range(0, 12)]
     public uint neededRoll;
     public StatType statTypeCheck;
-    public ChanceOutcome[] _outcomes = new ChanceOutcome[2];
-    public string _description;
+    public ChanceOutcome[] outcomes = new ChanceOutcome[2];
+    public string description;
 
     public ChanceOutcome GetOutcomeFromRoll(uint roll)
     {
         if (roll < neededRoll)
         {
-            return _outcomes[0];
+            return outcomes[0];
         }
         else
         {
-            return _outcomes[1];
+            return outcomes[1];
         }
     }
 
     public int GetOutcomeIndex(ChanceOutcome outcome)
     {
-        for (int i = 0; i < _outcomes.Length; i++)
+        for (int i = 0; i < outcomes.Length; i++)
         {
-            if (_outcomes[i] == outcome)
+            if (outcomes[i] == outcome)
             {
                 return i;
             }
