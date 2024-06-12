@@ -18,7 +18,7 @@ public class MonologueSystem : MonoBehaviour
         }
     }
 
-    public Action<String> MonologueText;
+    public static Action<String> MonologueText;
     private TextMeshProUGUI _monologueText;
 
     private void Start()

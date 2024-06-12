@@ -19,7 +19,6 @@ MonoBehaviour:
     - MapButton
     - Map
     - Canvas
-    - Dice Mechanic
     - OutOfBounds
     - InventoryAnimation
   - sceneName: NewChoiceEventAndStatsSystem

@@ -27,28 +27,22 @@ public class MonologueAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_inventory != null)
-        {
-            _inventory.OnItemAdded.AddListener(OnCollected);
-        }
+        _inventory.OnItemAdded.AddListener(OnCollected);
 
 
-        MonologueSystem.Instance.MonologueText += Show;
+        MonologueSystem.MonologueText += ShowMonologue;
         UIChanceEvent.OnChanceEventEnd += Hide;
     }
 
     private void OnDisable()
     {
-        if (_inventory != null)
-        {
-            _inventory.OnItemAdded.RemoveListener(OnCollected);
-        }
+        _inventory.OnItemAdded.RemoveListener(OnCollected);
 
-        MonologueSystem.Instance.MonologueText -= Show;
+        MonologueSystem.MonologueText -= ShowMonologue;
         UIChanceEvent.OnChanceEventEnd -= Hide;
     }
 
-    private void Show(string obj)
+    private void ShowMonologue(string obj)
     {
         StartMonologueAnimation();
     }

@@ -14,4 +14,5 @@ public class CharacterSO : ScriptableObject
         new Stat { statType = StatType.Creativity, value = 0 }
     };
 
+ 
 }

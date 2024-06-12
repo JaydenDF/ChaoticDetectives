@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 21300000, guid: 61f0236f907c1d244bab3d2df04479c9, type: 3}
   characterName: Detective
-  characterDescription: We roll
+  characterDescription: "\u201CIt's not just about what you see, but what you notice\u201D"
   stats:
   - statType: 0
     value: 2

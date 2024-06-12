@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSprite: {fileID: 21300000, guid: 4f669ae02e8cb2b4c8054ba460e640c1, type: 3}
   characterName: Medium
-  characterDescription: 'we mediate '
+  characterDescription: "\u201CI have already won, before you even knowing it\u201D"
   stats:
   - statType: 0
     value: 3
   - statType: 1
-    value: 1
-  - statType: 2
     value: 2
+  - statType: 2
+    value: 1
