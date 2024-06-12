@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class UIItem : MonoBehaviour, IInteractable
     public GameObject itemPrefab;
     public HeldItem itemPrefabScript;
 
-    public string ItemDesc;
+    private string ItemDesc;
 
     [SerializeField] private GameObject ItemDescImage;
     public GameObject ItemDescText;
@@ -71,7 +72,7 @@ public class UIItem : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-        ItemDescText.GetComponent<TMP_Text>().SetText(ItemDesc);
+        ItemDescText.GetComponent<TMP_Text>().SetText(parentItem.GetComponent<Items>().itemMonologueText);
         ItemDescImage.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
         ShowAnimation();
     }
