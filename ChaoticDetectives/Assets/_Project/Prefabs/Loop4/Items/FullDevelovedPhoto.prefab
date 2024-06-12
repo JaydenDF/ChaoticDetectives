@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3644766942805555945}
   - component: {fileID: -3448334326769469575}
   m_Layer: 0
-  m_Name: WalkingStick
+  m_Name: FullDevelovedPhoto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: "Well\u2026 I hope that nobody needs it\u2026 Let's see what
-    we can do with this."
+  itemMonologueText: Well, my skills at putting things together have been improving
+    in these different loops. I can see my growth!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

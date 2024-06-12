@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3535187608035142027}
   - component: {fileID: 1612322733527482279}
   - component: {fileID: 2224931139451550003}
-  - component: {fileID: -3644766942805555945}
-  - component: {fileID: -3448334326769469575}
+  - component: {fileID: -4481060208724674632}
+  - component: {fileID: -2796207121111868132}
   m_Layer: 0
-  m_Name: WalkingStick
+  m_Name: IvysWorkUniform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 120
-  m_Sprite: {fileID: 21300000, guid: 594f41d6105ea8443b3416d7fddb7ede, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb8d84c3cc3f73e43a59b0476a4c9505, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,9 +105,10 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: "Well\u2026 I hope that nobody needs it\u2026 Let's see what
-    we can do with this."
+  itemDesc: A green work uniform from Ramy, belonging to Ivy.
+  itemMonologueText: What is this doing here? Randy's local store? Let's pay them
+    a visit, I would say for the last time, but I bet I'll have to do it at least
+    two more times with another player.
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -140,20 +141,20 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.050233424, y: 0.029549062}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.026, y: 2.026}
+    oldSize: {x: 0.753, y: 0.8415}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6678088, y: 1.3191296}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-3644766942805555945
+--- !u!114 &-4481060208724674632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighliteColor: {r: 0.5566037, g: 0.9190223, b: 1, a: 1}
---- !u!58 &-3448334326769469575
+--- !u!58 &-2796207121111868132
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,4 +201,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.331375
+  m_Radius: 0.42075

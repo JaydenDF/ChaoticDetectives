@@ -106,7 +106,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: 
+  itemMonologueText: What just happened? Did we... pick a part of the map? Is that
+    possible?! Wow, player, good eye!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.9, y: 10.9}
+    oldSize: {x: 0.545, y: 0.545}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
