@@ -60,7 +60,6 @@ public class Inventory : MonoBehaviour
         instantiatedPrefab.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefabUIScript = instantiatedPrefab.GetComponent<UIItem>();
         itemScript = item.GetComponent<Items>();
-        instantiatedPrefabUIScript.ItemDesc = itemScript.itemDesc;
         instantiatedPrefabUIScript.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
     }
