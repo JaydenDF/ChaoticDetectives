@@ -12,8 +12,8 @@ public class ChanceEvent : ScriptableObject
     [Range(0, 12)]
     public uint neededRoll;
     public StatType statTypeCheck;
-
     public ChanceOutcome[] _outcomes = new ChanceOutcome[2];
+    public string _description;
 
     public ChanceOutcome GetOutcomeFromRoll(uint roll)
     {
