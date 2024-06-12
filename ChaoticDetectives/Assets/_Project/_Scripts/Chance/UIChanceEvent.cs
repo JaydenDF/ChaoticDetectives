@@ -9,9 +9,8 @@ public class UIChanceEvent : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _objectToEnable;
-    [SerializeField] private TextMeshPro _neededRoll;
-    [SerializeField] private TextMeshPro _outcome;
-    [SerializeField] private TextMeshPro _modifierText;
+    [SerializeField] private TextMeshProUGUI _outcome;
+    [SerializeField] private TextMeshProUGUI _modifierText;
 
     [Space(10)]
     [Header("Animation")]
@@ -21,7 +20,6 @@ public class UIChanceEvent : MonoBehaviour
 
     private ChanceEvent _chanceEvent;
     private ChanceEventStarter _chanceEventStarter;
-    private uint _neededRollValue => _chanceEvent.neededRoll;
 
     private void OnEnable()
     {
@@ -49,27 +47,20 @@ public class UIChanceEvent : MonoBehaviour
             _chanceEventStarter = chanceEventStarter;
         }
 
-        _neededRoll.text = _neededRollValue.ToString();
         _outcome.color = Color.black;
-        _outcome.text = "0";
+        _outcome.text = "";
         _modifierText.text = "";
     }
 
     public void Roll()
     {
         int roll = UnityEngine.Random.Range((int)_chanceEvent.minRollPossible, (int)_chanceEvent.maxRollPossible);
-        StartCoroutine(AnimateRoll(roll, _animDuration, _animationInterval, _waitTime));
+        StartCoroutine(AnimateRoll(roll, _waitTime));
     }
 
-    private IEnumerator AnimateRoll(int roll, float animDuration = 1f, float animationInterval = 0.5f, float waitTime = 0.5f)
+    private IEnumerator AnimateRoll(int roll, float waitTime = 0.5f)
     {
-        float elapsedTime = 0;
-        while (elapsedTime * 100 < animDuration)
-        {
-            _outcome.text = UnityEngine.Random.Range((int)_chanceEvent.minRollPossible, (int)_chanceEvent.maxRollPossible).ToString();
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForSeconds(animationInterval);
-        }
+        Debug.Log("Rolling");
         _outcome.text = roll.ToString();
         yield return new WaitForSeconds(waitTime);
         _modifierText.text = "+" + _chanceEvent.GetModifier().ToString();
@@ -78,8 +69,6 @@ public class UIChanceEvent : MonoBehaviour
         _outcome.color = Color.blue;
         _modifierText.text = "";
         yield return new WaitForSeconds(waitTime);
-        _outcome.color = roll < _neededRollValue ? Color.red : Color.green;
-        yield return new WaitForSeconds(waitTime);
         _chanceEventStarter.OnUIRollled((uint)roll + _chanceEvent.GetModifier());
         OnChanceEventEnd?.Invoke();
         DisableUI();
@@ -87,7 +76,6 @@ public class UIChanceEvent : MonoBehaviour
 
     private void DisableUI()
     {
-        _neededRoll.text = "0";
         _outcome.text = "0";
         _chanceEvent = null;
         _chanceEventStarter = null;

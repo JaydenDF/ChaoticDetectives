@@ -22,3 +22,6 @@ MonoBehaviour:
     - Dice Mechanic
     - OutOfBounds
     - InventoryAnimation
+  - sceneName: NewChoiceEventAndStatsSystem
+    gameObjectNames:
+    - FirstSceen

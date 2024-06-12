@@ -9,45 +9,58 @@ public class CharacterSelection : MonoBehaviour
     private GameObject _selectedCharacter;
     private Image _selectedCharacterImage => _selectedCharacter.GetComponent<Image>();
 
-    // light blue color
-    private static Color _selectedColor = new Color(0.5f, 0.5f, 1f); 
+    // a bit of darkness
+    private static Color _unselectedColor = new Color(0.8f, 0.8f, 0.8f);
+    private static Color _selectedColor = Color.white;
+    private static Vector3 _selectedScale = new Vector3(1.2f, 1.2f, 1.2f);
+
     private AbstractInput _input;
-    private void Awake() {
+    private void Awake()
+    {
         _input = GetComponent<AbstractInput>();
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         _input.OnDirectionclamped += ChangeSelectedCharacter;
         _input.OnClickDown += Click;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         _input.OnDirectionclamped -= ChangeSelectedCharacter;
         _input.OnClickDown -= Click;
     }
 
-    private void Start() {
-        foreach (Transform child in transform) {
+    private void Start()
+    {
+        foreach (Transform child in transform)
+        {
             _characters.Add(child.gameObject);
+            _characters[_characters.Count - 1].GetComponent<Image>().color = _unselectedColor;
         }
+
 
         _selectedCharacter = _characters[0];
         _selectedCharacterImage.color = _selectedColor;
+        _selectedCharacter.transform.localScale = _selectedScale;
     }
+    private void ChangeSelectedCharacter(Vector2 direction)
+    {
+        _selectedCharacterImage.color = _unselectedColor;
+        _selectedCharacter.transform.localScale = Vector3.one;
+        _selectedCharacter.GetComponent<IInteractable>().OnHoverExit();
 
-    private void ChangeSelectedCharacter(Vector2 direction) {
-        if (direction.x > 0) {
-            _selectedCharacterImage.color = Color.white;
-            _selectedCharacter = _characters[(_characters.IndexOf(_selectedCharacter) + 1) % _characters.Count];
-            _selectedCharacterImage.color = _selectedColor;
-        } else if (direction.x < 0) {
-            _selectedCharacterImage.color = Color.white;
-            _selectedCharacter = _characters[(_characters.IndexOf(_selectedCharacter) - 1 + _characters.Count) % _characters.Count];
-            _selectedCharacterImage.color = _selectedColor;
-        }
+        int currentIndex = _characters.IndexOf(_selectedCharacter);
+        int newIndex = (currentIndex + (int)Mathf.Sign(direction.x) + _characters.Count) % _characters.Count;
+
+        _selectedCharacter = _characters[newIndex];
+        _selectedCharacterImage.color = _selectedColor;
+        _selectedCharacter.transform.localScale = _selectedScale;
+        _selectedCharacter.GetComponent<IInteractable>().OnHoverEnter();
     }
-
-    private void Click() {
+    private void Click()
+    {
         _selectedCharacter.GetComponent<IInteractable>().OnClick();
     }
 }

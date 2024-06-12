@@ -97,8 +97,6 @@ public class StatSystem : MonoBehaviour
 
         foreach (var character in _charactersForTheStatAdditions)
         {
-            if(character == _currentCharacterSO) continue;
-
             foreach (Stat stat in character.stats)
             {
                 if (stat.statType == statType)
@@ -115,6 +113,7 @@ public class StatSystem : MonoBehaviour
         }
 
         var statForEvent = new Stat{statType = statType, value = value};
+
 
         OnStatModfied?.Invoke(statForEvent);
         OnStatsChanged?.Invoke(stats);
