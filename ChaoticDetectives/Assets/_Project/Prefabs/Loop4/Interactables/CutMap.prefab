@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5909673765110627692}
   - component: {fileID: 2475181596073370751}
   m_Layer: 0
-  m_Name: PoliceStationMap
+  m_Name: CutMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   currentState: 0
   currentHeldItem: {fileID: 0}
   neededItems:
-  - neededItem: {fileID: 0}
+  - neededItem: {fileID: 1612322733527482279, guid: 0372299d3e4859745847e439e3f637aa, type: 3}
     hasCollectedThisItem: 0
 --- !u!212 &5909673765110627692
 SpriteRenderer:
@@ -173,7 +173,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.9, y: 10.9}
+    oldSize: {x: 0.545, y: 0.545}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
