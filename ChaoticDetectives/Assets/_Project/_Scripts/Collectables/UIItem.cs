@@ -18,8 +18,6 @@ public class UIItem : MonoBehaviour, IInteractable
     public GameObject itemPrefab;
     public HeldItem itemPrefabScript;
 
-    private string ItemDesc;
-
     [SerializeField] private GameObject ItemDescImage;
     public GameObject ItemDescText;
 
