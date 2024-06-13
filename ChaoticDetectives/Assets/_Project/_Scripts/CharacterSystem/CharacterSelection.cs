@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +16,8 @@ public class CharacterSelection : MonoBehaviour
     private static Color _selectedColor = Color.white;
     private static Vector3 _selectedScale = new Vector3(1.2f, 1.2f, 1.2f);
 
+
+    private bool _canClick = false;
     private AbstractInput _input;
     private void Awake()
     {
@@ -24,12 +28,32 @@ public class CharacterSelection : MonoBehaviour
     {
         _input.OnDirectionclamped += ChangeSelectedCharacter;
         _input.OnClickDown += Click;
+
+        UIChanceEvent.OnChanceEventEnd += Reset;
+
+        StartCoroutine(EnableClick());
+    }
+
+    private void Reset()
+    {
+        _selectedCharacterImage.color = _unselectedColor;
+        _selectedCharacter.transform.localScale = Vector3.one;
+        _selectedCharacter = _characters[0];
+        _selectedCharacterImage.color = _selectedColor;
+        _selectedCharacter.transform.localScale = _selectedScale;
+    }
+
+    private IEnumerator EnableClick()
+    {
+        yield return new WaitForSeconds(3f);
+        _canClick = true;
     }
 
     private void OnDisable()
     {
         _input.OnDirectionclamped -= ChangeSelectedCharacter;
         _input.OnClickDown -= Click;
+        UIChanceEvent.OnChanceEventEnd -= Reset;
     }
 
     private void Start()
@@ -61,6 +85,8 @@ public class CharacterSelection : MonoBehaviour
     }
     private void Click()
     {
+        if (!_canClick) return;
+
         _selectedCharacter.GetComponent<IInteractable>().OnClick();
     }
 }

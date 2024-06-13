@@ -103,7 +103,9 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: A piece of paper with cutouts from a magazine, forming a message.
+  itemDesc: So, it is a game? In a game?? Agh... I thought I told the team to make
+    everything less confusing... but for story's sake - "I surely need to analyze
+    it".
   itemMonologueText: So, it is a game? In a game?? Agh... I thought I told the team
     to make everything less confusing... but for story's sake - "I surely need to
     analyze it".
@@ -143,7 +145,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.7739999, y: 1.1589901}
+    oldSize: {x: 2.661, y: 1.7384853}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -69,7 +69,7 @@ public class StatSystem : MonoBehaviour
         {
             Stat[] statsCopy = new Stat[copyOfStats[i].Length];
             for (int j = 0; j < copyOfStats[i].Length; j++)
-            {
+        {
                 statsCopy[j] = copyOfStats[i][j].Clone();
             }
             _characters[i].stats = statsCopy;
@@ -130,6 +130,7 @@ public class StatSystem : MonoBehaviour
 
         OnStatsChanged?.Invoke(currentStats);
         OnCharacterChanged?.Invoke(_currentCharacterSO);
+        OnStatModfied?.Invoke(currentStats[(int)statType]);
     }
 
     public bool CheckStatValue(StatType statType, uint value)

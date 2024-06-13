@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 public class UIChanceEvent : MonoBehaviour
 {
     public static Action OnChanceEventStart;
@@ -20,6 +21,9 @@ public class UIChanceEvent : MonoBehaviour
 
     private ChanceEvent _chanceEvent;
     private ChanceEventStarter _chanceEventStarter;
+
+    [SerializeField] private GameObject _firstPart;
+    [SerializeField] private GameObject _secondPart;
 
     private void OnEnable()
     {
@@ -61,7 +65,6 @@ public class UIChanceEvent : MonoBehaviour
 
     private IEnumerator AnimateRoll(int roll, float waitTime = 0.5f)
     {
-        Debug.Log("Rolling");
         _outcome.text = roll.ToString();
         yield return new WaitForSeconds(waitTime);
         _modifierText.text = "+" + _chanceEvent.GetModifier().ToString();
@@ -69,8 +72,10 @@ public class UIChanceEvent : MonoBehaviour
         _outcome.text = (roll + _chanceEvent.GetModifier()).ToString();
         _outcome.color = Color.blue;
         _modifierText.text = "";
-        yield return new WaitForSeconds(waitTime);
         _chanceEventStarter.OnUIRollled((uint)roll + _chanceEvent.GetModifier());
+        yield return new WaitForSeconds(waitTime/2);
+        _outcome.color = (roll + _chanceEvent.GetModifier()) > 6 ? Color.green : Color.red;
+        yield return new WaitForSeconds(waitTime/2);
         OnChanceEventEnd?.Invoke();
         DisableUI();
     }
@@ -81,5 +86,8 @@ public class UIChanceEvent : MonoBehaviour
         _chanceEvent = null;
         _chanceEventStarter = null;
         _objectToEnable.SetActive(false);
+
+        _firstPart.SetActive(true);
+        _secondPart.SetActive(false);
     }
 }

@@ -105,7 +105,9 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: Two potatoes with electric wires attached to them.
+  itemDesc: ELECTRICITY! By the way do you know, player, that you can charge a whole
+    city, using 974,565,543 boiled potatoes? With that information, we can change
+    the whole environment and improve society.
   itemMonologueText: ELECTRICITY! By the way do you know, player, that you can charge
     a whole city, using 974,565,543 boiled potatoes? With that information, we can
     change the whole environment and improve society.

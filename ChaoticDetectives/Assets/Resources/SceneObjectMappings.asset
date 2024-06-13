@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-Editor::SceneObjectMappings
   sceneMappings:
   - sceneName: Sprint 5
-    gameObjectNames:
-    - CursorParent
-    - MapButton
-    - Map
-    - Canvas
-    - OutOfBounds
-    - InventoryAnimation
+    gameObjectNames: []
   - sceneName: NewChoiceEventAndStatsSystem
     gameObjectNames:
     - FirstSceen

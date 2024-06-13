@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7321825073307372151}
   - component: {fileID: -5006888003587012424}
   m_Layer: 0
-  m_Name: Cards
+  m_Name: Cards (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,8 +105,10 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: 
-  itemMonologueText: 
+  itemDesc: 'What? There are a few cards. But i don''t see the deck here... Well
+    want to play some card games? '
+  itemMonologueText: 'What? There are a few cards. But i don''t see the deck here...
+    Well want to play some card games? '
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ public class Cursor : MonoBehaviour
     protected AbstractInput _abstractInput;
     public float _speed = 10;
     public float _lerpSpeed = 10;
-    protected Collider2D _targetCollider = null;
+    [SerializeField] protected Collider2D _targetCollider = null;
+    protected Collider2D _prevCollider = null;
     protected Rigidbody2D _rigidbody;
 
     protected void OnEnable()
@@ -63,7 +64,7 @@ public class Cursor : MonoBehaviour
     protected void OnTriggerExit2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponent<IInteractable>();
-        if (interactable != null)
+        if (interactable != null && other == _targetCollider)
         {
             interactable.OnHoverExit();
             _targetCollider = null;
