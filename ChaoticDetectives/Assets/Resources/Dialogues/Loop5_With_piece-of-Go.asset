@@ -23,41 +23,36 @@ MonoBehaviour:
     PortName: Anything new happened today?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Could there be someone that wished Ivy harm?
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: '*Show the piece of "Go"*'
+    PortName: I found the piece of Go!
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
+    PortName: I appreciate it, but not at the moment.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: Indeed...quite amusing! Hope no harm was done!
+    PortName: That must have been quite a scene.
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: That is a lead worth pursuing. Thank you for your assistance, sir!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    TargetNodeGuid: 6a3e77ee-b874-406a-a1bc-f7c0f65883e2
   DialogueNodeData:
-  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
-      she still was one of a kind with the purest heart. It''s confounding why anyone
-      would wish harm upon my dear girl. '
-    Position: {x: 401, y: 411}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    DialogueText: Hi there! How can I help you child?
-    Position: {x: 401, y: 116}
+    DialogueText: Greetings again! Is there anything I can do for you?
+    Position: {x: 400.8, y: 100}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 823.2, y: 156}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Oh well... I tried to arrange the canned goods in the back aisles,
       but they fell to the floor and started rolling all over the place. Thankfully,
       the customers pitched in to help gather them... though I'm certain I'm still
       missing at least two... ha ha, must be those neighbor kids.
-    Position: {x: 401, y: 298}
-  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-    DialogueText: ENDPOINT
-    Position: {x: 861, y: 207}
+    Position: {x: 400.8, y: 258.40002}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: What a beautiful piece! Oh... Ivy used to play "Go" almost every
       evening in the park. I was always concerned because the people she played with
       were never her age... but, well... games bring people together, and perhaps
       there is still someone who knows Ivy.
-    Position: {x: 401, y: 526}
+    Position: {x: 400.8, y: 364}
+  - NodeGUID: 6a3e77ee-b874-406a-a1bc-f7c0f65883e2
+    DialogueText: ENDPOINT
+    Position: {x: 1998.4, y: 381.6}

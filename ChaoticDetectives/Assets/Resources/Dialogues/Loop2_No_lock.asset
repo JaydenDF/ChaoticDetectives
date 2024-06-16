@@ -16,46 +16,55 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: Whoever it is won't matter, I will find Ivy and bring her home.
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Anything new happened today?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Could there be someone that wished Ivy harm?
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Is there more you can tell me about Ivy's dissapearance?
-    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
+    PortName: Thank you, but I'm okay for now.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: Ha...quite amusing! Hope no harm was done!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Hmm... So someone was asking about Ivy...
+    TargetNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: Whoever it is won't matter, I will find Ivy and bring her home.
+    TargetNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+  - BaseNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+    PortName: Could there be someone that wished Ivy harm?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+    PortName: Is there more you can tell me about Ivy's dissapearance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: I'll do try to help you remember. We'll find Ivy...together!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    TargetNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+  - BaseNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+    PortName: I appreciate it, but I'm fine at the moment.
+    TargetNodeGuid: 8a3ff52d-20cb-4f73-85a4-20945ffb940e
   DialogueNodeData:
-  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
-      she still was one of a kind with the purest heart. It''s confounding why anyone
-      would wish harm upon my dear girl. '
-    Position: {x: 401, y: 411}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Hi there! How can I help you child?
-    Position: {x: 401, y: 116}
+    Position: {x: 400.8, y: 100}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 730.4, y: 138.4}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Hmmm... Oh yes, a Axeman came by, one who had never visited my
       store before. He was quite nice and seemed worried about Ivy, but he left in
       a rush and didn't buy anything. That was rather odd.
-    Position: {x: 401, y: 298}
-  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    Position: {x: 400.8, y: 227.2}
+  - NodeGUID: 8a3ff52d-20cb-4f73-85a4-20945ffb940e
     DialogueText: ENDPOINT
-    Position: {x: 861, y: 207}
+    Position: {x: 832.8, y: 397.6}
+  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
+    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
+      she still was one of a kind with the purest heart. It''s confounding why anyone
+      would wish harm upon my dear girl. '
+    Position: {x: 400.8, y: 488}
+  - NodeGUID: 1066662c-b13c-4f80-9f50-19c95a11f9e1
+    DialogueText: Well, need something player? I mean detective...
+    Position: {x: 400.8, y: 332}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: I am sorry, my dear, but my memory will not get better, so I cannot
       provide any help. There must be something that can stir my memory, something...
       something that belongs to her!
-    Position: {x: 401, y: 526}
+    Position: {x: 400.8, y: 595.2}

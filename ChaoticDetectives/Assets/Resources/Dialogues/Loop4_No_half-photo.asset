@@ -16,53 +16,62 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: I will try my best to find it!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     PortName: I indeed hope so too!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    TargetNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
+  - BaseNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
+    PortName: Can you tell me more about Ivy?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
+    PortName: Do you know anything about her disappearance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I will try my best to find it!
+    TargetNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
   - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
     PortName: I'll ensure it comes to pass!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    TargetNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Tell me more about Ivy
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Do you know anything about her disappearance?
-    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
+    PortName: I appreciate it, but not at the moment.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
+    PortName: No, thanks for all the help!
+    TargetNodeGuid: b9c64722-efa7-4bcb-8351-d8e5946d2f2f
   DialogueNodeData:
-  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: ' I don''t remember a thing... this illness sadly hurts my heart
-      too... as sometimes without a reminder, I cannot recall Ivy''s smile. Perhaps
-      you can find a trinket? Something that will remind me of how beautiful she
-      was!'
-    Position: {x: 401, y: 526}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: I haven't felt this way since I lost my wife. It feels as my body
       is shaking with the urge to help, although my hands are still. Huh... But who
       knew that such a sorrowful event could ignite a passion for change? So many
       people have been visiting and trying to help. I hope it leads to the betterment
       of us all.
-    Position: {x: 401, y: 298}
+    Position: {x: 400.8, y: 222.4}
+  - NodeGUID: d7fffea2-e0d9-4d9c-8a32-cfa152e4b697
+    DialogueText: Is there anything I can do for you?
+    Position: {x: 400.8, y: 316.80002}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: ' I don''t remember a thing... this illness sadly hurts my heart
+      too... as sometimes without a reminder, I cannot recall Ivy''s smile. Perhaps
+      you can find a trinket? Something that will remind me of how beautiful she
+      was!'
+    Position: {x: 395.2, y: 572.8}
   - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
     DialogueText: She's been the dearest girl. Her resilience and ever-present smile
       still linger in my memory. She loved photography, capturing even the smallest,
       most mesmerizing moments. Her strong spirit touched everyone she met, gracing
       strangers with her smile until they smiled back. Let's find her, so we can
       restore the light she brought and make this a better place.
-    Position: {x: 401, y: 411}
+    Position: {x: 395.2, y: 478.40002}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings, I haven't seen you in a while. Who is that with you?
       Player? Oh, well... My apologies if I didn't recognize you at first. Is there
       anything I can do for you?
-    Position: {x: 401, y: 56}
+    Position: {x: 400.8, y: 104}
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
-    Position: {x: 1476, y: 123}
+    Position: {x: 1441.6, y: 142.4}
+  - NodeGUID: b9c64722-efa7-4bcb-8351-d8e5946d2f2f
+    DialogueText: ENDPOINT
+    Position: {x: 804, y: 382.40002}

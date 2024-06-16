@@ -16,48 +16,40 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: Whoever it is won't matter, I will find Ivy and bring her home.
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Anything new happened today?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Could there be someone that wished Ivy harm?
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: '*Show birthday decorations*'
+    PortName: What can you tell me about these birthday decorations?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
+    PortName: I appreciate it, but not at the moment.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: Indeed...quite amusing! Hope no harm was done!
+    PortName: "That sounds like a pleasant visit. I\u2019m glad."
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: That is a lead worth pursuing. Thank you for your assistance, sir!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: So the park... Lets see where this lead goes.
+    TargetNodeGuid: c3f93dbe-9626-4ba7-84d4-1684aac29d95
   DialogueNodeData:
-  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
-      she still was one of a kind with the purest heart. It''s confounding why anyone
-      would wish harm upon my dear girl. '
-    Position: {x: 401, y: 411}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    DialogueText: Hi there! How can I help you child?
-    Position: {x: 401, y: 116}
+    DialogueText: Greetings again! Is there anything I can do for you?
+    Position: {x: 400.8, y: 116}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 828.8, y: 181.59999}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Nothing special, although Ivy's counselor came by... brought me
       some sweets, and we sat inside for a cup of tea. Then he opened a bottle of
       scotch whiskey... ha, what a lovely man.
-    Position: {x: 401, y: 298}
-  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-    DialogueText: ENDPOINT
-    Position: {x: 861, y: 207}
+    Position: {x: 400.8, y: 258.40002}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: Those are definitely hers, without a doubt... We intentionally
       traveled to a nearby city to purchase these, o she could celebrate her birthday
       joyfully at last. She and her friends celebrated so loudly in that park that
       day, I wouldn't be surprised if there are still more of these decorations scattered
       around, ha.
-    Position: {x: 401, y: 526}
+    Position: {x: 400.8, y: 352.80002}
+  - NodeGUID: c3f93dbe-9626-4ba7-84d4-1684aac29d95
+    DialogueText: ENDPOINT
+    Position: {x: 2261.6, y: 370.40002}

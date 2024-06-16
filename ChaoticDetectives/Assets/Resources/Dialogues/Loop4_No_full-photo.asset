@@ -22,40 +22,49 @@ MonoBehaviour:
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Anything new happened today?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Could there be someone that wished Ivy harm?
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Is there more you can tell me about Ivy's dissapearance?
-    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
-    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: Oh no...I hope the bird is alright!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: I'll do try to help you remember. We'll find Ivy...together!
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Thank you, but I'm okay for now.
+    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: Oh no...I hope the bird is alright!
+    TargetNodeGuid: 4c30fd21-3066-4674-8808-a2d15f7aee60
+  - BaseNodeGuid: 4c30fd21-3066-4674-8808-a2d15f7aee60
+    PortName: Could there be someone that wished Ivy harm?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: 4c30fd21-3066-4674-8808-a2d15f7aee60
+    PortName: Is there more you can tell me about Ivy's dissapearance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: 4c30fd21-3066-4674-8808-a2d15f7aee60
+    PortName: I appreciate it, but I'm fine at the moment.
+    TargetNodeGuid: 4831c34f-d59e-49b8-a248-6e2e616315e0
   DialogueNodeData:
-  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
-      she still was one of a kind with the purest heart. It''s confounding why anyone
-      would wish harm upon my dear girl. '
-    Position: {x: 401, y: 411}
-  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    DialogueText: Hi there! How can I help you child?
-    Position: {x: 401, y: 116}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Oh... There was a bird that broke my window, injuring its wing...I
       brought it home and tried to help, but I am slighly too old for this, that
       poor little thing.
-    Position: {x: 401, y: 298}
+    Position: {x: 400.8, y: 298.40002}
+  - NodeGUID: 4c30fd21-3066-4674-8808-a2d15f7aee60
+    DialogueText: Well, need something player? I mean detective...
+    Position: {x: 400.8, y: 392.80002}
+  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    DialogueText: Hi there! How can I help you child?
+    Position: {x: 400.8, y: 180}
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
-    Position: {x: 861, y: 207}
+    Position: {x: 730.4, y: 221.59999}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: I am sorry, my dear, but my memory will not get better, so I cannot
       provide any help. There must be something that can stir my memory, something...
       something that belongs to her!
-    Position: {x: 401, y: 526}
+    Position: {x: 400.8, y: 632}
+  - NodeGUID: 4831c34f-d59e-49b8-a248-6e2e616315e0
+    DialogueText: ENDPOINT
+    Position: {x: 832.8, y: 458.40002}
+  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
+    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
+      she still was one of a kind with the purest heart. It''s confounding why anyone
+      would wish harm upon my dear girl. '
+    Position: {x: 400.8, y: 537.60004}

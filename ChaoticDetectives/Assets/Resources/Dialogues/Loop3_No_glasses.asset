@@ -16,52 +16,61 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: I see, I will try to see what I can do!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: I indeed hope so too!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: I'll ensure it comes to pass!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Tell me more about Ivy
+    PortName: I appreciate it, but not at the moment.
+    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+    PortName: Can you tell me more about Ivy?
     TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
     PortName: Do you know anything about her disappearance?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Have a great day, sir!
-    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: I'll ensure it comes to pass!
+    TargetNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I see, I will try to see what I can do!
+    TargetNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: I indeed hope so too!
+    TargetNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+  - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+    PortName: No, thanks for all the help!
+    TargetNodeGuid: 8f730691-0fc4-4c05-aa42-5239b4fe9f93
   DialogueNodeData:
-  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: I would love to assist, but this headache is quite terrible. I've
-      spent the entire day squinting without my glasses... I truly cannot focus without
-      them anymore... ha... getting old.
-    Position: {x: 401, y: 526}
-  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
-    Position: {x: 401, y: 298}
+  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    DialogueText: Greetings, I haven't seen you in a while. Who is that with you?
+      Player? Oh, well... My apologies if I didn't recognize you at first. Is there
+      anything I can do for you?
+    Position: {x: 400.8, y: 56.000004}
+  - NodeGUID: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+    DialogueText: Is there anything I can do for you?
+    Position: {x: 400.8, y: 271.2}
   - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
     DialogueText: She's been the dearest girl. Her resilience and ever-present smile
       still linger in my memory. She loved photography, capturing even the smallest,
       most mesmerizing moments. Her strong spirit touched everyone she met, gracing
       strangers with her smile until they smiled back. Let's find her, so we can
       restore the light she brought and make this a better place.
-    Position: {x: 401, y: 411}
-  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    DialogueText: Greetings, I haven't seen you in a while. Who is that with you?
-      Player? Oh, well... My apologies if I didn't recognize you at first. Is there
-      anything I can do for you?
-    Position: {x: 401, y: 56}
+    Position: {x: 400.8, y: 413.6}
+  - NodeGUID: 8f730691-0fc4-4c05-aa42-5239b4fe9f93
+    DialogueText: ENDPOINT
+    Position: {x: 792, y: 336.80002}
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
-    Position: {x: 1476, y: 123}
+    Position: {x: 1441.6, y: 97.600006}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: I would love to assist, but this headache is quite terrible. I've
+      spent the entire day squinting without my glasses... I truly cannot focus without
+      them anymore... ha... getting old.
+    Position: {x: 400.8, y: 517.60004}
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
+      is shaking with the urge to help, although my hands are still. Huh... But who
+      knew that such a sorrowful event could ignite a passion for change? So many
+      people have been visiting and trying to help. I hope it leads to the betterment
+      of us all.
+    Position: {x: 400.8, y: 176.8}
