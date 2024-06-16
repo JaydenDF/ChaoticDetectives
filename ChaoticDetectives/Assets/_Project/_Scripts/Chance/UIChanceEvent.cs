@@ -15,8 +15,6 @@ public class UIChanceEvent : MonoBehaviour
 
     [Space(10)]
     [Header("Animation")]
-    [SerializeField] private float _animDuration = 1f;
-    [SerializeField] private float _animationInterval = 0.5f;
     [SerializeField] private float _waitTime = 1f;
 
     private ChanceEvent _chanceEvent;

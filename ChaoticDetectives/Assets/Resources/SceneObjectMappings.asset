@@ -18,3 +18,9 @@ MonoBehaviour:
   - sceneName: NewChoiceEventAndStatsSystem
     gameObjectNames:
     - FirstSceen
+  - sceneName: Loop1and2
+    gameObjectNames:
+    - Map
+    - Chance Event
+    - DialogueCanva
+    - CursorParent

@@ -38,11 +38,13 @@ public class StatSystem : MonoBehaviour
 
     public List<Stat[]> copyOfStats = new List<Stat[]>();
 
+    private void OnEnable() {
+        LoopMaster.OnLooped += ReloadStats;
+    }
     private void OnDisable()
     {
         ReloadStats();
     }
-
 
     private void Start()
     {

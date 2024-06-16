@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class LoopMaster : MonoBehaviour {
@@ -11,9 +12,18 @@ public class LoopMaster : MonoBehaviour {
 
     [ContextMenu("Loop")]
     public void Loop() {
+        OnLooped?.Invoke();
         foreach (var loopManager in _loopManagers) {
             loopManager.Loop();
         }
-        OnLooped?.Invoke();
+    }
+
+    public void LoopAfterSeconds(float seconds) {
+        StartCoroutine(LoopAfterSecondsCoroutine(seconds));
+    }
+
+    private IEnumerator LoopAfterSecondsCoroutine(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        Loop();
     }
 }
