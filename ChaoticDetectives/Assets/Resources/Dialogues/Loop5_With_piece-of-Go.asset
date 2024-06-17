@@ -16,9 +16,6 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: Whoever it is won't matter, I will find Ivy and bring her home.
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Anything new happened today?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
@@ -43,9 +40,8 @@ MonoBehaviour:
     Position: {x: 823.2, y: 156}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Oh well... I tried to arrange the canned goods in the back aisles,
-      but they fell to the floor and started rolling all over the place. Thankfully,
-      the customers pitched in to help gather them... though I'm certain I'm still
-      missing at least two... ha ha, must be those neighbor kids.
+      but they fell to the floor and started rolling all over the place. I picked
+      up all of them, though I'm certain I'm still missing at least two...
     Position: {x: 400.8, y: 258.40002}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: What a beautiful piece! Oh... Ivy used to play "Go" almost every

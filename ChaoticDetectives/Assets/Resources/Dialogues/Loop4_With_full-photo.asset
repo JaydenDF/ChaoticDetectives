@@ -40,15 +40,15 @@ MonoBehaviour:
       brought it home and tried to help, but I am slighly too old for this, that
       poor little thing.
     Position: {x: 400.8, y: 242.40001}
-  - NodeGUID: a96e25ef-ef47-4cb7-a2be-361f8dd59033
-    DialogueText: ENDPOINT
-    Position: {x: 2054.4, y: 365.6}
-  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    DialogueText: There it is, the other half. Thank you for finding it. It's Ivy
-      and her mother, and that picture surely was taken in the park they loved so
-      much. After my daughter's death, Ivy has been going to the same park every
-      other day, reminiscing about all the memories and smiling.
-    Position: {x: 400.8, y: 336.80002}
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
     Position: {x: 860, y: 165.59999}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: There it is, the other half. It's Ivy and her mother, and that
+      picture surely was taken in the park they loved so much. After my daughter's
+      death, Ivy has been going to the same park every other day, reminiscing about
+      all the memories and smiling.
+    Position: {x: 400.8, y: 336.80002}
+  - NodeGUID: a96e25ef-ef47-4cb7-a2be-361f8dd59033
+    DialogueText: ENDPOINT
+    Position: {x: 1916, y: 354.40002}

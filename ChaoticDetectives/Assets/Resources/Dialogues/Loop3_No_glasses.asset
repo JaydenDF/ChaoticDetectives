@@ -28,6 +28,9 @@ MonoBehaviour:
   - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
     PortName: Do you know anything about her disappearance?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
+    PortName: No, thanks for all the help!
+    TargetNodeGuid: 8f730691-0fc4-4c05-aa42-5239b4fe9f93
   - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
     PortName: I'll ensure it comes to pass!
     TargetNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
@@ -37,9 +40,6 @@ MonoBehaviour:
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     PortName: I indeed hope so too!
     TargetNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
-  - BaseNodeGuid: 956ca488-80e9-47a1-9e77-722bd9cb93bc
-    PortName: No, thanks for all the help!
-    TargetNodeGuid: 8f730691-0fc4-4c05-aa42-5239b4fe9f93
   DialogueNodeData:
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings, I haven't seen you in a while. Who is that with you?
@@ -50,11 +50,9 @@ MonoBehaviour:
     DialogueText: Is there anything I can do for you?
     Position: {x: 400.8, y: 271.2}
   - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: She's been the dearest girl. Her resilience and ever-present smile
-      still linger in my memory. She loved photography, capturing even the smallest,
-      most mesmerizing moments. Her strong spirit touched everyone she met, gracing
-      strangers with her smile until they smiled back. Let's find her, so we can
-      restore the light she brought and make this a better place.
+    DialogueText: She's been the dearest girl. She loved photography, capturing even
+      the smallest, most mesmerizing moments, her strong spirit touched everyone
+      she met. Please detective find her!
     Position: {x: 400.8, y: 413.6}
   - NodeGUID: 8f730691-0fc4-4c05-aa42-5239b4fe9f93
     DialogueText: ENDPOINT
@@ -68,9 +66,7 @@ MonoBehaviour:
       them anymore... ha... getting old.
     Position: {x: 400.8, y: 517.60004}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
     Position: {x: 400.8, y: 176.8}

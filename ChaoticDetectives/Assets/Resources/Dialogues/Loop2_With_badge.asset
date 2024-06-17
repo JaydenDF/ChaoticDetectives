@@ -20,9 +20,6 @@ MonoBehaviour:
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-    PortName: Tell me more about Ivy
-    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: Here is my badge. Now i can see that CCTV?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
@@ -34,9 +31,6 @@ MonoBehaviour:
   - BaseNodeGuid: aec5f3ad-a064-4479-a78f-88a0bd66c004
     PortName: Event
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
-    PortName: I'll ensure it comes to pass!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: c3ba7443-fd5b-4780-b9b7-cdee9b16cf5c
     PortName: Do you remember where she went after your argument?
     TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
@@ -47,41 +41,32 @@ MonoBehaviour:
     PortName: Don't worry, it's understandable.
     TargetNodeGuid: c3ba7443-fd5b-4780-b9b7-cdee9b16cf5c
   DialogueNodeData:
-  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-    DialogueText: ENDPOINT
-    Position: {x: 1476, y: 123.2}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings again! Is there anything I can do for you?
     Position: {x: 400.8, y: 76.8}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
     Position: {x: 400.8, y: 252.8}
-  - NodeGUID: aec5f3ad-a064-4479-a78f-88a0bd66c004
-    DialogueText: ShowsBadge
-    Position: {x: 200, y: 465.6}
-  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: She's been the dearest girl. Her resilience and ever-present smile
-      still linger in my memory. She loved photography, capturing even the smallest,
-      most mesmerizing moments. Her strong spirit touched everyone she met, gracing
-      strangers with her smile until they smiled back. Let's find her, so we can
-      restore the light she brought and make this a better place.
-    Position: {x: 400.8, y: 361.6}
   - NodeGUID: c3ba7443-fd5b-4780-b9b7-cdee9b16cf5c
     DialogueText: Any more questions, sir?
-    Position: {x: 400.8, y: 563.2}
+    Position: {x: 400.8, y: 456.80002}
   - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
     DialogueText: I wish I could help, but sadly my memory deceives me... Oh, wait...
       I think I remember her going either towards the school or the house where we
       live. I assure you, it's one of those places!
-    Position: {x: 400.8, y: 657.60004}
-  - NodeGUID: cff997b0-3f83-44a6-a876-aa0a2deb24ff
-    DialogueText: ENDPOINT
-    Position: {x: 1592.8, y: 675.2}
+    Position: {x: 400.8, y: 551.2}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: Oh, that's great! There are so many people coming over to me that
       I'm not sure if the... kidnapper... might be one of them. But yes the CCTV...
-    Position: {x: 400.8, y: 465.6}
+    Position: {x: 400.8, y: 359.2}
+  - NodeGUID: aec5f3ad-a064-4479-a78f-88a0bd66c004
+    DialogueText: ShowsBadge
+    Position: {x: 214.4, y: 362.40002}
+  - NodeGUID: cff997b0-3f83-44a6-a876-aa0a2deb24ff
+    DialogueText: ENDPOINT
+    Position: {x: 1592.8, y: 568.8}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 823.2, y: 142.4}

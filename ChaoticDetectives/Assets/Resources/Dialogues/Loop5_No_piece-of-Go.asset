@@ -43,9 +43,8 @@ MonoBehaviour:
   DialogueNodeData:
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Oh well... I tried to arrange the canned goods in the back aisles,
-      but they fell to the floor and started rolling all over the place. Thankfully,
-      the customers pitched in to help gather them... though I'm certain I'm still
-      missing at least two... ha ha, must be those neighbor kids.
+      but they fell to the floor and started rolling all over the place. I picked
+      up all of them, though I'm certain I'm still missing at least two...
     Position: {x: 400.8, y: 282.40002}
   - NodeGUID: dcc3d6db-7de1-4583-9a7b-340d03931598
     DialogueText: ENDPOINT

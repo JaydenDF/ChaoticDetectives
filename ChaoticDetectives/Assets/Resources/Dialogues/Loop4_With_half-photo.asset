@@ -16,9 +16,6 @@ MonoBehaviour:
   - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
     PortName: Next
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
-  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    PortName: I indeed hope so too!
-    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
@@ -34,6 +31,9 @@ MonoBehaviour:
   - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
     PortName: Thank you, I promise to bring Ivy back!
     TargetNodeGuid: cff997b0-3f83-44a6-a876-aa0a2deb24ff
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: I indeed hope so too!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
   DialogueNodeData:
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings again! Is there anything I can do for you?
@@ -53,9 +53,7 @@ MonoBehaviour:
     DialogueText: ENDPOINT
     Position: {x: 823.2, y: 159.2}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
     Position: {x: 400.8, y: 260}

@@ -34,12 +34,12 @@ MonoBehaviour:
   - BaseNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
     PortName: Is there more you can tell me about Ivy's dissapearance?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: I'll do try to help you remember. We'll find Ivy...together!
-    TargetNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
   - BaseNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
     PortName: I appreciate it, but I'm fine at the moment.
     TargetNodeGuid: 8a3ff52d-20cb-4f73-85a4-20945ffb940e
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I'll do try to help you remember. We'll find Ivy...together!
+    TargetNodeGuid: 1066662c-b13c-4f80-9f50-19c95a11f9e1
   DialogueNodeData:
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Hi there! How can I help you child?

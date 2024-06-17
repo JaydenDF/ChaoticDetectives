@@ -41,13 +41,6 @@ MonoBehaviour:
     PortName: I will try my best to find it!
     TargetNodeGuid: f90695fc-d86c-4455-b0fd-b7425ff8dca8
   DialogueNodeData:
-  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
-    Position: {x: 400.8, y: 222.4}
   - NodeGUID: 319fe040-3c4c-4dfb-87ef-593d5263c672
     DialogueText: ENDPOINT
     Position: {x: 806.4, y: 382.40002}
@@ -63,14 +56,17 @@ MonoBehaviour:
     DialogueText: Is there anything I can do for you?
     Position: {x: 400.8, y: 316.80002}
   - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
-    DialogueText: She's been the dearest girl. Her resilience and ever-present smile
-      still linger in my memory. She loved photography, capturing even the smallest,
-      most mesmerizing moments. Her strong spirit touched everyone she met, gracing
-      strangers with her smile until they smiled back. Let's find her, so we can
-      restore the light she brought and make this a better place.
+    DialogueText: She's been the dearest girl. She loved photography, capturing even
+      the smallest, most mesmerizing moments, her strong spirit touched everyone
+      she met. Please detective find her!
     Position: {x: 400.8, y: 459.2}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: Oh dear... my apologies, but I don't recall writing to you... my
       memory with this illness is worsening more and more. Could you provide me with
       something to prove it?
     Position: {x: 400.8, y: 553.60004}
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
+    Position: {x: 400.8, y: 222.4}

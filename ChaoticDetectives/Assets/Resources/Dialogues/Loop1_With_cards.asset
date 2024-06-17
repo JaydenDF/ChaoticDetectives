@@ -22,6 +22,9 @@ MonoBehaviour:
   - BaseNodeGuid: 7ad176dc-11b9-4c52-ad9d-9f10fbb34ef7
     PortName: Can you tell me something about this cards?
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: 7ad176dc-11b9-4c52-ad9d-9f10fbb34ef7
+    PortName: I appreciate it, but I'm fine at the moment.
+    TargetNodeGuid: 37cd2e6a-1b08-462d-b226-c57354dc09a7
   - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
     PortName: Whoever it is won't matter, I will find Ivy and bring her home.
     TargetNodeGuid: 7ad176dc-11b9-4c52-ad9d-9f10fbb34ef7
@@ -40,9 +43,6 @@ MonoBehaviour:
   - BaseNodeGuid: fe9ab02c-5d14-43f0-8257-cf0a67f804fc
     PortName: Event
     TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-  - BaseNodeGuid: 7ad176dc-11b9-4c52-ad9d-9f10fbb34ef7
-    PortName: I appreciate it, but I'm fine at the moment.
-    TargetNodeGuid: 37cd2e6a-1b08-462d-b226-c57354dc09a7
   DialogueNodeData:
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
@@ -67,7 +67,6 @@ MonoBehaviour:
     DialogueText: Ah, yes... I recall these... My granddaughter truly loved playing
       cards with her friends in the park. She used to spend most of her nights there...
       Or every second evening? If my memory serves me right, it was every night.
-      She did indeed spend a lot of time there.
     Position: {x: 396.8, y: 549.60004}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Hi there! How can I help you child?

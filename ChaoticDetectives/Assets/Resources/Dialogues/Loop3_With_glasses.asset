@@ -19,6 +19,12 @@ MonoBehaviour:
   - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     PortName: I indeed hope so too!
     TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: What is so important about this pen?
+    TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+  - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+    PortName: Thank you, I promise to sort everything out!
+    TargetNodeGuid: cff997b0-3f83-44a6-a876-aa0a2deb24ff
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: How have you been doing?
     TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
@@ -28,22 +34,14 @@ MonoBehaviour:
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: I appreciate it, but not at the moment.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: What is so important about this pen?
-    TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
-  - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
-    PortName: Thank you, I promise to sort everything out!
-    TargetNodeGuid: cff997b0-3f83-44a6-a876-aa0a2deb24ff
   DialogueNodeData:
   - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
     DialogueText: ENDPOINT
     Position: {x: 822.4, y: 189.59999}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife. It feels as my body
-      is shaking with the urge to help, although my hands are still. Huh... But who
-      knew that such a sorrowful event could ignite a passion for change? So many
-      people have been visiting and trying to help. I hope it leads to the betterment
-      of us all.
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
     Position: {x: 400, y: 276.80002}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: Oh... you made me new ones... they are fantastic!.....Wait....There's
