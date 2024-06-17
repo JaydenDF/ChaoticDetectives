@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
-using System.Linq;
 using System;
+using Unity.VisualScripting;
 
 public class SelectAndDisableChildrenEditor : EditorWindow
 {
@@ -12,14 +10,14 @@ public class SelectAndDisableChildrenEditor : EditorWindow
     private bool showShortcuts = false;
     private List<GameObject> gameObjects = new List<GameObject>();
 
-    private const string ASSET_PATH = "Assets/Resources/SceneObjectMappings.asset";
-    private SceneObjectMappings sceneObjectMappings;
+    private const string PREFS_KEY = "SelectAndDisableChildrenGameObjects";
 
     [MenuItem("Tools/Select And Disable Tools")]
     public static void ShowWindow()
     {
         GetWindow<SelectAndDisableChildrenEditor>("Select And Disable Tools");
     }
+
 
     [MenuItem("Tools/Select And Disable Tools/Toggle Functionality #e")] // Shortcut: Shift + E
     public static void ToggleFunctionality()
@@ -39,25 +37,12 @@ public class SelectAndDisableChildrenEditor : EditorWindow
     {
         EditorWindow.GetWindow<SelectAndDisableChildrenEditor>().SetActiveStateForAll(false);
     }
-
-    private void OnEnable()
-    {
+    private void OnEnable() {
         Selection.selectionChanged += OnSelectionChanged;
-        EditorSceneManager.sceneOpened += OnSceneOpened;
-        LoadMappings();
-        LoadGameObjects();
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         Selection.selectionChanged -= OnSelectionChanged;
-        EditorSceneManager.sceneOpened -= OnSceneOpened;
-        SaveMappings();
-    }
-
-    private void OnSceneOpened(Scene scene, OpenSceneMode mode)
-    {
-        LoadGameObjects();
     }
 
     private void OnGUI()
@@ -129,20 +114,7 @@ public class SelectAndDisableChildrenEditor : EditorWindow
             }
             EditorGUILayout.EndHorizontal();
         }
-
-        if (GUI.changed)
-        {
-            SaveGameObjects();
-        }
-
-        EditorGUILayout.Space();
-
-        if (GUILayout.Button("Load Game Objects"))
-        {
-            LoadGameObjects();
-        }
     }
-
     private void OnSelectionChanged()
     {
         if (!isEnabled) return;
@@ -193,76 +165,36 @@ public class SelectAndDisableChildrenEditor : EditorWindow
 
     private void SaveGameObjects()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        List<string> gameObjectNames = new List<string>();
+        List<int> gameObjectIDs = new List<int>();
         foreach (GameObject go in gameObjects)
         {
             if (go != null)
             {
-                gameObjectNames.Add(go.name);
+                gameObjectIDs.Add(go.GetInstanceID());
             }
         }
-
-        SceneObjectMappings.SceneMapping mapping = sceneObjectMappings.sceneMappings.Find(m => m.sceneName == sceneName);
-        if (mapping != null)
-        {
-            mapping.gameObjectNames = gameObjectNames;
-        }
-        else
-        {
-            sceneObjectMappings.sceneMappings.Add(new SceneObjectMappings.SceneMapping
-            {
-                sceneName = sceneName,
-                gameObjectNames = gameObjectNames
-            });
-        }
-
-        SaveMappings();
+        EditorPrefs.SetString(PREFS_KEY, string.Join(",", gameObjectIDs));
     }
 
     private void LoadGameObjects()
     {
         gameObjects.Clear();
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneObjectMappings == null)
+        string savedIDs = EditorPrefs.GetString(PREFS_KEY, "");
+        if (!string.IsNullOrEmpty(savedIDs))
         {
-            return;
-        }
-        SceneObjectMappings.SceneMapping mapping = sceneObjectMappings.sceneMappings.Find(m => m.sceneName == sceneName);
-        if (mapping != null)
-        {
-            foreach (string name in mapping.gameObjectNames)
+            string[] ids = savedIDs.Split(',');
+            foreach (string id in ids)
             {
-                GameObject go = SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(x => x.GetComponentsInChildren<Transform>(true)).Select(x => x.gameObject).FirstOrDefault(x => x.name == name);
-
-                if (go != null)
+                int instanceID;
+                if (int.TryParse(id, out instanceID))
                 {
-                    gameObjects.Add(go);
+                    GameObject go = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
+                    if (go != null)
+                    {
+                        gameObjects.Add(go);
+                    }
                 }
             }
         }
     }
-
-    private void SaveMappings()
-    {
-        if (sceneObjectMappings == null)
-        {
-            return;
-        }
-        EditorUtility.SetDirty(sceneObjectMappings);
-        AssetDatabase.SaveAssets();
-    }
-
-    private void LoadMappings()
-    {
-        sceneObjectMappings = Resources.Load<SceneObjectMappings>("SceneObjectMappings");
-        Debug.Log(sceneObjectMappings);
-        Debug.Log(ASSET_PATH);
-        if (sceneObjectMappings == null)
-        {
-            Debug.LogWarning("SceneObjectMappings.asset not found. Create a new one.");
-        }
-
-    }
 }
-

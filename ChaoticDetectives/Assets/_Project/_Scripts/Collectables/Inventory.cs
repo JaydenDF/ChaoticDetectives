@@ -65,13 +65,6 @@ public class Inventory : MonoBehaviour
         AddUIToInventory(instantiatedPrefab);
     }
 
-    public void RemoveFromInventory(GameObject item)
-    {
-        if (collectedItems.Contains(item) == false){return;}
-        collectedItems.Remove(item);
-        UIStorage.Remove(item);
-    }
-
     private void EventOnItemAdded(GameObject item)
     {
         OnItemAdded.Invoke();

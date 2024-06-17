@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8437790102289852558}
-  - component: {fileID: 7039819604323201495}
   - component: {fileID: 1028487640959955546}
   - component: {fileID: 5909673765110627692}
   - component: {fileID: 2475181596073370751}
@@ -35,19 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7039819604323201495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558937430270539706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f685b4e7e259b274788178ef7f86413a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  persist: 0
 --- !u!114 &1028487640959955546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,23 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc0bff6a307c0549962cbd7442b6983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnInteractionFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7039819604323201495}
-        m_TargetAssemblyTypeName: PersistLoop, Assembly-CSharp
-        m_MethodName: persistLoop
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  inventory: {fileID: 0}
   states:
   - {fileID: 21300000, guid: a8cfcefeb62e5d7408273964da1bb323, type: 3}
   - {fileID: 21300000, guid: dbd8904a264b0bf41875ec8bde58646f, type: 3}

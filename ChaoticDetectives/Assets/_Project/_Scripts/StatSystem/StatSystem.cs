@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class StatSystem : MonoBehaviour
@@ -27,18 +26,12 @@ public class StatSystem : MonoBehaviour
     }
     #endregion
 
-    public static Action<Stat[]> OnStatsChanged;
-    public static Action<CharacterSO> OnCharacterChanged;
-    public static Action<Stat> OnStatModfied;
-
     [SerializeField] private CharacterSO _currentCharacterSO;
-    
     [SerializeField]
     private Stat[] stats =
     {
         new Stat { statType = StatType.Perception, value = 0 },
-        new Stat { statType = StatType.Creativity, value = 0 },
-        new Stat { statType = StatType.Intelligence, value = 0 }
+        new Stat { statType = StatType.Creativity, value = 0 }
     };
 
     private void Awake() {
@@ -58,7 +51,6 @@ public class StatSystem : MonoBehaviour
     private void SetCurrentCharacterSO(CharacterSO characterSO)
     {
         _currentCharacterSO = characterSO;
-        OnCharacterChanged?.Invoke(characterSO);
     }
     public void SetStatValue(StatType statType, uint value)
     {
@@ -69,8 +61,6 @@ public class StatSystem : MonoBehaviour
                 stats[i].value = value;
             }
         }
-
-        OnStatsChanged?.Invoke(stats);
     }
 
     public void SetStatsFromCharacterSO(CharacterSO characterSO)
@@ -90,12 +80,6 @@ public class StatSystem : MonoBehaviour
                 stats[i].value += value;
             }
         }
-
-
-        var statForEvent = new Stat{statType = statType, value = value};
-
-        OnStatModfied?.Invoke(statForEvent);
-        OnStatsChanged?.Invoke(stats);
     }
 
     public bool CheckStatValue(StatType statType, uint value)
