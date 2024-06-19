@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 public class LoopTools : EditorWindow
 {
     private int loopIndex = 0;
@@ -35,3 +35,4 @@ public class LoopTools : EditorWindow
         Debug.Log("Enabled loop " + index + " in all LoopManagers.");
     }
 }
+#endif

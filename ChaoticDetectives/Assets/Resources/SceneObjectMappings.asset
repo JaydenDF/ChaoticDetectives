@@ -30,3 +30,9 @@ MonoBehaviour:
     - CursorParent
     - Map
     - MapButton
+  - sceneName: Loop3
+    gameObjectNames:
+    - Canvas
+    - Map
+    - MapButton
+    - CursorParent

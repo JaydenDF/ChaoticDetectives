@@ -31,16 +31,12 @@ public class Interactable : MonoBehaviour, IInteractable
     }
 
     public List<NeededItems> neededItems;
-
-    private void OnEnable()
-    {
-        LoopMaster.OnLooped += ApplyChangesNextLoop;
-    }
-
-    private void OnDisable()
+    private void OnDestroy()
     {
         LoopMaster.OnLooped -= ApplyChangesNextLoop;
+
     }
+
 
     public void OnClick()
     {
@@ -65,6 +61,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        LoopMaster.OnLooped += ApplyChangesNextLoop;
+
         inventory = FindObjectOfType<Inventory>();
         if (GetComponent<SpriteRenderer>() != null)
         {
