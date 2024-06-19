@@ -49,6 +49,7 @@ MonoBehaviour:
   _searcherCursor: {fileID: 458976259013691608}
   _normalCursor: {fileID: 1597998699951025550}
   _cursorSprite: {fileID: 7233042774044774567}
+  _abstractInput: {fileID: 6694915334589062500}
 --- !u!1001 &8898938722675576081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,6 +82,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 182add80e822626428badb349fae6c5e, type: 3}
+    - target: {fileID: 5164600808258456833, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164600808258456833, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
+      propertyPath: m_SortingOrder
+      value: 620
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164600808258456833, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164600808258456833, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -279,6 +292,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46f0779517305564eb2e8acbf4cf04bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6694915334589062500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2852607705543397493, guid: d786772f1de54ec4d909f20aeccc4830, type: 3}
+  m_PrefabInstance: {fileID: 8898938722675576081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407650180046546764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515e334408a54fb4e837c8553fc1fe82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7233042774044774567 stripped

@@ -22,7 +22,7 @@ public class StatNotificationSystem : MonoBehaviour {
     }
 
     private void NotifyOfStatChange(Stat obj) {
-        _notificationText.text = $" +{obj.value} {obj.statType} ";
+        _notificationText.text = $" +1 {obj.statType} ";
         _notificationObject.SetActive(true);
 
         StartCoroutine(HideNotification());

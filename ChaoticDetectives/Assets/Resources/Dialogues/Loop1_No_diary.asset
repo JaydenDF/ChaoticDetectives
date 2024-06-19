@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb65984647ff324485370bea336e303, type: 3}
+  m_Name: Loop1_No_diary
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
+    PortName: Next
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: I'll ensure it comes to pass!
+    TargetNodeGuid: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: How have you been doing?
+    TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: I appreciate it, but not at the moment.
+    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: I indeed hope so too!
+    TargetNodeGuid: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+  - BaseNodeGuid: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+    PortName: Can you tell me more about Ivy?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+    PortName: No, thanks for all the help!
+    TargetNodeGuid: 3ec39439-bf13-4ea4-9303-ab058d54c3ee
+  - BaseNodeGuid: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+    PortName: Do you know anything about her disappearance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I will try my best to find it!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  DialogueNodeData:
+  - NodeGUID: 3ec39439-bf13-4ea4-9303-ab058d54c3ee
+    DialogueText: ENDPOINT
+    Position: {x: 771.2, y: 378.40002}
+  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    DialogueText: Greetings, I haven't seen you in a while. Who is that with you?
+      Player? Oh, well... My apologies if I didn't recognize you at first. Is there
+      anything I can do for you?
+    Position: {x: 380, y: 100}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 1420.8, y: 141.59999}
+  - NodeGUID: d1f28f27-0970-4bfa-be82-5cf22aad7f03
+    DialogueText: Is there anything I can do for you?
+    Position: {x: 380, y: 312.80002}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: Hmm... My memory seems to fail me without my diary. I can only
+      recall fragments, such as her wearing a blue jacket. I fear I may not be of
+      much help. Not without my diary...ye...not without it!
+    Position: {x: 380, y: 549.60004}
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
+    Position: {x: 380, y: 218.4}
+  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
+    DialogueText: She's been the dearest girl. She loved photography, capturing even
+      the smallest, most mesmerizing moments, her strong spirit touched everyone
+      she met. Please detective find her!
+    Position: {x: 380, y: 455.2}

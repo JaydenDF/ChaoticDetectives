@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonologueAnimation : MonoBehaviour
@@ -26,11 +28,31 @@ public class MonologueAnimation : MonoBehaviour
     private void OnEnable()
     {
         _inventory.OnItemAdded.AddListener(OnCollected);
+
+
+        MonologueSystem.MonologueText += ShowMonologue;
+        UIChanceEvent.OnChanceEventEnd += Hide;
     }
 
     private void OnDisable()
     {
         _inventory.OnItemAdded.RemoveListener(OnCollected);
+
+        MonologueSystem.MonologueText -= ShowMonologue;
+        UIChanceEvent.OnChanceEventEnd -= Hide;
+    }
+
+    private void ShowMonologue(string obj)
+    {
+        StartMonologueAnimation();
+    }
+
+    private void StartMonologueAnimation()
+    {
+        if (_animator != null)
+        {
+            Show();
+        }
     }
 
     private void OnCollected()

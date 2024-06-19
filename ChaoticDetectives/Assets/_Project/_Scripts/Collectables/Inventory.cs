@@ -21,12 +21,12 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        SimpleLoop.OnLooped += ClearInventory;
+        LoopMaster.OnLooped += ClearInventory;
     }
 
     private void OnDisable()
     {
-        SimpleLoop.OnLooped -= ClearInventory;
+        LoopMaster.OnLooped -= ClearInventory;
     }
 
     public List<GameObject> collectedItems = new List<GameObject>();
@@ -60,7 +60,6 @@ public class Inventory : MonoBehaviour
         instantiatedPrefab.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
         instantiatedPrefabUIScript = instantiatedPrefab.GetComponent<UIItem>();
         itemScript = item.GetComponent<Items>();
-        instantiatedPrefabUIScript.ItemDesc = itemScript.itemDesc;
         instantiatedPrefabUIScript.parentItem = item;
         AddUIToInventory(instantiatedPrefab);
     }

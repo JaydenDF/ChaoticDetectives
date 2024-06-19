@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StatSystem : MonoBehaviour
@@ -31,21 +32,49 @@ public class StatSystem : MonoBehaviour
     public static Action<CharacterSO> OnCharacterChanged;
     public static Action<Stat> OnStatModfied;
 
-    [SerializeField] private CharacterSO _currentCharacterSO;
-    
-    [SerializeField]
-    private Stat[] stats =
+    [SerializeField] private List<CharacterSO> _characters = new List<CharacterSO>();
+    private int _currentCharacterIndex = 0;
+    private CharacterSO _currentCharacterSO => _characters[_currentCharacterIndex];
+
+    public List<Stat[]> copyOfStats = new List<Stat[]>();
+
+    private void OnEnable() {
+        LoopMaster.OnLooped += ReloadStats;
+    }
+    private void OnDisable()
     {
-        new Stat { statType = StatType.Perception, value = 0 },
-        new Stat { statType = StatType.Creativity, value = 0 },
-        new Stat { statType = StatType.Intelligence, value = 0 }
-    };
+        ReloadStats();
+    }
 
-    private void Awake() {
-
-        if(_currentCharacterSO != null)
+    private void Start()
+    {
+        NewCharacterSO(_currentCharacterSO);
+        SaveStats();
+    }
+    private void SaveStats()
+    {
+        copyOfStats.Clear();
+        foreach (var character in _characters)
         {
-            SetStatsFromCharacterSO(_currentCharacterSO);
+            Stat[] statsCopy = new Stat[character.stats.Length];
+            for (int i = 0; i < character.stats.Length; i++)
+            {
+                statsCopy[i] = character.stats[i].Clone();
+            }
+            copyOfStats.Add(statsCopy);
+        }
+    }
+
+    private void ReloadStats()
+    {
+        for (int i = 0; i < _characters.Count; i++)
+        {
+            Stat[] statsCopy = new Stat[copyOfStats[i].Length];
+            for (int j = 0; j < copyOfStats[i].Length; j++)
+        {
+                statsCopy[j] = copyOfStats[i][j].Clone();
+            }
+            _characters[i].stats = statsCopy;
         }
     }
 
@@ -57,54 +86,65 @@ public class StatSystem : MonoBehaviour
 
     private void SetCurrentCharacterSO(CharacterSO characterSO)
     {
-        _currentCharacterSO = characterSO;
+        _currentCharacterIndex = _characters.IndexOf(characterSO);
         OnCharacterChanged?.Invoke(characterSO);
     }
     public void SetStatValue(StatType statType, uint value)
     {
-        for (int i = 0; i < stats.Length; i++)
+        Stat[] currentStats = _currentCharacterSO.stats;
+        for (int i = 0; i < currentStats.Length; i++)
         {
-            if (stats[i].statType == statType)
+            if (currentStats[i].statType == statType)
             {
-                stats[i].value = value;
+                currentStats[i].value = value;
             }
         }
 
-        OnStatsChanged?.Invoke(stats);
+        OnStatsChanged?.Invoke(currentStats);
     }
 
-    public void SetStatsFromCharacterSO(CharacterSO characterSO)
+    private void SetStatsFromCharacterSO(CharacterSO characterSO)
     {
         foreach (var stat in characterSO.stats)
         {
             SetStatValue(stat.statType, stat.value);
         }
+
+        Stat[] _currentStats = _currentCharacterSO.stats;
+        OnStatsChanged?.Invoke(_currentStats);
     }
 
     public void IncreaseStatValue(StatType statType, uint value)
     {
-        for (int i = 0; i < stats.Length; i++)
+        foreach (var character in _characters)
         {
-            if (stats[i].statType == statType)
+            Stat[] stats = character.stats;
+            for (int i = 0; i < stats.Length; i++)
             {
-                stats[i].value += value;
+                if (stats[i].statType == statType)
+                {
+                    stats[i].value += value;
+                }
             }
         }
 
+        Stat[] currentStats = _currentCharacterSO.stats;
 
-        var statForEvent = new Stat{statType = statType, value = value};
-
-        OnStatModfied?.Invoke(statForEvent);
-        OnStatsChanged?.Invoke(stats);
+        OnStatsChanged?.Invoke(currentStats);
+        OnCharacterChanged?.Invoke(_currentCharacterSO);
+        OnStatModfied?.Invoke(currentStats[(int)statType]);
     }
 
     public bool CheckStatValue(StatType statType, uint value)
     {
-        for (int i = 0; i < stats.Length; i++)
+        for (int i = 0; i < _currentCharacterSO.stats.Length; i++)
         {
-            if (stats[i].statType == statType)
+            if (_currentCharacterSO.stats[i].statType == statType)
             {
-                return stats[i].value >= value;
+                if (_currentCharacterSO.stats[i].value >= value)
+                {
+                    return true;
+                }
             }
         }
         return false;
@@ -112,14 +152,19 @@ public class StatSystem : MonoBehaviour
 
     public uint GetStatValue(StatType statType)
     {
-        for (int i = 0; i < stats.Length; i++)
+        for (int i = 0; i < _currentCharacterSO.stats.Length; i++)
         {
-            if (stats[i].statType == statType)
+            if (_currentCharacterSO.stats[i].statType == statType)
             {
-                return stats[i].value;
+                return _currentCharacterSO.stats[i].value;
             }
         }
         return 0;
+    }
+
+    public Stat[] GetStats()
+    {
+        return _currentCharacterSO.stats;
     }
 }
 

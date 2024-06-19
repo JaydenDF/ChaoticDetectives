@@ -9,10 +9,10 @@ public class DialogueStarterInteractable : MonoBehaviour, IInteractable
 
     private DialogueGiver _dialogueGiver;
     private DialogueContainer _dialogueContainer;
-    private const float ScaleMultiplier = 1.1f;
     private Vector2 _originalScale;
 
-    private void Awake() {
+    private void Awake()
+    {
         _dialogueGiver = GetComponent<DialogueGiver>();
     }
 
@@ -21,18 +21,17 @@ public class DialogueStarterInteractable : MonoBehaviour, IInteractable
         _dialogueContainer = _dialogueGiver.RequestDialogue();
         OnDialogueStart?.Invoke(_dialogueContainer);
     }
-    private void Start() {
+    private void Start()
+    {
         _originalScale = transform.localScale;
     }
 
     public void OnHoverEnter()
     {
-        transform.localScale *= ScaleMultiplier;
     }
 
     public void OnHoverExit()
     {
-        transform.localScale = _originalScale;
     }
 
     public void GiveDialogueContainer(DialogueContainer dialogueContainer)

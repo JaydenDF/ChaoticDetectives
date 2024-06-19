@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-Editor::SceneObjectMappings
   sceneMappings:
   - sceneName: Sprint 5
+    gameObjectNames: []
+  - sceneName: NewChoiceEventAndStatsSystem
     gameObjectNames:
-    - CursorParent
-    - MapButton
+    - FirstSceen
+  - sceneName: Loop1and2
+    gameObjectNames:
     - Map
-    - Canvas
-    - Dice Mechanic
-    - OutOfBounds
-    - InventoryAnimation
+    - Chance Event
+    - DialogueCanva
+    - CursorParent

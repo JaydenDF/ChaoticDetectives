@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7801f150971e84dbf55deab59fad88, type: 3}
   m_Name: Journalist
   m_EditorClassIdentifier: 
-  characterSprite: {fileID: 21300000, guid: 8e4972b768e7b8949ac4dcfd0fafa695, type: 3}
+  characterSprite: {fileID: 21300000, guid: 55042bc3d86ea9d44b3dbf5c41474df9, type: 3}
   characterName: Journalist
-  characterDescription: '"quote:'
+  characterDescription: "\u201CMy ways of finding clues are questionable but effective!\u201D"
   stats:
   - statType: 0
-    value: 0
+    value: 1
   - statType: 1
-    value: 0
+    value: 3
   - statType: 2
-    value: 0
+    value: 2

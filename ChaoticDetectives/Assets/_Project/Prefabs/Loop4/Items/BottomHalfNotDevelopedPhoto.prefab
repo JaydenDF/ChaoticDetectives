@@ -106,7 +106,9 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: 
+  itemMonologueText: "A Photo of a woman, it seems cut in half\u2026 I would love
+    to have something that matches this photo\u2026 C'mon\u2026 You know it\u2026
+    Dont make me say it\u2026"
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

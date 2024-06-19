@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb65984647ff324485370bea336e303, type: 3}
+  m_Name: Loop5_No_piece-of-Go
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
+    PortName: Next
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: That must have been quite a scene.
+    TargetNodeGuid: c42eefd0-74fa-4e75-b32d-6faa8f16f7e1
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Anything new happened today?
+    TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Thank you, but I'm okay for now.
+    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  - BaseNodeGuid: c42eefd0-74fa-4e75-b32d-6faa8f16f7e1
+    PortName: I appreciate it, but I'm fine at the moment.
+    TargetNodeGuid: dcc3d6db-7de1-4583-9a7b-340d03931598
+  - BaseNodeGuid: c42eefd0-74fa-4e75-b32d-6faa8f16f7e1
+    PortName: Could there be someone that wished Ivy harm?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: c42eefd0-74fa-4e75-b32d-6faa8f16f7e1
+    PortName: Is there more you can tell me about Ivy's dissapearance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: Whoever it is won't matter, I will find Ivy and bring her home.
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: I'll do try to help you remember. We'll find Ivy...together!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  DialogueNodeData:
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: Oh well... I tried to arrange the canned goods in the back aisles,
+      but they fell to the floor and started rolling all over the place. I picked
+      up all of them, though I'm certain I'm still missing at least two...
+    Position: {x: 400.8, y: 282.40002}
+  - NodeGUID: dcc3d6db-7de1-4583-9a7b-340d03931598
+    DialogueText: ENDPOINT
+    Position: {x: 844, y: 452.80002}
+  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    DialogueText: Hi there! How can I help you child?
+    Position: {x: 400.8, y: 164}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 730.4, y: 205.59999}
+  - NodeGUID: c42eefd0-74fa-4e75-b32d-6faa8f16f7e1
+    DialogueText: Anyways... Need something player? I mean detective...
+    Position: {x: 400.8, y: 381.6}
+  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
+    DialogueText: 'Ivy indeed has made choices that some might consider unwise, yet
+      she still was one of a kind with the purest heart. It''s confounding why anyone
+      would wish harm upon my dear girl. '
+    Position: {x: 393.6, y: 529.60004}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: I am sorry, my dear, but my memory will not get better, so I cannot
+      provide any help. There must be something that can stir my memory, something...
+      something that belongs to her!
+    Position: {x: 400.8, y: 624}

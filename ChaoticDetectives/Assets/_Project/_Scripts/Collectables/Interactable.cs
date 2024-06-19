@@ -34,12 +34,12 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        SimpleLoop.OnLooped += ApplyChangesNextLoop;
+        LoopMaster.OnLooped += ApplyChangesNextLoop;
     }
 
     private void OnDisable()
     {
-        SimpleLoop.OnLooped -= ApplyChangesNextLoop;
+        LoopMaster.OnLooped -= ApplyChangesNextLoop;
     }
 
     public void OnClick()

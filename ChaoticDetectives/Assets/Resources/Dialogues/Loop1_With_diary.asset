@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb65984647ff324485370bea336e303, type: 3}
+  m_Name: Loop1_With_diary
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGuid: 16ba9567-1417-4c63-a636-6a794ab6f502
+    PortName: Next
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+    PortName: I'll ensure it comes to pass!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    PortName: I indeed hope so too!
+    TargetNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: Don't worry, it's understandable.
+    TargetNodeGuid: 2e8a1372-f227-492f-9bd3-9cbc7f7fc619
+  - BaseNodeGuid: 2e8a1372-f227-492f-9bd3-9cbc7f7fc619
+    PortName: ' Is there any additional information you can provide?'
+    TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+  - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+    PortName: Thank you, I promise to bring Ivy back!
+    TargetNodeGuid: cff997b0-3f83-44a6-a876-aa0a2deb24ff
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: How have you been doing?
+    TargetNodeGuid: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Can you tell me more about Ivy?
+    TargetNodeGuid: dfae563c-dfef-4b25-8931-c01c4843a508
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: Is this your diary by any chance?
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+  - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    PortName: I appreciate it, but not at the moment.
+    TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+  DialogueNodeData:
+  - NodeGUID: dfae563c-dfef-4b25-8931-c01c4843a508
+    DialogueText: She's been the dearest girl. She loved photography, capturing even
+      the smallest, most mesmerizing moments, her strong spirit touched everyone
+      she met. Please detective find her!
+    Position: {x: 400.8, y: 316.80002}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 823.2, y: 132.8}
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
+    Position: {x: 404.8, y: 209.59999}
+  - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    DialogueText: "Ahh\u2026 yes! My diary! I am getting old, child. This illness
+      makes me forget even the most important things. "
+    Position: {x: 404.8, y: 420}
+  - NodeGUID: 2e8a1372-f227-492f-9bd3-9cbc7f7fc619
+    DialogueText: Now, what brings you here, again?
+    Position: {x: 404.8, y: 514.4}
+  - NodeGUID: cff997b0-3f83-44a6-a876-aa0a2deb24ff
+    DialogueText: ENDPOINT
+    Position: {x: 1468.8, y: 626.4}
+  - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
+    DialogueText: Greetings again! Is there anything I can do for you?
+    Position: {x: 400.8, y: 43.2}
+  - NodeGUID: 18e1f031-d015-4e7d-a389-730937588ee2
+    DialogueText: "I know my grand daughter kept a photo album with pictures, try
+      looking through them. Unfortunately, I cannot remember it is in her bedroom
+      or in her school locker\u2026"
+    Position: {x: 400.8, y: 608.8}

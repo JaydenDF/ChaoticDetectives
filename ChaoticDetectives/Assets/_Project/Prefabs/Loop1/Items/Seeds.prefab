@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.11, y: 7.51}
+  m_Size: {x: 0.911, y: 0.751}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,7 +105,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: A cpuple of seeds gathered from a red apple.
+  itemDesc: That apple was delicious but it had too many seeds!
   itemMonologueText: That apple was delicious but it had too many seeds!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
@@ -144,7 +144,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.22775, y: 0.18775}
-    newSize: {x: 9.11, y: 7.51}
+    newSize: {x: 0.911, y: 0.751}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
