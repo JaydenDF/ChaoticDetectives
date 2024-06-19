@@ -6,8 +6,18 @@ public class LoopMaster : MonoBehaviour {
     public static Action OnLooped;
     private LoopManager[] _loopManagers;
 
+    [SerializeField] private int _startOnLoop = 0;
+
     private void Awake() {
         _loopManagers = FindObjectsOfType<LoopManager>(true);
+    }
+
+    private void Start() {
+        if (_startOnLoop > 0) {
+            for (int i = 0; i < _startOnLoop; i++) {
+                Loop();
+            }
+        }
     }
 
     [ContextMenu("Loop")]

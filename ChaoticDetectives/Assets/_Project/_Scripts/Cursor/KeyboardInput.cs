@@ -1,8 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KeyboardInput : AbstractInput
 {
+
+    public UnityEvent OnClickDownEvent;
+    public UnityEvent OnClickUpEvent;
     private void Update()
     {
         if(enabled == false) return;
@@ -10,10 +14,12 @@ public class KeyboardInput : AbstractInput
         if (Input.GetKeyDown(KeyCode.P))
         {
             OnClickDown?.Invoke();
+            OnClickDownEvent?.Invoke();
         }
         if (Input.GetKeyUp(KeyCode.P))
         {
             OnClickUp?.Invoke();
+            OnClickUpEvent?.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
