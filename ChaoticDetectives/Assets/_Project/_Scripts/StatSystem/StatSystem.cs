@@ -79,6 +79,8 @@ public class StatSystem : MonoBehaviour
             }
             _characters[i].stats = statsCopy;
         }
+
+        OnStatsChanged?.Invoke(_currentCharacterSO.stats);
     }
 
     public void NewCharacterSO(CharacterSO characterSO)

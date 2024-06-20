@@ -97,6 +97,10 @@ public class Items : MonoBehaviour, IInteractable
 
         if (isUsed == false) { return; }
 
+        if (inventory == null)
+        {
+            return;
+        }
         inventory.collectedItems.Remove(gameObject);
     }
 

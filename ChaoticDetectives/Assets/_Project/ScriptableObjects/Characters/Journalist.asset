@@ -19,6 +19,6 @@ MonoBehaviour:
   - statType: 0
     value: 1
   - statType: 1
-    value: 3
-  - statType: 2
     value: 2
+  - statType: 2
+    value: 3

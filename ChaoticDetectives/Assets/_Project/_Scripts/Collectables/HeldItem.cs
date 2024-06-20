@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using static Interactable;
 
 public class HeldItem : MonoBehaviour
 {
+    public static Action<string> OnHoldingItem;
+    public static Action<string> OnReleaseItem;
     private Interactable interactable;
 
     public GameObject parentUIItem = null;
@@ -13,6 +16,9 @@ public class HeldItem : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<AbstractInput>();
+    }
+    private void Start() {
+        OnHoldingItem?.Invoke(GetComponent<SpriteRenderer>().sprite.name);
     }
 
     private void OnEnable()
@@ -29,6 +35,7 @@ public class HeldItem : MonoBehaviour
     {
         if (parentUIItem != null)
         {
+            OnReleaseItem?.Invoke(GetComponent<SpriteRenderer>().sprite.name);
             Destroy(gameObject);
             parentUIItem.SetActive(true);
         }
