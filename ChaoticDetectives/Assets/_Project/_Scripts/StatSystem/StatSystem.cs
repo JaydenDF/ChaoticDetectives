@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StatSystem : MonoBehaviour
 {
+    #region Singleton
+
     private static StatSystem instance;
 
-    #region Singleton
 
     public static StatSystem Instance
     {

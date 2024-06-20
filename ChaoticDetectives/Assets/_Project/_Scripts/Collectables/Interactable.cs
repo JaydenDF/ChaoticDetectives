@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -34,7 +35,6 @@ public class Interactable : MonoBehaviour, IInteractable
     private void OnDestroy()
     {
         LoopMaster.OnLooped -= ApplyChangesNextLoop;
-
     }
 
 
@@ -98,19 +98,39 @@ public class Interactable : MonoBehaviour, IInteractable
             currentState = 1;
             if (_hasBeenCalled == false)
             {
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 OnInteractionFinished.Invoke();
                 _hasBeenCalled = true;
             }
         }
 
-        transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
     protected virtual void ApplyChangesNextLoop()
     {
-        if (currentState < states.Count - 1)
+        bool allItemsCollected = false;
+        foreach (var item in neededItems)
         {
-            currentState = 1;
+            if (item.hasCollectedThisItem == false)
+            {
+                allItemsCollected = false;
+                break;
+            }
+            else
+            {
+                allItemsCollected = true;
+            }
+        }
+
+
+        if (allItemsCollected)
+        {
+            //set the sprite to the last state
+            if (currentState < states.Count - 1)
+            {
+                currentState += 1;
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
+            }
         }
     }
 
