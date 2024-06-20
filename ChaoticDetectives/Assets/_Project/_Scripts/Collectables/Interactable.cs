@@ -98,8 +98,8 @@ public class Interactable : MonoBehaviour, IInteractable
             currentState = 1;
             if (_hasBeenCalled == false)
             {
-                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 OnInteractionFinished.Invoke();
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 _hasBeenCalled = true;
             }
         }
