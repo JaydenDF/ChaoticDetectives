@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4180971616997111941}
   - component: {fileID: 1474993445703364028}
+  - component: {fileID: -3332972390226727673}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -44,4 +45,174 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58beb2c0222ec3b48aa821da5b245cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundFiles: []
+  _soundFiles:
+  - name: FirstCall
+    clip: {fileID: 8300000, guid: 48d4afdff81702a49adc30b0d30dfd87, type: 3}
+  - name: SecondCall
+    clip: {fileID: 8300000, guid: 8a28a59e161d2cf45b13e6989a444805, type: 3}
+  - name: ThirdCall
+    clip: {fileID: 8300000, guid: cd2d1bfa0e7bb0848a39d31faab12ab3, type: 3}
+  - name: FourthCall
+    clip: {fileID: 8300000, guid: 7cee867033bcccd48baee433ec431896, type: 3}
+  - name: FiveCall
+    clip: {fileID: 8300000, guid: f603db76226417d40a17263f0965df05, type: 3}
+  - name: GoodEnding
+    clip: {fileID: 8300000, guid: 0bf6912b954c0d1478ae871b4fc3f4f2, type: 3}
+  - name: BadEnding
+    clip: {fileID: 8300000, guid: 0bf6912b954c0d1478ae871b4fc3f4f2, type: 3}
+  - name: AbandonedHouseTheme
+    clip: {fileID: 8300000, guid: 68e33d078c96f9749bfca8c42f881e28, type: 3}
+  - name: EnteringLocalStore
+    clip: {fileID: 8300000, guid: 1757dc18307871a4dbe277ad041d29a9, type: 3}
+  - name: LocalStoreTheme
+    clip: {fileID: 8300000, guid: ed8a6b8708ccf87459e3bb2e03dbc27e, type: 3}
+  - name: ParkTheme
+    clip: {fileID: 8300000, guid: e46a7138723617f48a0a8d7bac077573, type: 3}
+  - name: SchoolTheme
+    clip: {fileID: 8300000, guid: 378596d8d885aff488e705368e916da6, type: 3}
+  - name: SchoolTheme
+    clip: {fileID: 8300000, guid: 378596d8d885aff488e705368e916da6, type: 3}
+  - name: PoliceStationTheme
+    clip: {fileID: 8300000, guid: 9e098a2b94565a0418dbca75d39531d0, type: 3}
+  - name: GoBoardBreaks
+    clip: {fileID: 8300000, guid: d21a6f18db2b1554bb8bcc4a68bfe2a5, type: 3}
+  - name: CrowbarUsage
+    clip: {fileID: 8300000, guid: 4fa92d4ef47184e4c81c54cd33abc377, type: 3}
+  - name: ScrewdriverUsage
+    clip: {fileID: 8300000, guid: 0d3e70e2cd44e4d4dbeba133021d9a6a, type: 3}
+  - name: PotatoUsage
+    clip: {fileID: 8300000, guid: 9e9c03bda880f4344b4ea951677428f0, type: 3}
+  - name: HookUsage
+    clip: {fileID: 8300000, guid: e4d2a4c9589b7294284142959fe1bb02, type: 3}
+  - name: NeedleThreadUsage
+    clip: {fileID: 8300000, guid: 35e3b7979748e03498934dd07152e925, type: 3}
+  - name: BoxOpening
+    clip: {fileID: 8300000, guid: 424ec4f9c31e92c4c9fa7d84a7b01737, type: 3}
+  - name: BrokenGlass
+    clip: {fileID: 8300000, guid: 4bb7f533d26be524cb95d0a7d2153046, type: 3}
+  - name: DrawerBrokes
+    clip: {fileID: 8300000, guid: 6369a822fb69bbe4e80e034fd33dca9b, type: 3}
+  - name: GoBoardBreaks
+    clip: {fileID: 8300000, guid: e74c697daa750864cafde8760b56bc06, type: 3}
+  - name: LockerBreaks
+    clip: {fileID: 8300000, guid: 69bd4b86641fa1644a5c38ae0f7daa5f, type: 3}
+  - name: LockUnlocked
+    clip: {fileID: 8300000, guid: 03d22951af8a93e4ea4a0bbbcc698853, type: 3}
+  - name: HalfNote
+    clip: {fileID: 8300000, guid: cb8b2509089fd634daa960b5da1b3ae1, type: 3}
+  - name: PencilUsage
+    clip: {fileID: 8300000, guid: 332127984b6ee7c4e81844ecc8bc448b, type: 3}
+  - name: ScissorsCutting
+    clip: {fileID: 8300000, guid: 578f15639b0fed74184babab1c002f52, type: 3}
+  - name: ObjectPickUp
+    clip: {fileID: 8300000, guid: 68c57456e235e664ab96caba1017f46a, type: 3}
+  - name: ItemDrag
+    clip: {fileID: 8300000, guid: fda90f3c4a6455a4a96a0d48568e6fb4, type: 3}
+  - name: InventoryOpens
+    clip: {fileID: 8300000, guid: 677e2f3349585234baf34e2792727f88, type: 3}
+  - name: InventoryCloses
+    clip: {fileID: 8300000, guid: 90d248e15c8f88b4dbbb608d05e4c7a2, type: 3}
+  - name: FireGazebo
+    clip: {fileID: 8300000, guid: b76542638c97c3b4b9e08b3a190a0c7e, type: 3}
+  - name: CCTVSound
+    clip: {fileID: 8300000, guid: 84e3b85461588b34bb5ae5747bf8a6a5, type: 3}
+  - name: ClueDiscovered
+    clip: {fileID: 8300000, guid: 229137a9b0f616a45805bfeac7e9b77c, type: 3}
+  - name: WrongObject
+    clip: {fileID: 8300000, guid: 8bb7cdae02149af4ab77bfd12056b841, type: 3}
+--- !u!82 &-3332972390226727673
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199855377611011335}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
