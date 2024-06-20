@@ -2,10 +2,12 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Items : MonoBehaviour, IInteractable
 {
     public static Action OnCollected;
+    public UnityEvent OnCollectedEvent;
     public bool isCollected;
     private bool isUsed;
 
@@ -103,6 +105,7 @@ public class Items : MonoBehaviour, IInteractable
     public void CollectItem()
     {
         OnCollected?.Invoke();
+        OnCollectedEvent?.Invoke();
         isCollected = true;
 
         if(inventorySlotPrefab == null) {inventory = FindObjectOfType<Inventory>();}
