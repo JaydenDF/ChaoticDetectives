@@ -107,8 +107,8 @@ MonoBehaviour:
   inventoryHolder: {fileID: 0}
   itemDesc: Now we are getting somewhere! Or maybe the developers just wanted to
     give me a shiny new toy to play with...
-  itemMonologueText: Now we are getting somewhere! Or maybe the developers just wanted
-    to give me a shiny new toy to play with...
+  itemMonologueText: Now we're getting somewhere! Or maybe the developers just wanted
+    to give me a shiny new toy to play with.
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

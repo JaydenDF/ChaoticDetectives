@@ -106,8 +106,9 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: "Wow, a bean? Nope\u2026 Its a piece of the game Go\u2026 Make
-    sense\u2026 Let's see if we find more!"
+  itemMonologueText: The developers asked me to tell the joke "Is this a bean? Oh...
+    it's a go piece."...Well now I feel embarrassed. Could you please tell them the
+    joke is bad, on my behalf?
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15, y: 15}
+    oldSize: {x: 0.375, y: 0.375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
