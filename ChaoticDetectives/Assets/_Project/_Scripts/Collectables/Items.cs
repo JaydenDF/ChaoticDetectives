@@ -46,7 +46,7 @@ public class Items : MonoBehaviour, IInteractable
     }
     private void OnEnable()
     {
-        SimpleLoop.OnLooped += ResetItem;
+        LoopMaster.OnLooped += ResetItem;
     }
 
     private void ResetItem()

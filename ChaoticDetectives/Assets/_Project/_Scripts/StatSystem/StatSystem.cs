@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StatSystem : MonoBehaviour
 {
+    #region Singleton
+
     private static StatSystem instance;
 
-    #region Singleton
 
     public static StatSystem Instance
     {
@@ -67,6 +68,8 @@ public class StatSystem : MonoBehaviour
 
     private void ReloadStats()
     {
+        if  (copyOfStats.Count == 0) {return;}
+
         for (int i = 0; i < _characters.Count; i++)
         {
             Stat[] statsCopy = new Stat[copyOfStats[i].Length];

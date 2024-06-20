@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7801f150971e84dbf55deab59fad88, type: 3}
   m_Name: Journalist
   m_EditorClassIdentifier: 
-  characterSprite: {fileID: 21300000, guid: 55042bc3d86ea9d44b3dbf5c41474df9, type: 3}
+  characterSprite: {fileID: 21300000, guid: b3fd4929b24ba244a975d4bdca7a978d, type: 3}
   characterName: Journalist
   characterDescription: "\u201CMy ways of finding clues are questionable but effective!\u201D"
   stats:

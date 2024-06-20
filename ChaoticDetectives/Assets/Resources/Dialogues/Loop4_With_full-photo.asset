@@ -31,24 +31,30 @@ MonoBehaviour:
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: So the park... Lets see where this lead goes.
     TargetNodeGuid: a96e25ef-ef47-4cb7-a2be-361f8dd59033
+  - BaseNodeGuid: 07f51764-6c9c-434f-9b7c-90d06982a954
+    PortName: Event
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   DialogueNodeData:
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings again! Is there anything I can do for you?
     Position: {x: 400.8, y: 100}
+  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
+    DialogueText: ENDPOINT
+    Position: {x: 860, y: 165.59999}
+  - NodeGUID: a96e25ef-ef47-4cb7-a2be-361f8dd59033
+    DialogueText: ENDPOINT
+    Position: {x: 1916, y: 354.40002}
   - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
     DialogueText: Oh... There was a bird that broke my window, injuring its wing...I
       brought it home and tried to help, but I am slighly too old for this, that
       poor little thing.
     Position: {x: 400.8, y: 242.40001}
-  - NodeGUID: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-    DialogueText: ENDPOINT
-    Position: {x: 860, y: 165.59999}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: There it is, the other half. It's Ivy and her mother, and that
       picture surely was taken in the park they loved so much. After my daughter's
       death, Ivy has been going to the same park every other day, reminiscing about
       all the memories and smiling.
-    Position: {x: 400.8, y: 336.80002}
-  - NodeGUID: a96e25ef-ef47-4cb7-a2be-361f8dd59033
-    DialogueText: ENDPOINT
-    Position: {x: 1916, y: 354.40002}
+    Position: {x: 400.8, y: 356.80002}
+  - NodeGUID: 07f51764-6c9c-434f-9b7c-90d06982a954
+    DialogueText: Full
+    Position: {x: 284.8, y: 356.80002}
