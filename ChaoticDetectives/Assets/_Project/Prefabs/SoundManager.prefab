@@ -118,6 +118,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 84e3b85461588b34bb5ae5747bf8a6a5, type: 3}
   - name: ClueDiscovered
     clip: {fileID: 8300000, guid: 229137a9b0f616a45805bfeac7e9b77c, type: 3}
+  - name: WrongObject
+    clip: {fileID: 8300000, guid: 8bb7cdae02149af4ab77bfd12056b841, type: 3}
 --- !u!82 &-3332972390226727673
 AudioSource:
   m_ObjectHideFlags: 0

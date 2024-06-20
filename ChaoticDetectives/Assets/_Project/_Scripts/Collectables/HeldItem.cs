@@ -30,7 +30,7 @@ public class HeldItem : MonoBehaviour
         if (parentUIItem != null)
         {
             Destroy(gameObject);
-            //SoundManager.Instance.PlaySound("");
+            SoundManager.Instance.PlaySound("WrongObject");
             parentUIItem.SetActive(true);
         }
     }
