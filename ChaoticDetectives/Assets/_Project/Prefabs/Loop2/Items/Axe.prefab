@@ -106,7 +106,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: An old axe with metal head attached to a wooden stick.
-  itemMonologueText: 
+  itemMonologueText: "I don\u2019t know what they were thinking by giving me this
+    axe. My intrusive thoughts are screaming 'DESTROY\u2026 DESTROYY!"
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.1369998, y: 3.1369998}
+    oldSize: {x: 0.78424996, y: 0.78424996}
     newSize: {x: 3.1369998, y: 3.1369998}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

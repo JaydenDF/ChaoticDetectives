@@ -106,7 +106,7 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: A birthday hat, part of birthday decorations.
-  itemMonologueText: 
+  itemMonologueText: HAPPY BIRTHDAY to you!!!!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.26, y: 20.26}
+    oldSize: {x: 0.6753333, y: 0.6753333}
     newSize: {x: 20.26, y: 20.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

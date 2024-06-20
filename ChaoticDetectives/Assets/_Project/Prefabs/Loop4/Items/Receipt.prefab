@@ -106,8 +106,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: An old receipt with bought items from Ramy - the local store.
-  itemMonologueText: No way! It's the same receipt that I found... What, you didn't
-    remember?! Ahmm... Well, pretend that we have to go to the shop.
+  itemMonologueText: It's the same receipt I found last time... again. You don't
+    remember? Hmm... Well, let's just pretend we need to go to the shop.
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
