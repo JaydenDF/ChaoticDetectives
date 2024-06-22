@@ -21,7 +21,6 @@ public class StatSystem : MonoBehaviour
                     GameObject singletonObject = new GameObject();
                     instance = singletonObject.AddComponent<StatSystem>();
                     singletonObject.name = "StatSystem (Singleton)";
-                    DontDestroyOnLoad(singletonObject);
                 }
             }
             return instance;

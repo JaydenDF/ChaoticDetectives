@@ -44,6 +44,8 @@ public class DirtyCursorSFM : MonoBehaviour
     private void Awake() {
         _map = FindObjectOfType<Map>();
         _cursorCollider = _cursor.GetComponent<Collider2D>();
+
+        DisableInputAndHideCursor();
     }
 
     private void Start()
@@ -85,13 +87,13 @@ public class DirtyCursorSFM : MonoBehaviour
         ToggleColliderUI(false);
     }
 
-    private void DisableInputAndHideCursor()
+    public void DisableInputAndHideCursor()
     {
         _cursorSprite.SetActive(false);
         _abstractInput.DisableInput();
     }
 
-    private void EnableInputAndShowCursor()
+    public void EnableInputAndShowCursor()
     {
         _cursorSprite.SetActive(true);
         _abstractInput.EnableInput();

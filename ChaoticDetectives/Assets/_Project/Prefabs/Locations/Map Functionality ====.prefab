@@ -413,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9145417810872347327
 Transform:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 2566803636291320339}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &9018899302355618692
 BoxCollider2D:
@@ -1026,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5668565221613728471
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 6783246989458235462}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &1213254739625548431
 GameObject:
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 4964518823962526918}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &6613232640685063822
 BoxCollider2D:
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 705844726766477025}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &2617130878391702792
 BoxCollider2D:
@@ -3187,6 +3187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isCollected: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -3630,7 +3633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 6731715268648256447}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &2492423365691171596
 GameObject:
@@ -3776,7 +3779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 4964518823962526918}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &2494313226043766460
 GameObject:
@@ -3870,7 +3873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 4968410640396365445}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &217147225557786968
 BoxCollider2D:
@@ -5213,6 +5216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isCollected: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -6057,7 +6063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 3277804237694918870}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &4904422630129490467
 GameObject:
@@ -7434,7 +7440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 1
-  _locationObject: {fileID: 2566803636291320339}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &6004251726482702471
 GameObject:
@@ -8775,7 +8781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 1819193890872727682}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &7125491534765690018
 GameObject:
@@ -8890,7 +8896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 6783246989458235462}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &1864350855104002921
 BoxCollider2D:
@@ -9465,7 +9471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 5880804663789152280}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!1 &7625304815333773437
 GameObject:
@@ -11103,7 +11109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 3245736532485550148}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &1305894757677252114
 BoxCollider2D:
@@ -11247,7 +11253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 6731715268648256447}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &7875830263123974602
 BoxCollider2D:
@@ -11780,7 +11786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _revealed: 0
-  _locationObject: {fileID: 409129475471858239}
+  _otherLocationName: 
   _wasRevealedFromStart: 0
 --- !u!61 &5725937341800066311
 BoxCollider2D:
