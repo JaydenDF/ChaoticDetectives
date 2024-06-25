@@ -37,8 +37,12 @@ public class HeldItem : MonoBehaviour
         {
             OnReleaseItem?.Invoke(GetComponent<SpriteRenderer>().sprite.name);
             Destroy(gameObject);
-            SoundManager.Instance.PlaySound("WrongObject");
             parentUIItem.SetActive(true);
+        }
+
+        if (hasCorrectItem == false)
+        {
+            SoundManager.Instance.PlaySound("WrongObject");
         }
     }
 
