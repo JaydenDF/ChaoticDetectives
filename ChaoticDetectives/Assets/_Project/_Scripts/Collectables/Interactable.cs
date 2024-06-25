@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using static Interactable;
 
-public class Interactable : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable, IReset
 {
     public UnityEvent OnInteractionFinished;
     private bool _hasBeenCalled = false;
@@ -125,7 +125,6 @@ public class Interactable : MonoBehaviour, IInteractable
 
         if (allItemsCollected)
         {
-            //set the sprite to the last state
             if (currentState < states.Count - 1)
             {
                 currentState += 1;
@@ -160,6 +159,21 @@ public class Interactable : MonoBehaviour, IInteractable
             {
                 UseItem();
             }
+        }
+    }
+
+    public void Reset()
+    {
+        currentState = 0;
+        if (gameObject.GetComponent<SpriteRenderer>() != null && states.Count > 0)
+        {
+            transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState] == null ? null : states[currentState];
+        }
+
+        _hasBeenCalled = false;
+        foreach (var item in neededItems)
+        {
+            item.hasCollectedThisItem = false;
         }
     }
 }

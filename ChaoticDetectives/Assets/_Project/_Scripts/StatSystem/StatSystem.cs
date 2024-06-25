@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatSystem : MonoBehaviour
+public class StatSystem : MonoBehaviour, IReset
 {
     #region Singleton
 
@@ -80,6 +80,11 @@ public class StatSystem : MonoBehaviour
         }
 
         OnStatsChanged?.Invoke(_currentCharacterSO.stats);
+    }
+
+    public void Reset()
+    {
+        ReloadStats();
     }
 
     public void NewCharacterSO(CharacterSO characterSO)

@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class LoopMaster : MonoBehaviour {
+public class LoopMaster : MonoBehaviour, IReset 
+{
     public static Action OnLooped;
     private LoopManager[] _loopManagers;
 
@@ -35,5 +36,11 @@ public class LoopMaster : MonoBehaviour {
     private IEnumerator LoopAfterSecondsCoroutine(float seconds) {
         yield return new WaitForSeconds(seconds);
         Loop();
+    }
+
+    public void Reset() {
+        foreach (var loopManager in _loopManagers) {
+            loopManager.ResetLoops();
+        }
     }
 }
