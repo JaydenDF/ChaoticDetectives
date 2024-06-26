@@ -18,3 +18,4 @@ public class UnityEventOnLoop : MonoBehaviour {
         OnLooped?.Invoke();
     }
 }
+

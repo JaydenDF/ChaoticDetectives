@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static Interactable;
 
-public class Interactable : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable, IReset
 {
     public UnityEvent OnInteractionFinished;
     private bool _hasBeenCalled = false;
@@ -31,16 +32,11 @@ public class Interactable : MonoBehaviour, IInteractable
     }
 
     public List<NeededItems> neededItems;
-
-    private void OnEnable()
-    {
-        LoopMaster.OnLooped += ApplyChangesNextLoop;
-    }
-
-    private void OnDisable()
+    private void OnDestroy()
     {
         LoopMaster.OnLooped -= ApplyChangesNextLoop;
     }
+
 
     public void OnClick()
     {
@@ -65,6 +61,8 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        LoopMaster.OnLooped += ApplyChangesNextLoop;
+
         inventory = FindObjectOfType<Inventory>();
         if (GetComponent<SpriteRenderer>() != null)
         {
@@ -101,18 +99,37 @@ public class Interactable : MonoBehaviour, IInteractable
             if (_hasBeenCalled == false)
             {
                 OnInteractionFinished.Invoke();
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 _hasBeenCalled = true;
             }
         }
 
-        transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
     }
 
     protected virtual void ApplyChangesNextLoop()
     {
-        if (currentState < states.Count - 1)
+        bool allItemsCollected = false;
+        foreach (var item in neededItems)
         {
-            currentState = 1;
+            if (item.hasCollectedThisItem == false)
+            {
+                allItemsCollected = false;
+                break;
+            }
+            else
+            {
+                allItemsCollected = true;
+            }
+        }
+
+
+        if (allItemsCollected)
+        {
+            if (currentState < states.Count - 1)
+            {
+                currentState += 1;
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
+            }
         }
     }
 
@@ -142,6 +159,21 @@ public class Interactable : MonoBehaviour, IInteractable
             {
                 UseItem();
             }
+        }
+    }
+
+    public void Reset()
+    {
+        currentState = 0;
+        if (gameObject.GetComponent<SpriteRenderer>() != null && states.Count > 0)
+        {
+            transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState] == null ? null : states[currentState];
+        }
+
+        _hasBeenCalled = false;
+        foreach (var item in neededItems)
+        {
+            item.hasCollectedThisItem = false;
         }
     }
 }

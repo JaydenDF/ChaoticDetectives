@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4984521774393302967}
   - component: {fileID: 3535187608035142027}
+  - component: {fileID: 414655787063056617}
   - component: {fileID: 1612322733527482279}
   - component: {fileID: 2224931139451550003}
   - component: {fileID: -3644766942805555945}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 120
-  m_Sprite: {fileID: 21300000, guid: 594f41d6105ea8443b3416d7fddb7ede, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03f544ab62173424e962d651f5229692, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,6 +89,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &414655787063056617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046781767004510388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5635a9a6c754549b1c3effc07b5a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: ObjectPickUp
 --- !u!114 &1612322733527482279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,15 +114,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 414655787063056617}
+        m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isCollected: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: An ointment... Interesting. In my youth, every time I got hurt,
-    I used one of these, although my pain was strictly programmed, and the ointment
-    was actually just digitized art... but oh well.
+  itemMonologueText: "An ointment\u2026 In my youth, every time I got hurt, I used
+    one of these, although my pain was fully programmed, and the ointment was actually
+    just digitalized art... but oh well."
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,7 +174,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.026, y: 2.026}
+    oldSize: {x: 0.5065, y: 0.5065}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

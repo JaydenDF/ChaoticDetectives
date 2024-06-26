@@ -16,11 +16,13 @@ public class InventoryAnimation : MonoBehaviour
     public void Show()
     {
         _animator.SetBool("needsToAppear", true);
+        SoundManager.Instance.PlaySound("InventoryOpens");
     }
 
     public void Hide()
     {
         _animator.SetBool("needsToAppear", false);
+        SoundManager.Instance.PlaySound("InventoryCloses");
     }
 
     private void OnEnable()

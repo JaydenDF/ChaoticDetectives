@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DialogueResetter))]
 public class DialogueGiver : MonoBehaviour
 {
     [SerializeField] private  List<DialoguePossibility> dialogueChoices = new List<DialoguePossibility>();
@@ -30,5 +31,18 @@ public class DialogueGiver : MonoBehaviour
                 dialogueChoice.thisIsTheCorrectChoice = false;
             }
         }
+    }
+
+    public string GetCurrentDialogueString()
+    {
+        foreach (DialoguePossibility dialogueChoice in dialogueChoices)
+        {
+            if (dialogueChoice.thisIsTheCorrectChoice)
+            {
+                string choice = dialogueChoice.choiceCondition;
+                return choice;
+            }
+        }
+        return null;
     }
 }

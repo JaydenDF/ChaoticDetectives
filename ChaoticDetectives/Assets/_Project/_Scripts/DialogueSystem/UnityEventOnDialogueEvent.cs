@@ -6,6 +6,8 @@ public class UnityEventOnDialogueEvent : MonoBehaviour {
     [SerializeField] private DialogueContainer dialogueContainer;
     [SerializeField] private string eventName;
     public UnityEvent OnEventTriggered;
+
+    private bool _hasTriggered = false;
     
     private void OnEnable() {
         dialogueContainer.OnDialogueEvent += OnDialogueEvent;
@@ -19,7 +21,9 @@ public class UnityEventOnDialogueEvent : MonoBehaviour {
     {
         if (args.EventName == eventName)
         {
+            if (_hasTriggered) return;
             OnEventTriggered.Invoke();
+            _hasTriggered = true;
         }
     }
 }

@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatSystem : MonoBehaviour
+public class StatSystem : MonoBehaviour, IReset
 {
+    #region Singleton
+
     private static StatSystem instance;
 
-    #region Singleton
 
     public static StatSystem Instance
     {
@@ -20,7 +21,6 @@ public class StatSystem : MonoBehaviour
                     GameObject singletonObject = new GameObject();
                     instance = singletonObject.AddComponent<StatSystem>();
                     singletonObject.name = "StatSystem (Singleton)";
-                    DontDestroyOnLoad(singletonObject);
                 }
             }
             return instance;
@@ -67,6 +67,8 @@ public class StatSystem : MonoBehaviour
 
     private void ReloadStats()
     {
+        if  (copyOfStats.Count == 0) {return;}
+
         for (int i = 0; i < _characters.Count; i++)
         {
             Stat[] statsCopy = new Stat[copyOfStats[i].Length];
@@ -76,6 +78,13 @@ public class StatSystem : MonoBehaviour
             }
             _characters[i].stats = statsCopy;
         }
+
+        OnStatsChanged?.Invoke(_currentCharacterSO.stats);
+    }
+
+    public void Reset()
+    {
+        ReloadStats();
     }
 
     public void NewCharacterSO(CharacterSO characterSO)

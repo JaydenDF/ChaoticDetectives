@@ -48,6 +48,43 @@ public class LoopManager : MonoBehaviour
             _currentLoopIndex++;
         }
 
-        Debug.Log("Looped" + _currentLoopIndex + this.name); ;
+    }
+
+    public void EnableLoop(int index)
+    {
+        int value = index - 1;
+
+        if (!_hasLoaded) { Awake(); }
+
+        if (value < _loops.Count)
+        {
+            foreach (LoopContainer loop in _loops)
+            {
+                loop.gameObject.SetActive(false);
+            }
+
+
+            _currentLoop.gameObject.SetActive(false);
+            _currentLoopIndex = value;
+            _currentLoop.gameObject.SetActive(true);
+        }
+    }
+
+    public void SetLoopIndex(int index)
+    {
+        _currentLoopIndex = index;
+    }
+
+    public void ResetLoops(){
+
+        if (!_hasLoaded) { Awake(); }
+        _currentLoopIndex = 0;
+        foreach (LoopContainer loop in _loops)
+        {
+            loop.gameObject.SetActive(false);
+
+        }
+        
+        _loops[_currentLoopIndex].gameObject.SetActive(true);
     }
 }

@@ -31,6 +31,9 @@ MonoBehaviour:
   - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     PortName: So the park... Lets see where this lead goes.
     TargetNodeGuid: c3f93dbe-9626-4ba7-84d4-1684aac29d95
+  - BaseNodeGuid: 40079da7-483e-4923-8097-9dd62047d090
+    PortName: Event
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   DialogueNodeData:
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings again! Is there anything I can do for you?
@@ -51,3 +54,6 @@ MonoBehaviour:
       celebrated so loudly in that park that day, I wouldn't be surprised if there
       are still more of these decorations scattered around, ha.
     Position: {x: 400.8, y: 352.80002}
+  - NodeGUID: 40079da7-483e-4923-8097-9dd62047d090
+    DialogueText: Decorations
+    Position: {x: 257.6, y: 352.80002}

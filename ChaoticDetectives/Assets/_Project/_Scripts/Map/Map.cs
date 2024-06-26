@@ -38,7 +38,7 @@ public class Map : MonoBehaviour
     public void ShowMap()
     {
         OnMapOpened?.Invoke();
-        
+
         foreach (Location location in locations)
         {
             bool revealed = location.Revealed;
@@ -66,6 +66,7 @@ public class Map : MonoBehaviour
         {
             if (location.IsLocation(locationObject))
             {
+
                 location.EnableObject();
             }
             else

@@ -24,3 +24,11 @@ MonoBehaviour:
     - Chance Event
     - DialogueCanva
     - CursorParent
+  - sceneName: Loop123
+    gameObjectNames:
+    - Canvas
+    - CursorParent
+    - Map
+    - MapButton
+  - sceneName: Loop3
+    gameObjectNames: []
