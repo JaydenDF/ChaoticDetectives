@@ -90,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6938bae7d4891fe49a6b3bf0a22da353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!95 &1708711244813128758
 Animator:
   serializedVersion: 5
@@ -179,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LOOPING
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7929690579d16b541833b735d129c08f, type: 2}
+  m_sharedMaterial: {fileID: -951660935568222187, guid: 7929690579d16b541833b735d129c08f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -342,13 +342,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isCollected: 0
-  isUsed: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  inventory: {fileID: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
-  inventoryPanel: {fileID: 0}
+  inventoryHolder: {fileID: 0}
+  itemDesc: 
+  itemMonologueText: 
 --- !u!114 &302763254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighliteColor: {r: 1, g: 1, b: 1, a: 1}
-  _triggerCollider: {fileID: 302763255}
 --- !u!61 &302763255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -866,16 +868,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab26e21238879cd4e807b02c9217ae0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInteractionFinished:
+    m_PersistentCalls:
+      m_Calls: []
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  neededItem: {fileID: 958506582}
-  inventory: {fileID: 1438633374}
   states:
   - {fileID: 21300000, guid: a8cfcefeb62e5d7408273964da1bb323, type: 3}
   - {fileID: 21300000, guid: dbd8904a264b0bf41875ec8bde58646f, type: 3}
   - {fileID: 21300000, guid: 5edb0b7f7000e2c4ab718e25ffc94b56, type: 3}
   - {fileID: 21300000, guid: 39b40781007ca6b428be556adb2c2721, type: 3}
   currentState: 0
+  currentHeldItem: {fileID: 0}
+  neededItems: []
 --- !u!1 &580144091
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,13 +957,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isCollected: 0
-  isUsed: 0
   glowMaterial: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  inventory: {fileID: 1438633374}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
-  inventoryPanel: {fileID: 1317234599}
+  inventoryHolder: {fileID: 0}
+  itemDesc: 
+  itemMonologueText: 
 --- !u!212 &580144094
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1026,17 +1034,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958506582 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1612322733527482279, guid: 416c2f1d2b6d2624fb99fcfa21106696, type: 3}
-  m_PrefabInstance: {fileID: 7333009887646478893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f3b16eb7ffe6f45a18c8bd47d82073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &973912510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea05e856d6a09fa4f8be6701e10852e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnItemAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  inventorySlotPrefab: {fileID: 0}
+  inventoryPanel: {fileID: 0}
   collectedItems: []
   UIStorage: []
 --- !u!1001 &565065482828119133
@@ -1564,6 +1566,10 @@ PrefabInstance:
       propertyPath: inventoryPanel
       value: 
       objectReference: {fileID: 1317234599}
+    - target: {fileID: 3535187608035142027, guid: 416c2f1d2b6d2624fb99fcfa21106696, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4797f32fc7d4fbb4880c22bc13087d80, type: 2}
     - target: {fileID: 4984521774393302967, guid: 416c2f1d2b6d2624fb99fcfa21106696, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.31

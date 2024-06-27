@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.054, y: 0.045121755}
   m_AnchorMax: {x: 0.95149386, y: 0.574}
-  m_AnchoredPosition: {x: 0.9959793, y: -0.05517578}
-  m_SizeDelta: {x: 3.1165943, y: 2.5420742}
+  m_AnchoredPosition: {x: 0.9959793, y: -4.78}
+  m_SizeDelta: {x: 3.12, y: -6.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &12624722126240862
 CanvasRenderer:
@@ -150,8 +150,8 @@ MonoBehaviour:
     which he proved by killing and bringing back to life his own master's secret
     apprentice, Darth Venamis. \n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7929690579d16b541833b735d129c08f, type: 2}
+  m_sharedMaterial: {fileID: -951660935568222187, guid: 7929690579d16b541833b735d129c08f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -249,10 +249,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1615807775796860355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27136597, y: 0.6427603}
-  m_AnchorMax: {x: 0.7208839, y: 0.95500004}
-  m_AnchoredPosition: {x: 0.8392868, y: 0.85246277}
-  m_SizeDelta: {x: -0.15915355, y: -0.8367591}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 32.9}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5247300202858255268
 CanvasRenderer:

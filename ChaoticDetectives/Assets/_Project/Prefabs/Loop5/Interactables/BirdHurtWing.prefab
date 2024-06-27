@@ -108,6 +108,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b0152f8c884bf0a42a39d2f5e4608da3, type: 3}
   currentState: 0
   currentHeldItem: {fileID: 0}
+  goodParticles: {fileID: 0}
+  glitchShaderMat: {fileID: 0}
   neededItems: []
 --- !u!212 &5909673765110627692
 SpriteRenderer:
