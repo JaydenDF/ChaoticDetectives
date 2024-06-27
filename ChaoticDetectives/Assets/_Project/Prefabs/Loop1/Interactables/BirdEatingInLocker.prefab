@@ -106,6 +106,8 @@ MonoBehaviour:
   states: []
   currentState: 0
   currentHeldItem: {fileID: 0}
+  goodParticles: {fileID: 0}
+  glitchShaderMat: {fileID: 0}
   neededItems: []
 --- !u!212 &5909673765110627692
 SpriteRenderer:

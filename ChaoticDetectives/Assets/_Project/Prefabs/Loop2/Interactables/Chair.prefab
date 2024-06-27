@@ -109,6 +109,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 133fcf313c6f41e4a8e031e93d86de00, type: 3}
   currentState: 0
   currentHeldItem: {fileID: 0}
+  goodParticles: {fileID: 0}
+  glitchShaderMat: {fileID: 0}
   neededItems:
   - neededItem: {fileID: 1612322733527482279, guid: 14430e46c875152438fc2933e91eceb4, type: 3}
     hasCollectedThisItem: 0

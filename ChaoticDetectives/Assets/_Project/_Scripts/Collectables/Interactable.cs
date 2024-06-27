@@ -26,6 +26,8 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
 
     [SerializeField] private GameObject goodParticles;
 
+    public Material glitchShaderMat = null;
+
     [Serializable]
     public class NeededItems
     {
@@ -101,8 +103,11 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
             currentState = 1;
             if (_hasBeenCalled == false)
             {
-                
                 OnInteractionFinished.Invoke();
+                if(glitchShaderMat != null)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().material = glitchShaderMat;
+                }
                 transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 _hasBeenCalled = true;
             }
@@ -133,6 +138,10 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
             {
                 currentState += 1;
                 transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
+                if (glitchShaderMat != null)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().material = glitchShaderMat;
+                }
             }
         }
     }
