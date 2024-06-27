@@ -13,8 +13,13 @@ public class HeldItem : MonoBehaviour
 
     private AbstractInput _input;
 
+    
+    [SerializeField] private GameObject wrongParticles;
+
     private void Awake()
     {
+        
+        wrongParticles = GameObject.Find("BadParticle");
         _input = GetComponent<AbstractInput>();
     }
     private void Start() {
@@ -43,6 +48,15 @@ public class HeldItem : MonoBehaviour
         if (hasCorrectItem == false)
         {
             SoundManager.Instance.PlaySound("WrongObject");
+
+            ParticleSystem[] particleSystemsWrong = wrongParticles.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (var particle in particleSystemsWrong)
+            {
+                particle.Emit(10);
+            }
+
+
         }
     }
 

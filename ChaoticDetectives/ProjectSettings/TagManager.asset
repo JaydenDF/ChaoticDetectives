@@ -47,3 +47,6 @@ TagManager:
   - name: CameraSortingLayer
     uniqueID: 1278284257
     locked: 0
+  - name: Paritcles
+    uniqueID: 1771780833
+    locked: 0

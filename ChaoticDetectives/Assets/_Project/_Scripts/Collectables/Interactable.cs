@@ -24,6 +24,8 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
 
     public HeldItem currentHeldItem = null;
 
+    [SerializeField] private GameObject goodParticles;
+
     [Serializable]
     public class NeededItems
     {
@@ -61,6 +63,7 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
 
     private void Awake()
     {
+        goodParticles = GameObject.Find("GoodParcticle");
         LoopMaster.OnLooped += ApplyChangesNextLoop;
 
         inventory = FindObjectOfType<Inventory>();
@@ -98,6 +101,7 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
             currentState = 1;
             if (_hasBeenCalled == false)
             {
+                
                 OnInteractionFinished.Invoke();
                 transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 _hasBeenCalled = true;
@@ -139,6 +143,12 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
         {
             if (currentHeldItem.gameObject.GetComponent<SpriteRenderer>().sprite == neededItems[i].neededItem.gameObject.GetComponent<SpriteRenderer>().sprite)
             {
+                ParticleSystem[] particleSystemsGood = goodParticles.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (var particle in particleSystemsGood)
+                {
+                    particle.Emit(10);
+                }
                 neededItems[i].hasCollectedThisItem = true;
                 neededItems[i].neededItem.UseItem();
                 break;
