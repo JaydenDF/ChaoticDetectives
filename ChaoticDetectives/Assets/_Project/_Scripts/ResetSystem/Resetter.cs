@@ -10,6 +10,8 @@ public class Resetter : MonoBehaviour
     private void Awake()
     {
         _resetables = FindAllComponents<IReset>(true);
+        var detectStart = FindAllComponents<IDetectStart>(true);
+        foreach (var start in detectStart) { start.DetectStart(); }
     }
 
     private void Update() {
@@ -22,8 +24,7 @@ public class Resetter : MonoBehaviour
     private void Reset()
     {
         foreach (var resetable in _resetables) { resetable.Reset(); }
-
-        OnReset.Invoke();
+        OnReset?.Invoke();
     }
 
     public static List<IReset> FindAllComponents<IReset>(bool includeInactive)

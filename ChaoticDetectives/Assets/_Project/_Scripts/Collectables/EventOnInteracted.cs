@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventOnInteracted : Interactable
+public class EventOnInteracted : Interactable, IReset
 {
     public UnityEvent eventToTrigger;
     private bool _hasBeenClicked = false;
@@ -11,6 +11,18 @@ public class EventOnInteracted : Interactable
 
         eventToTrigger.Invoke();
         _hasBeenClicked = true;
+    }
+
+    public new void Reset()
+    {
+        base.Reset();
+
+        _hasBeenClicked = false;
+
+        if(GetComponent<Collider2D>() != null)
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 
 }

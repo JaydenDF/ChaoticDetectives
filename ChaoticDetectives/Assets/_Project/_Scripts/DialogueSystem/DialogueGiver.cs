@@ -5,9 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(DialogueResetter))]
 public class DialogueGiver : MonoBehaviour
 {
-    [SerializeField] private  List<DialoguePossibility> dialogueChoices = new List<DialoguePossibility>();
+    public string firstChoice;
+    private void Awake()
+    {
+        if (!_hasBeenCalled)
+        {
+            _hasBeenCalled = true;
+            firstChoice = GetCurrentDialogueString();
+        }
+    }
+    private bool _hasBeenCalled = false;
+    [SerializeField] private List<DialoguePossibility> dialogueChoices = new List<DialoguePossibility>();
     internal DialogueContainer RequestDialogue()
     {
+
+
         foreach (DialoguePossibility dialogueChoice in dialogueChoices)
         {
             if (dialogueChoice.thisIsTheCorrectChoice)
@@ -20,6 +32,12 @@ public class DialogueGiver : MonoBehaviour
 
     public void SetDialogueContainer(string choiceText)
     {
+        if (_hasBeenCalled == false)
+        {
+            _hasBeenCalled = true;
+            firstChoice = GetCurrentDialogueString();
+        }
+
         foreach (DialoguePossibility dialogueChoice in dialogueChoices)
         {
             if (dialogueChoice.choiceCondition == choiceText)

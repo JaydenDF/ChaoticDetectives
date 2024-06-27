@@ -3,7 +3,7 @@ using System.IO.Compression;
 using System.Linq;
 using UnityEngine;
 
-public class Location : MonoBehaviour, IInteractable
+public class Location : MonoBehaviour, IInteractable, IReset
 {
 
     public static Action<GameObject> OnLocationClicked;
@@ -30,6 +30,7 @@ public class Location : MonoBehaviour, IInteractable
     {
         _revealed = _wasRevealedFromStart;
     }
+
 
 
     public void DisableObject()
@@ -92,5 +93,10 @@ public class Location : MonoBehaviour, IInteractable
         var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
         GameObject @object = allObjects.FirstOrDefault(obj => obj.name == name);
         return @object;
+    }
+
+    void IReset.Reset()
+    {
+        Reset();
     }
 }

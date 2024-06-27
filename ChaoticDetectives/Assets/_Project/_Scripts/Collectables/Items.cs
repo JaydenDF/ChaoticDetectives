@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Items : MonoBehaviour, IInteractable,IReset
+public class Items : MonoBehaviour, IInteractable,IReset, IDetectStart
 {
     public static Action OnCollected;
     public UnityEvent OnCollectedEvent;
@@ -25,7 +25,7 @@ public class Items : MonoBehaviour, IInteractable,IReset
 
     public string itemMonologueText;
     private GameObject itemMonologueUIText;
-
+    private bool wasEnabeldOnStart;
     private void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -124,5 +124,11 @@ public class Items : MonoBehaviour, IInteractable,IReset
         isUsed = false;
         gameObject.GetComponent<Renderer>().enabled = true;
         if (_colliderToDisable != null) { _colliderToDisable.enabled = true; }
+        if (wasEnabeldOnStart == false) { gameObject.SetActive(false); }
+    }
+
+    public void DetectStart()
+    {
+        wasEnabeldOnStart = gameObject.activeSelf;
     }
 }

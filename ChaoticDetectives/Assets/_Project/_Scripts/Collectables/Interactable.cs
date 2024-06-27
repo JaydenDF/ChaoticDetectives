@@ -175,5 +175,10 @@ public class Interactable : MonoBehaviour, IInteractable, IReset
         {
             item.hasCollectedThisItem = false;
         }
+
+        if(GetComponent<Collider2D>() != null)
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }

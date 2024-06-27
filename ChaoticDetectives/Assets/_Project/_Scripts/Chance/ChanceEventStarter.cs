@@ -53,5 +53,10 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable, IReset
     public void Reset()
     {
         _hasBeenClicked = false;
+
+        if(GetComponent<Collider2D>() != null)
+        {
+            Array.ForEach(GetComponents<Collider2D>(), collider => collider.enabled = true);
+        }
     }
 }

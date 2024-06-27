@@ -8,8 +8,7 @@ public class DialogueResetter : MonoBehaviour, IReset
     private void Start()
     {
         _dialogueGiver = GetComponent<DialogueGiver>();
-
-        _initialChoice = _dialogueGiver.GetCurrentDialogueString();
+            _initialChoice = _dialogueGiver.firstChoice;
     }
     public void Reset()
     {

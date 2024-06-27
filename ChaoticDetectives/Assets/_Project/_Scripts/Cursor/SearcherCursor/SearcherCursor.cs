@@ -188,6 +188,7 @@ public class SearcherCursor : Cursor
 
     private IEnumerator TravelToTarget(Vector2 target, float timeToTravel, float delay = 0)
     {
+        _abstractInput.enabled = false;
         yield return new WaitForSeconds(delay);
         _selectionMode = false;
         float elapsedTime = 0;
@@ -200,6 +201,7 @@ public class SearcherCursor : Cursor
         }
         _rigidbody.velocity = Vector2.zero;
         _selectionMode = true;
+        _abstractInput.enabled = true;
     }
     private IEnumerator SearchingAnimation()
     {
