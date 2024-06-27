@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-public class ChanceEventStarter : MonoBehaviour, IInteractable
+public class ChanceEventStarter : MonoBehaviour, IInteractable, IReset
 {
     public UnityEvent OnClicked;
     public static EventHandler<ChanceEvent> OnChanceEvent;
@@ -47,6 +47,16 @@ public class ChanceEventStarter : MonoBehaviour, IInteractable
         if (index < OutcomeEvents.Count)
         {
             OutcomeEvents[index].Invoke();
+        }
+    }
+
+    public void Reset()
+    {
+        _hasBeenClicked = false;
+
+        if(GetComponent<Collider2D>() != null)
+        {
+            Array.ForEach(GetComponents<Collider2D>(), collider => collider.enabled = true);
         }
     }
 }

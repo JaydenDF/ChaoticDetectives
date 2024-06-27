@@ -11,6 +11,7 @@ public class PersistLoop : MonoBehaviour, ILoop, IReset
     private bool _awakeCalled = false;
     private void Awake()
     {
+        if  (_awakeCalled) { return; }
         _awakeCalled = true;
 
        _initialPersist = persist;

@@ -28,18 +28,16 @@ MonoBehaviour:
   - BaseNodeGuid: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     PortName: I appreciate it, but not at the moment.
     TargetNodeGuid: ec7f143f-4bc4-4687-8333-3c1d0b72a5de
-  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
-    PortName: So what is it that you want to share?
-    TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
   - BaseNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
     PortName: Thank you, I promise to bring Ivy back!
     TargetNodeGuid: cff997b0-3f83-44a6-a876-aa0a2deb24ff
+  - BaseNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
+    PortName: So what is it that you want to share?
+    TargetNodeGuid: 18e1f031-d015-4e7d-a389-730937588ee2
+  - BaseNodeGuid: df6dedeb-776c-4e3d-985b-334024f80888
+    PortName: Event
+    TargetNodeGuid: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
   DialogueNodeData:
-  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
-    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
-      is shaking with the urge to help. So many people have been visiting and trying
-      to help. I hope it leads to the betterment of us all.
-    Position: {x: 400.8, y: 222.4}
   - NodeGUID: aab1dc9c-cd8c-4cb4-91d2-a94ae17fa3ff
     DialogueText: Greetings again! Is there anything I can do for you?
     Position: {x: 400.8, y: 80}
@@ -54,8 +52,16 @@ MonoBehaviour:
       and partially inhumane. I remember it looming behind Ivy almost every day.
       But sadly, I don't remember where I saw it, in the bedroom or at school.
     Position: {x: 400.8, y: 414.40002}
+  - NodeGUID: fcdcfc15-826a-42d7-8392-d9c75f88b4f3
+    DialogueText: I haven't felt this way since I lost my wife, it feels as my body
+      is shaking with the urge to help. So many people have been visiting and trying
+      to help. I hope it leads to the betterment of us all.
+    Position: {x: 412, y: 215.2}
   - NodeGUID: 9f30f3f9-d266-4a95-b7d0-ad2122feee56
     DialogueText: Yes... it indeed seems to come from me... oh right, it even has
       my name ha ha. You're correct, I did text you about Ivy... there is something
       that might help you find my little one.
-    Position: {x: 400.8, y: 316.80002}
+    Position: {x: 344.8, y: 309.6}
+  - NodeGUID: df6dedeb-776c-4e3d-985b-334024f80888
+    DialogueText: Letter
+    Position: {x: 159.2, y: 309.6}

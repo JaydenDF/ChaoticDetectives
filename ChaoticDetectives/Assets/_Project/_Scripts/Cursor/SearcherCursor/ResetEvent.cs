@@ -6,6 +6,6 @@ public class ResetEvent : MonoBehaviour, IReset
     public UnityEvent resetEvent;
     public void Reset()
     {
-        resetEvent.Invoke();
+        resetEvent?.Invoke();
     }
 }

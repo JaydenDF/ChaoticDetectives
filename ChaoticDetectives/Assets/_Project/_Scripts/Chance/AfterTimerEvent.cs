@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
-public class AfterTimerEvent : MonoBehaviour
+public class AfterTimerEvent : MonoBehaviour, IReset
 {
     public UnityEvent OnTimerEnd;
     [SerializeField] private float _timerDuration = 3f;
@@ -23,5 +23,10 @@ public class AfterTimerEvent : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         OnTimerEnd?.Invoke();
         _timerFinished = true;
+    }
+
+    public void Reset()
+    {
+        _timerFinished = false;
     }
 }

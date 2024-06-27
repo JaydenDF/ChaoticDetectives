@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnityEventOnDialogueEvent : MonoBehaviour {
+public class UnityEventOnDialogueEvent : MonoBehaviour, IReset
+ {
     [SerializeField] private DialogueContainer dialogueContainer;
     [SerializeField] private string eventName;
     public UnityEvent OnEventTriggered;
@@ -25,5 +26,10 @@ public class UnityEventOnDialogueEvent : MonoBehaviour {
             OnEventTriggered.Invoke();
             _hasTriggered = true;
         }
+    }
+
+    public void Reset()
+    {
+        _hasTriggered = false;
     }
 }
