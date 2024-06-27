@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 661398052826755071}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 3.5
+  simulationSpeed: 12
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4853,8 +4853,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1771780833
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4930,7 +4930,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2637658076701112420}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 3.5
+  simulationSpeed: 12
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -4938,7 +4938,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9741,8 +9741,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1771780833
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9818,7 +9818,7 @@ ParticleSystem:
   m_GameObject: {fileID: 4147832131110978344}
   serializedVersion: 8
   lengthInSec: 4
-  simulationSpeed: 3.5
+  simulationSpeed: 12
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9826,7 +9826,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14629,8 +14629,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1771780833
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

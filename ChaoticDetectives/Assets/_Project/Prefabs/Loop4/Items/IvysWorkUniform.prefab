@@ -135,9 +135,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: A green work uniform from Ramy, belonging to Ivy.
-  itemMonologueText: What is this doing here? Randy's local store? Let's pay them
-    a visit, I would say for the last time, but I bet I'll have to do it at least
-    two more times with another player.
+  itemMonologueText: "Ramy's local store? What is this doing here? Owner didn\u2019t
+    mention that Ivy works there, might need to pay this Grandpa a visit."
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

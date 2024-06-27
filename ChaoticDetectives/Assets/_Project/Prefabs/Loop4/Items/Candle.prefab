@@ -134,10 +134,12 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: Grandpa's bottle of Dementia pills.
+  itemDesc: That's my candle made from 100% natural vegetable oils. I have heard
+    that it can burn for up to 300 hours. We have to be very careful with it around
+    paper *wink*!
   itemMonologueText: That's my candle made from 100% natural vegetable oils. I have
-    heard that it can burn for up to 30 hours. Imagine how much electricity we would
-    save!
+    heard that it can burn for up to 300 hours. We have to be very careful with it
+    around paper *wink*!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

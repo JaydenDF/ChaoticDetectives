@@ -13,7 +13,7 @@ public class DirtyCursorSFM : MonoBehaviour
 
     private Collider2D _cursorCollider;
 
-    private void OnEnable()
+    private void SetupEvents()
     {
         UIChanceEvent.OnChanceEventStart += DisableInputAndHideCursor;
         UIChanceEvent.OnChanceEventEnd += EnableInputAndShowCursor;
@@ -24,11 +24,12 @@ public class DirtyCursorSFM : MonoBehaviour
             _map.OnMapOpened.AddListener(() => StartCoroutine(OnNextFrame(OnMapOpened)));
         }
 
+        
         DialogueStarterInteractable.OnDialogueStart += container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd += () => StartCoroutine(OnNextFrame(OnDialogueEnd));
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         UIChanceEvent.OnChanceEventStart -= DisableInputAndHideCursor;
         UIChanceEvent.OnChanceEventEnd -= EnableInputAndShowCursor;
@@ -41,9 +42,14 @@ public class DirtyCursorSFM : MonoBehaviour
         DialogueStarterInteractable.OnDialogueStart -= container => StartCoroutine(OnNextFrame(() => OnDialogueStart(container)));
         DialogueManager.OnDialogueEnd -= () => StartCoroutine(OnNextFrame(OnDialogueEnd));
     }
+
     private void Awake() {
         _map = FindObjectOfType<Map>();
         _cursorCollider = _cursor.GetComponent<Collider2D>();
+
+        DisableInputAndHideCursor();
+
+        SetupEvents();  
     }
 
     private void Start()
@@ -85,13 +91,13 @@ public class DirtyCursorSFM : MonoBehaviour
         ToggleColliderUI(false);
     }
 
-    private void DisableInputAndHideCursor()
+    public void DisableInputAndHideCursor()
     {
         _cursorSprite.SetActive(false);
         _abstractInput.DisableInput();
     }
 
-    private void EnableInputAndShowCursor()
+    public void EnableInputAndShowCursor()
     {
         _cursorSprite.SetActive(true);
         _abstractInput.EnableInput();

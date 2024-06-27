@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentUIItem: {fileID: 0}
   hasCorrectItem: 0
+  wrongParticles: {fileID: 0}
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

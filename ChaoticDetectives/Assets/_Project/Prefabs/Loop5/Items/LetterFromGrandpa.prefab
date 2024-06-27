@@ -136,7 +136,7 @@ MonoBehaviour:
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
   itemMonologueText: "Hmm\u2026 it seems like someone needs me. I have to go to our
-    local store, let's pay them a visit."
+    local store, let's pay them a visit now."
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

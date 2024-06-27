@@ -21,7 +21,6 @@ public class SoundManager : MonoBehaviour
                     GameObject singletonObject = new GameObject();
                     instance = singletonObject.AddComponent<SoundManager>();
                     singletonObject.name = "SoundManager (Singleton)";
-                    DontDestroyOnLoad(singletonObject);
                 }
             }
             return instance;

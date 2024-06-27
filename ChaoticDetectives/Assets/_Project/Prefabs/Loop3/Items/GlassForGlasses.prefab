@@ -135,7 +135,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Two glasses of a glass frame.
-  itemMonologueText: 
+  itemMonologueText: Did you just make the sharp glass smooth? No...? I urgently
+    need to talk to someone!!!! I think I am seeing things!!!!!!
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

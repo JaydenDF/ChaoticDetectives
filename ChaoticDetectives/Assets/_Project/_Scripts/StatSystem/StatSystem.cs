@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatSystem : MonoBehaviour
+public class StatSystem : MonoBehaviour, IReset
 {
     #region Singleton
 
@@ -21,7 +21,6 @@ public class StatSystem : MonoBehaviour
                     GameObject singletonObject = new GameObject();
                     instance = singletonObject.AddComponent<StatSystem>();
                     singletonObject.name = "StatSystem (Singleton)";
-                    DontDestroyOnLoad(singletonObject);
                 }
             }
             return instance;
@@ -79,6 +78,13 @@ public class StatSystem : MonoBehaviour
             }
             _characters[i].stats = statsCopy;
         }
+
+        OnStatsChanged?.Invoke(_currentCharacterSO.stats);
+    }
+
+    public void Reset()
+    {
+        ReloadStats();
     }
 
     public void NewCharacterSO(CharacterSO characterSO)

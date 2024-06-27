@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Items : MonoBehaviour, IInteractable
+public class Items : MonoBehaviour, IInteractable,IReset
 {
     public static Action OnCollected;
     public UnityEvent OnCollectedEvent;
@@ -99,6 +99,10 @@ public class Items : MonoBehaviour, IInteractable
 
         if (isUsed == false) { return; }
 
+        if (inventory == null)
+        {
+            return;
+        }
         inventory.collectedItems.Remove(gameObject);
     }
 
@@ -112,5 +116,13 @@ public class Items : MonoBehaviour, IInteractable
         if(itemMonologueUIText == null) {itemMonologueUIText = GameObject.Find("MonologueText");}
         itemMonologueUIText.GetComponent<TMP_Text>().SetText(itemMonologueText);
         inventory.AddToInventory(this.gameObject);
+    }
+
+    public void Reset()
+    {
+        isCollected = false;
+        isUsed = false;
+        gameObject.GetComponent<Renderer>().enabled = true;
+        if (_colliderToDisable != null) { _colliderToDisable.enabled = true; }
     }
 }

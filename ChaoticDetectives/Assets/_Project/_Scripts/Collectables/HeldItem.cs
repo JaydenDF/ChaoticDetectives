@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using static Interactable;
 
 public class HeldItem : MonoBehaviour
 {
+    public static Action<string> OnHoldingItem;
+    public static Action<string> OnReleaseItem;
     private Interactable interactable;
 
     public GameObject parentUIItem = null;
@@ -10,9 +13,17 @@ public class HeldItem : MonoBehaviour
 
     private AbstractInput _input;
 
+    
+    [SerializeField] private GameObject wrongParticles;
+
     private void Awake()
     {
+        
+        wrongParticles = GameObject.Find("BadParticle");
         _input = GetComponent<AbstractInput>();
+    }
+    private void Start() {
+        OnHoldingItem?.Invoke(GetComponent<SpriteRenderer>().sprite.name);
     }
 
     private void OnEnable()
@@ -29,6 +40,7 @@ public class HeldItem : MonoBehaviour
     {
         if (parentUIItem != null)
         {
+            OnReleaseItem?.Invoke(GetComponent<SpriteRenderer>().sprite.name);
             Destroy(gameObject);
             parentUIItem.SetActive(true);
         }
@@ -36,6 +48,15 @@ public class HeldItem : MonoBehaviour
         if (hasCorrectItem == false)
         {
             SoundManager.Instance.PlaySound("WrongObject");
+
+            ParticleSystem[] particleSystemsWrong = wrongParticles.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (var particle in particleSystemsWrong)
+            {
+                particle.Emit(10);
+            }
+
+
         }
     }
 

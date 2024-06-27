@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646478448589673561}
-  - component: {fileID: 5007883589957889471}
   m_Layer: 0
   m_Name: Dice Mechanic
   m_TagString: Untagged
@@ -33,25 +32,6 @@ Transform:
   - {fileID: 5403106043262034916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5007883589957889471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483409783099230590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd51c862c4da4014dbd231d51995348d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 813387254262228617}
-  _neededRoll: {fileID: 4252987028108520479}
-  _outcome: {fileID: 6056235778990476559}
-  _modifierText: {fileID: 3194957731255689577}
-  _animDuration: 3
-  _animationInterval: 0.2
-  _waitTime: 1
 --- !u!1 &813387254262228617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1101,7 @@ MonoBehaviour:
   OnClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5007883589957889471}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIChanceEvent, Assembly-CSharp
         m_MethodName: Roll
         m_Mode: 1
@@ -1133,6 +1113,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
   _input: {fileID: 1400158847978930005}
 --- !u!114 &1400158847978930005
 MonoBehaviour:
@@ -1146,6 +1132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515e334408a54fb4e837c8553fc1fe82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnClickDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClickUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9093457281915625313
 GameObject:
   m_ObjectHideFlags: 0

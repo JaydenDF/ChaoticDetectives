@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IReset
 {
     public UnityEvent OnItemAdded;
     public static Action<GameObject> OnItemAddedWithGameObject;
@@ -78,5 +78,10 @@ public class Inventory : MonoBehaviour
         {
             OnItemAddedWithGameObject.Invoke(item);
         }
+    }
+
+    public void Reset()
+    {
+        ClearInventory();
     }
 }

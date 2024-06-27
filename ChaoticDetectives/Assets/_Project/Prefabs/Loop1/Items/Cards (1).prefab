@@ -137,8 +137,8 @@ MonoBehaviour:
   inventoryHolder: {fileID: 0}
   itemDesc: 'What? There are a few cards. But i don''t see the deck here... Well
     want to play some card games? '
-  itemMonologueText: 'What? There are a few cards. But i don''t see the deck here...
-    Well want to play some card games? '
+  itemMonologueText: Who would leave some cards just laying there? Well, wanna play
+    after this is over?
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0

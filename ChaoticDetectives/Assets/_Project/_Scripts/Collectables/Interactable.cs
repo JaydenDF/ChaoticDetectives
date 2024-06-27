@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using static Interactable;
 
-public class Interactable : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable, IReset
 {
     public UnityEvent OnInteractionFinished;
     private bool _hasBeenCalled = false;
@@ -23,6 +23,8 @@ public class Interactable : MonoBehaviour, IInteractable
     private SpriteRenderer spriteRenderer;
 
     public HeldItem currentHeldItem = null;
+
+    [SerializeField] private GameObject goodParticles;
 
     [Serializable]
     public class NeededItems
@@ -61,6 +63,7 @@ public class Interactable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        goodParticles = GameObject.Find("GoodParcticle");
         LoopMaster.OnLooped += ApplyChangesNextLoop;
 
         inventory = FindObjectOfType<Inventory>();
@@ -98,8 +101,9 @@ public class Interactable : MonoBehaviour, IInteractable
             currentState = 1;
             if (_hasBeenCalled == false)
             {
-                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
+                
                 OnInteractionFinished.Invoke();
+                transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState];
                 _hasBeenCalled = true;
             }
         }
@@ -125,7 +129,6 @@ public class Interactable : MonoBehaviour, IInteractable
 
         if (allItemsCollected)
         {
-            //set the sprite to the last state
             if (currentState < states.Count - 1)
             {
                 currentState += 1;
@@ -140,6 +143,12 @@ public class Interactable : MonoBehaviour, IInteractable
         {
             if (currentHeldItem.gameObject.GetComponent<SpriteRenderer>().sprite == neededItems[i].neededItem.gameObject.GetComponent<SpriteRenderer>().sprite)
             {
+                ParticleSystem[] particleSystemsGood = goodParticles.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (var particle in particleSystemsGood)
+                {
+                    particle.Emit(10);
+                }
                 neededItems[i].hasCollectedThisItem = true;
                 neededItems[i].neededItem.UseItem();
                 break;
@@ -160,6 +169,21 @@ public class Interactable : MonoBehaviour, IInteractable
             {
                 UseItem();
             }
+        }
+    }
+
+    public void Reset()
+    {
+        currentState = 0;
+        if (gameObject.GetComponent<SpriteRenderer>() != null && states.Count > 0)
+        {
+            transform.gameObject.GetComponent<SpriteRenderer>().sprite = states[currentState] == null ? null : states[currentState];
+        }
+
+        _hasBeenCalled = false;
+        foreach (var item in neededItems)
+        {
+            item.hasCollectedThisItem = false;
         }
     }
 }

@@ -134,8 +134,10 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
-  itemDesc: A metal cog.
-  itemMonologueText: 
+  itemDesc: "Wait\u2026 did I just? I couldn\u2019t do it before\u2026.hope you feel
+    special. Bet there is a mechanism that we can fix with this."
+  itemMonologueText: "Wait\u2026 did I just? I couldn\u2019t do it before\u2026.hope
+    you feel special. Bet there is a mechanism that we can fix with this."
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
