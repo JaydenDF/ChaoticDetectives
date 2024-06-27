@@ -33,4 +33,7 @@ MonoBehaviour:
   - sceneName: Loop3
     gameObjectNames: []
   - sceneName: FinalBuild
-    gameObjectNames: []
+    gameObjectNames:
+    - Map
+    - MapButton
+    - Canvas

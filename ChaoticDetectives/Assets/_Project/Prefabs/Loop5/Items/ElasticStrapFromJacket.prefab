@@ -135,8 +135,8 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 7971818960383585767, guid: b946ec1d9ec97b1448b8f3d649d459bb, type: 3}
   inventoryHolder: {fileID: 0}
   itemDesc: Grandpa's bottle of Dementia pills.
-  itemMonologueText: This strap will keep things well wrapped up. Let's see what
-    I can do with it.
+  itemMonologueText: This strap will keep things well wrapped up, like a bandage!
+    Let's see what I can do with it.
 --- !u!61 &2224931139451550003
 BoxCollider2D:
   m_ObjectHideFlags: 0
