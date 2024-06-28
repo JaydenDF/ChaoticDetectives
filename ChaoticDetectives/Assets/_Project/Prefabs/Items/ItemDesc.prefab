@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1615807775796860355}
   - component: {fileID: 2465609309320991234}
   - component: {fileID: 1072795011477395699}
+  - component: {fileID: 8110774189139170034}
   m_Layer: 5
   m_Name: ItemDesc
   m_TagString: Untagged
@@ -34,10 +35,10 @@ RectTransform:
   - {fileID: 7615133154587766010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.372, y: 1}
-  m_AnchoredPosition: {x: -7.2488556, y: 29.265}
-  m_SizeDelta: {x: -74.5083, y: -125.51}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -157.6, y: 42.5}
+  m_SizeDelta: {x: 282.63, y: 141.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2465609309320991234
 CanvasRenderer:
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -77,6 +78,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8110774189139170034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412746367294790674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02381bbbe9ff2fb47b1f4f480d4cd660, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &458332069366554442
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,8 +133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.054, y: 0.045121755}
   m_AnchorMax: {x: 0.95149386, y: 0.574}
-  m_AnchoredPosition: {x: 0.9959793, y: -4.78}
-  m_SizeDelta: {x: 3.12, y: -6.92}
+  m_AnchoredPosition: {x: 0.9959717, y: 1.45}
+  m_SizeDelta: {x: 3.12, y: 5.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &12624722126240862
 CanvasRenderer:
@@ -142,13 +164,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The Tragedy of Darth Plagueis the Wise was a \"Sith Legend\" that was
-    shared with Anakin Skywalker by Supreme Chancellor Palpatine, who was secretly
-    Darth Sidious. The tale told that Darth Plagueis, Sidious' Sith Master was so
-    powerful and so wise that he could use the Force to influence the midi-chlorians
-    to create life which Plagueis could in fact do and even save others from death,
-    which he proved by killing and bringing back to life his own master's secret
-    apprentice, Darth Venamis. \n"
+  m_text: 'The Tragedy of Darth Plagueis the Wise was a "Sith Legend" that was shared
+    with '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7929690579d16b541833b735d129c08f, type: 2}
   m_sharedMaterial: {fileID: -951660935568222187, guid: 7929690579d16b541833b735d129c08f, type: 2}
@@ -211,7 +228,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 24.230497, z: 0, w: 0.000022893977}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -251,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.9}
+  m_AnchoredPosition: {x: 0, y: 20.44}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5247300202858255268
