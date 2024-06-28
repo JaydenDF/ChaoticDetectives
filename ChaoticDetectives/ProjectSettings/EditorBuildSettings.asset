@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Project/Scenes/Sprint8/FinalBuild.unity
-    guid: 929f9199ece4b8c43a7c64234d808b94
-  - enabled: 0
-    path: Assets/_Project/Scenes/Sprint8/FinalBuildIMDONE.unity
-    guid: 8654c8ab6699d9948aa33d4cf0b39fd5
   - enabled: 1
     path: Assets/_Project/Scenes/Sprint8/EndScreenFinalMaybe.unity
     guid: 91a097b5855f27d4495113f4b5b4e574
