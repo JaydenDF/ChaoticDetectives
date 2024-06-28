@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NaAh : MonoBehaviour
+public class ActivateBad : MonoBehaviour
 {
     public GameObject Book;
     public GameObject IvyBad;

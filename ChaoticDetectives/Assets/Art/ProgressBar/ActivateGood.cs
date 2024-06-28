@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class YahAh : MonoBehaviour
+public class ActivateGood : MonoBehaviour
 {
     public GameObject GameObject;
     public GameObject IvyGood;
